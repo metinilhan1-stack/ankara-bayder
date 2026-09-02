@@ -1,0 +1,611 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ============================================================
+       ANAHTAR KELİME (SEO): Ankara Doğubayazıtlılar
+       Site yayına alınmadan önce güncellenecekler:
+         - index.html  : canonical, OG url, tel/mailto, WhatsApp, adres (YER TUTUCU)
+         - assets/js   : WhatsApp numarası ve e-posta sabitleri
+       ============================================================ -->
+
+  <title>Ankara Doğubayazıtlılar Derneği | BAY-DER — Kültür ve Dayanışma Derneği</title>
+  <meta name="description" content="Ankara Doğubayazıtlılar Derneği (BAY-DER): Ankara'da yaşayan Doğubayazıtlıları bir araya getirir; kültürel etkinlikler, dayanışma ve memleket tanıtımı. BAY-DER'e üye olun.">
+  <meta name="keywords" content="Ankara Doğubayazıtlılar, Ankara Doğubayazıtlılar Derneği, BAY-DER, Doğubayazıt, Ankara hemşehri derneği, Doğubayazıtlılar kültür dayanışma derneği">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Ankara Doğubayazıtlılar Kültür ve Dayanışma Derneği (BAY-DER)">
+  <meta name="geo.region" content="TR-06">
+  <meta name="geo.placename" content="Ankara">
+
+  <!-- Yayına alınca kendi alan adınızla değiştirin:
+  <link rel="canonical" href="https://www.ankaradogubayazitlilar.org/"> -->
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:site_name" content="Ankara Doğubayazıtlılar Derneği (BAY-DER)">
+  <meta property="og:title" content="Ankara Doğubayazıtlılar Derneği | BAY-DER">
+  <meta property="og:description" content="Ankara'da yaşayan Doğubayazıtlıları aynı çatı altında buluşturan kültür ve dayanışma derneği. Üye olun, birlikte güçlenelim.">
+  <meta property="og:image" content="assets/img/hero.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ankara Doğubayazıtlılar Derneği | BAY-DER">
+  <meta name="twitter:description" content="Ankara'da yaşayan Doğubayazıtlıları aynı çatı altında buluşturan kültür ve dayanışma derneği.">
+  <meta name="twitter:image" content="assets/img/hero.jpg">
+
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+  <link rel="preload" as="image" href="assets/img/hero.jpg" fetchpriority="high">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ankara Doğubayazıtlılar Kültür ve Dayanışma Derneği (BAY-DER)",
+    "alternateName": "Ankara BAY-DER",
+    "description": "Ankara'da yaşayan Doğubayazıtlıları bir araya getiren kültür ve dayanışma derneği.",
+    "foundingDate": "2026-05-11",
+    "areaServed": ["Ankara", "Doğubayazıt", "Türkiye"],
+    "knowsAbout": ["Doğubayazıt kültürü", "hemşehri dayanışması", "kültürel etkinlikler"],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "Üyelik ve iletişim",
+      "telephone": "+90-312-000-00-00",
+      "email": "info@ankaradogubayazitlilar.org"
+    }
+  }
+  </script>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+
+  <!-- ===================== BAŞLIK / MENÜ ===================== -->
+  <header class="site-header" id="header">
+    <div class="container header-inner">
+      <a class="brand" href="#hero" aria-label="Ankara Doğubayazıtlılar Derneği ana sayfa">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 48 48" width="42" height="42" role="img">
+            <path d="M4 36 16 14l8 13 6-9 14 18H4Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+            <circle cx="37" cy="11" r="4" fill="currentColor"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <strong>BAY-DER</strong>
+          <small>Ankara Doğubayazıtlılar</small>
+        </span>
+      </a>
+
+      <nav class="nav" id="nav" aria-label="Ana menü">
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#dogubayazit">Memleketimiz</a>
+        <a href="#yonetim">Kurucular</a>
+        <a href="#etkinlikler">Etkinlikler</a>
+        <a href="#iletisim">İletişim</a>
+        <a class="btn btn-solid btn-sm nav-cta" href="#uyelik">Üye Ol</a>
+      </nav>
+
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav" aria-label="Menüyü aç/kapat">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+
+    <!-- ===================== HERO ===================== -->
+    <section class="hero" id="hero">
+      <div class="hero-media" aria-hidden="true">
+        <img src="assets/img/hero.jpg" width="1600" height="900"
+             alt="" fetchpriority="high" decoding="async">
+        <span class="hero-tint"></span>
+        <svg class="hero-curve" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+          <path d="M0 60 C360 120 1080 0 1440 70 L1440 120 L0 120 Z"/>
+        </svg>
+      </div>
+
+      <div class="container hero-content">
+        <p class="hero-kicker reveal" style="--d:.05s">Ankara Doğubayazıtlılar Kültür ve Dayanışma Derneği · BAY-DER</p>
+        <h1 class="hero-title">
+          <span class="line reveal" style="--d:.15s">Ankara'da yaşayan</span>
+          <span class="line hl reveal" style="--d:.28s">Doğubayazıtlılar</span>
+          <span class="line reveal" style="--d:.41s">aynı çatıda buluşuyor</span>
+        </h1>
+        <p class="hero-sub reveal" style="--d:.55s">
+          İshak Paşa Sarayı'nın, Ağrı Dağı'nın ve Eski Bayazıt'ın evlatları;
+          memleketin sıcaklığını başkente taşımak için bir araya geliyor.
+        </p>
+        <div class="hero-actions reveal" style="--d:.68s">
+          <a class="btn btn-solid btn-lg" href="#uyelik">Derneğimize Katılın</a>
+          <a class="btn btn-ghost btn-lg" href="#dogubayazit">Memleketimizi Keşfedin</a>
+        </div>
+        <ul class="hero-tags reveal" style="--d:.8s" aria-label="Doğubayazıt simgeleri">
+          <li>İshak Paşa Sarayı</li>
+          <li>Ağrı Dağı · 5.137 m</li>
+          <li>Eski Bayazıt</li>
+          <li>Gönül Köprüsü Ankara ↔ Doğubayazıt</li>
+        </ul>
+      </div>
+
+      <a class="scroll-hint" href="#hakkimizda" aria-label="Aşağı kaydır">
+        <span></span>
+      </a>
+    </section>
+
+    <!-- ===================== KAYAN ŞERİT ===================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Doğubayazıt</span><i>✦</i><span>İshak Paşa Sarayı</span><i>✦</i>
+        <span>Ağrı Dağı</span><i>✦</i><span>Eski Bayazıt</span><i>✦</i>
+        <span>Ahmed-i Hânî</span><i>✦</i><span>Mem û Zîn</span><i>✦</i>
+        <span>Gürbulak Sınır Kapısı</span><i>✦</i><span>Doğubayazıt Ovası</span><i>✦</i>
+        <span>Doğubayazıt</span><i>✦</i><span>İshak Paşa Sarayı</span><i>✦</i>
+        <span>Ağrı Dağı</span><i>✦</i><span>Eski Bayazıt</span><i>✦</i>
+        <span>Ahmed-i Hânî</span><i>✦</i><span>Mem û Zîn</span><i>✦</i>
+        <span>Gürbulak Sınır Kapısı</span><i>✦</i><span>Doğubayazıt Ovası</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ===================== HAKKIMIZDA ===================== -->
+    <section class="section" id="hakkimizda">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Hakkımızda</p>
+          <h2>Ankara ile Doğubayazıt arasında<br><span class="accent">bir gönül köprüsü</span></h2>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-copy reveal">
+            <p>
+              <strong>Ankara Doğubayazıtlılar Kültür ve Dayanışma Derneği (BAY-DER)</strong>,
+              2026 yılında başkentte yaşayan Doğubayazıtlı hemşehrilerimizi ortak bir çatı
+              altında buluşturmak amacıyla kuruldu. Dernek; birlik, beraberlik ve dayanışma
+              duygularını güçlendirmek için çalışır.
+            </p>
+            <p>
+              Amacımız; memleketimiz Doğubayazıt'ın kültürel değerlerini yaşatmak, bu değerleri
+              Ankara'da yeni nesillere aktarmak ve zor günlerde hemşehrilerimizin yanında olmaktır.
+              Kapımız her Doğubayazıtlı hemşehrimize açıktır; <em>birleştikçe güçleneceğimize</em> inanıyoruz.
+            </p>
+            <p>
+              Memleketimizin ve hemşehrilerimizin sorunlarının ilgili makamlarda görünür olması,
+              çözüm üretilmesi ve Doğubayazıt'ın tarihî-kültürel zenginliklerinin daha güçlü
+              tanıtılması için projeler yürütüyoruz.
+            </p>
+            <a class="btn btn-outline" href="#yonetim">Kurucu Yönetim Kurulu ile Tanışın</a>
+          </div>
+
+          <div class="about-visual reveal" style="--d:.15s">
+            <figure class="photo-card photo-card--main">
+              <img src="assets/img/gallery-kis.jpg" width="1200" height="900"
+                   alt="Kar altında İshak Paşa Sarayı, Doğubayazıt" loading="lazy" decoding="async">
+              <figcaption>İshak Paşa Sarayı, Doğubayazıt</figcaption>
+            </figure>
+            <figure class="photo-card photo-card--float">
+              <img src="assets/img/gallery-avlu.jpg" width="1200" height="800"
+                   alt="İshak Paşa Sarayı avlusu, Doğubayazıt" loading="lazy" decoding="async">
+              <figcaption>Saray avlusundan bir kare</figcaption>
+            </figure>
+            <div class="badge-2026 reveal" style="--d:.3s">
+              <span class="badge-year">2026</span>
+              <span>Ankara'da resmî olarak<br>kuruldu</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Özellik kartları -->
+        <div class="feature-grid">
+          <article class="feature-card reveal">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+            </span>
+            <h3>Kültürel Etkinlikler</h3>
+            <p>Memleket geceleri, folklor, müzik ve yöresel tatlar; Doğubayazıt kültürünü başkentte yaşatıyoruz.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </span>
+            <h3>Dayanışma &amp; Yardımlaşma</h3>
+            <p>Hasta ziyaretleri, cenaze ve taziye organizasyonu, ihtiyaç sahibi hemşehrilere destek.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            </span>
+            <h3>Gençlik &amp; Eğitim</h3>
+            <p>Öğrenci buluşmaları, burs ve eğitim desteği; gençlerimizi memleket kültürüyle büyütüyoruz.</p>
+          </article>
+          <article class="feature-card reveal">
+            <span class="feature-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"/><path d="M5 21V7l7-4 7 4v14"/><path d="M9 9h1"/><path d="M9 12h1"/><path d="M9 15h1"/><path d="M14 9h1"/><path d="M14 12h1"/><path d="M14 15h1"/></svg>
+            </span>
+            <h3>Memleket Tanıtımı</h3>
+            <p>Doğubayazıt'ın tarihini, turizm değerlerini ve güzelliklerini Ankara'da ve ülke genelinde tanıtıyoruz.</p>
+          </article>
+        </div>
+
+        <!-- Kuruluş zaman çizelgesi -->
+        <div class="timeline reveal">
+          <div class="timeline-item">
+            <span class="dot"></span>
+            <time>6 Mayıs 2026</time>
+            <h4>Dernekleşme kararı</h4>
+            <p>Ankara'da bir araya gelen Doğubayazıtlılar, dernek kurma kararı aldı.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="dot"></span>
+            <time>11 Mayıs 2026</time>
+            <h4>Resmî kuruluş</h4>
+            <p>Kuruluş evrakları Ankara Valiliği'ne teslim edildi; BAY-DER resmen kuruldu.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="dot"></span>
+            <time>12 Mayıs 2026</time>
+            <h4>Kurucular Kurulu</h4>
+            <p>İlk toplantıda görev dağılımı yapılarak yönetim kurulu belirlendi.</p>
+          </div>
+          <div class="timeline-item">
+            <span class="dot"></span>
+            <time>16 Ağustos 2026</time>
+            <h4>Açılış töreni</h4>
+            <p>Dernek merkezi, protokol ve hemşehrilerin yoğun katılımıyla törenle açıldı.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== SAYAÇ ŞERİDİ ===================== -->
+    <section class="stats" aria-label="Dernek özet bilgiler">
+      <div class="container stats-grid">
+        <div class="stat reveal">
+          <strong class="stat-num" data-count="2026">0</strong>
+          <span>Kuruluş yılı</span>
+        </div>
+        <div class="stat reveal">
+          <strong class="stat-num" data-count="10">0</strong>
+          <span>Kurucu Yönetim Kurulu üyesi</span>
+        </div>
+        <div class="stat reveal">
+          <strong class="stat-num" data-count="5137" data-suffix=" m">0</strong>
+          <span>Ağrı Dağı · memleketin zirvesi</span>
+        </div>
+        <div class="stat reveal">
+          <strong class="stat-num" data-count="1">0</strong>
+          <span>Çatı: tüm Doğubayazıtlılar</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== MEMLEKETİMİZ ===================== -->
+    <section class="section section--soft" id="dogubayazit">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">Memleketimiz</p>
+          <h2>Doğubayazıt: <span class="accent">tarihin ve doğanın buluştuğu toprak</span></h2>
+          <p class="section-sub">
+            Ağrı Dağı'nın eteklerinde, İran sınırında kurulan kadim ilçemiz Doğubayazıt;
+            İshak Paşa Sarayı, Eski Bayazıt ve Ahmed-i Hânî'nin türbesiyle Anadolu'nun incisidir.
+          </p>
+        </div>
+
+        <div class="memleket-grid">
+          <figure class="memleket-item memleket-item--wide reveal">
+            <img src="assets/img/gallery-ishak.jpg" width="1200" height="800"
+                 alt="İshak Paşa Sarayı, Doğubayazıt, Ağrı" loading="lazy" decoding="async">
+            <figcaption>
+              <strong>İshak Paşa Sarayı</strong>
+              <span>1685-1784 yılları arasında inşa edilen görkemli saray, Anadolu'nun en önemli eserlerindendir.</span>
+            </figcaption>
+          </figure>
+          <figure class="memleket-item reveal">
+            <img src="assets/img/gallery-ararat-ikiz.jpg" width="1200" height="900"
+                 alt="Büyük ve Küçük Ağrı Dağı manzarası, Doğubayazıt" loading="lazy" decoding="async">
+            <figcaption>
+              <strong>Büyük &amp; Küçük Ağrı</strong>
+              <span>5.137 m ile Türkiye'nin en yüksek zirvesi Ağrı Dağı, ilçemizden her mevsim görülür.</span>
+            </figcaption>
+          </figure>
+          <figure class="memleket-item reveal">
+            <img src="assets/img/gallery-ararat.jpg" width="1200" height="800"
+                 alt="Karlı Ağrı Dağı zirvesi, Doğubayazıt" loading="lazy" decoding="async">
+            <figcaption>
+              <strong>Ağrı Dağı Zirvesi</strong>
+              <span>Efsanelere konu olan dağ; Nuh'un Gemisi'nden günümüze her medeniyetin izini taşır.</span>
+            </figcaption>
+          </figure>
+          <figure class="memleket-item memleket-item--wide reveal">
+            <img src="assets/img/gallery-bayazit.jpg" width="1200" height="800"
+                 alt="Doğubayazıt ilçe merkezi ve ova manzarası" loading="lazy" decoding="async">
+            <figcaption>
+              <strong>Doğubayazıt Merkez</strong>
+              <span>İran'a açılan Gürbulak sınır kapısıyla kervanların ve kültürlerin kesiştiği şehir.</span>
+            </figcaption>
+          </figure>
+          <figure class="memleket-item memleket-item--wide reveal">
+            <img src="assets/img/gallery-avlu.jpg" width="1200" height="800"
+                 alt="İshak Paşa Sarayı avlusu, Doğubayazıt" loading="lazy" decoding="async">
+            <figcaption>
+              <strong>Saray Avlusu</strong>
+              <span>Osmanlı, Selçuklu ve İran mimarisinin sentezi; her taşı bir tarih anlatır.</span>
+            </figcaption>
+          </figure>
+        </div>
+
+        <div class="facts reveal">
+          <h3>Doğubayazıt'ı tanıyalım</h3>
+          <ul>
+            <li><strong>Ağrı Dağı</strong> — 5.137 m ile Türkiye'nin en yüksek noktası.</li>
+            <li><strong>İshak Paşa Sarayı</strong> — 99 yılda tamamlanan, Anadolu'nun en görkemli saraylarından.</li>
+            <li><strong>Eski Bayazıt</strong> — Urartu'dan beri yerleşim gören tarihî şehir dokusu.</li>
+            <li><strong>Ahmed-i Hânî</strong> — “Mem û Zîn” şairi ve âlim; türbesi ilçemizdedir.</li>
+            <li><strong>Gürbulak</strong> — Türkiye'nin İran'a açılan en işlek sınır kapılarından biri.</li>
+          </ul>
+          <p class="facts-cta">Sen de bu güzelliklerin bir parçasıysan Ankara'da birlikte olalım. <a href="#uyelik">Üye olmak için tıklayın →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ALINTI ===================== -->
+    <aside class="quote-band">
+      <div class="container">
+        <blockquote class="reveal">
+          <p>“Kapımız her Doğubayazıtlı hemşehrimize açıktır. Birleştikçe güçleneceğimize inanıyoruz. Gücümüz yettiğince memleketimizin ve hemşehrilerimizin sorunlarının ilgili mercilerde görünür olması için çalışacağız.”</p>
+          <footer>— Barış Tanrıkulu, BAY-DER Kurucu Başkan Yardımcısı</footer>
+        </blockquote>
+      </div>
+    </aside>
+
+    <!-- ===================== YÖNETİM / KURUCULAR ===================== -->
+    <section class="section" id="yonetim">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">Kurucular</p>
+          <h2>Kurucu Yönetim Kurulumuz</h2>
+          <p class="section-sub">Derneğimizi kuran, emek veren ve bugünlere taşıyan değerli yönetim kurulu üyelerimiz.</p>
+        </div>
+
+        <div class="president reveal">
+          <div class="avatar avatar--xl" aria-hidden="true"><span>ZT</span></div>
+          <div class="president-info">
+            <p class="president-role">Kurucu Başkan</p>
+            <h3>Zülmat Taşdemir</h3>
+            <blockquote class="president-quote">
+              “Burası hepimizin ortak evi. Sevinciyle üzüntüsüyle Doğubayazıtlı her
+              vatandaşımızın yanında olacağız; kültürel değerlerimizi koruyup gelecek
+              nesillere aktaracağız.”
+            </blockquote>
+            <p>
+              Başkanımız Zülmat Taşdemir, derneğin kuruluşundan bu yana başkentte yaşayan
+              Doğubayazıtlılar arasında dayanışmanın güçlendirilmesi ve memleket kültürünün
+              yaşatılması için çalışıyor.
+            </p>
+          </div>
+        </div>
+
+        <ul class="members-grid" aria-label="Yönetim kurulu üyeleri">
+          <li class="member reveal"><span class="avatar" aria-hidden="true"><span>BT</span></span><h4>Barış Tanrıkulu</h4><p>Başkan Yardımcısı</p></li>
+          <li class="member reveal"><span class="avatar" aria-hidden="true"><span>İK</span></span><h4>İlhan Kaya</h4><p>Genel Sekreter</p></li>
+          <li class="member reveal"><span class="avatar" aria-hidden="true"><span>EA</span></span><h4>Ezgi Arıcı Korhan</h4><p>Sayman</p></li>
+          <li class="member reveal"><span class="avatar" aria-hidden="true"><span>HK</span></span><h4>Hazal Hülya Kaya</h4><p>Yönetim Kurulu Üyesi</p></li>
+          <li class="member reveal"><span class="avatar" aria-hidden="true"><span>NA</span></span><h4>Nihat Arpacı</h4><p>Yönetim Kurulu Üyesi</p></li>
+          <li class="member reveal"><span class="avatar" aria-hidden="true"><span>MÖ</span></span><h4>Mustafa Öztürk</h4><p>Yönetim Kurulu Üyesi</p></li>
+          <li class="member reveal"><span class="avatar" aria-hidden="true"><span>SM</span></span><h4>Selçuk Mertbey</h4><p>Yönetim Kurulu Üyesi</p></li>
+          <li class="member reveal"><span class="avatar" aria-hidden="true"><span>MÖ</span></span><h4>Maşuk Öztürk</h4><p>Yönetim Kurulu Üyesi</p></li>
+          <li class="member reveal"><span class="avatar" aria-hidden="true"><span>NB</span></span><h4>Nilüfer Baycan Durmaz</h4><p>Yönetim Kurulu Üyesi</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== ETKİNLİKLER ===================== -->
+    <section class="section section--soft" id="etkinlikler">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">Etkinlikler &amp; Haberler</p>
+          <h2>Birlikte nice güzel günlere</h2>
+        </div>
+
+        <div class="news-grid">
+          <article class="news-card reveal">
+            <span class="news-tag">Haber</span>
+            <time datetime="2026-08-16">16 Ağustos 2026</time>
+            <h3>BAY-DER dernek merkezi törenle açıldı</h3>
+            <p>
+              Açılış törenine eski bakanlar, milletvekilleri, oda başkanları ve çok sayıda
+              Doğubayazıtlı hemşehrimiz katıldı. Dernek merkezimiz tüm hemşehrilerimize açıktır.
+            </p>
+          </article>
+          <article class="news-card reveal">
+            <span class="news-tag">Yakında</span>
+            <time datetime="2026">2026</time>
+            <h3>Üye buluşmaları ve memleket geceleri</h3>
+            <p>
+              Kültürel etkinlikler, memleket geceleri ve sohbet toplantıları yönetim kurulumuz
+              tarafından planlanıyor. Duyurular dernek merkezi ve sosyal medyadan yapılacak.
+            </p>
+          </article>
+          <article class="news-card reveal">
+            <span class="news-tag">Çağrı</span>
+            <time datetime="2026">2026</time>
+            <h3>Ankara'daki tüm Doğubayazıtlılara çağrı</h3>
+            <p>
+              Listelerde eksik kalan hemşehrilerimizi derneğimize üye olmaya ve bu büyük ailenin
+              bir parçası olmaya davet ediyoruz.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ÜYELİK ===================== -->
+    <section class="section join" id="uyelik">
+      <div class="container join-inner">
+        <div class="join-copy reveal">
+          <p class="eyebrow">Üyelik</p>
+          <h2>Gelin, birlikte güçlenelim</h2>
+          <p>
+            Üyelik için herhangi bir koşul yoktur; Ankara'da yaşayan, okuyan veya gönül bağı olan
+            her Doğubayazıtlı ailemizin bir parçasıdır. Bilgilerinizi bırakın, yönetim kurulumuz
+            sizinle iletişime geçsin.
+          </p>
+          <ul class="join-points">
+            <li>Dernek merkezinde üyelik formu</li>
+            <li>WhatsApp üzerinden hızlı iletişim</li>
+            <li>Etkinlik ve duyurulardan önce haberdar olun</li>
+          </ul>
+          <div class="join-contacts">
+            <a class="btn btn-ghost btn-lg" href="tel:+903120000000">📞 (312) 000 00 00</a>
+            <a class="btn btn-ghost btn-lg" href="mailto:info@ankaradogubayazitlilar.org">✉ info@ankaradogubayazitlilar.org</a>
+          </div>
+        </div>
+
+        <form class="join-form reveal" id="joinForm" novalidate>
+          <h3>Üyelik Başvuru Formu</h3>
+          <p class="form-note">Form, derneğimizin WhatsApp hattına gönderilir.</p>
+
+          <label class="field">
+            <span>Ad Soyad</span>
+            <input type="text" name="ad" required placeholder="Adınız Soyadınız" autocomplete="name">
+          </label>
+          <label class="field">
+            <span>Telefon</span>
+            <input type="tel" name="telefon" required placeholder="05XX XXX XX XX" autocomplete="tel">
+          </label>
+          <label class="field">
+            <span>Doğubayazıt bağlantınız (köy/mahalle)</span>
+            <input type="text" name="baglantı" placeholder="Örn: Eski Bayazıt, Gürbulak…">
+          </label>
+          <label class="field">
+            <span>Mesajınız (isteğe bağlı)</span>
+            <textarea name="mesaj" rows="3" placeholder="Nasıl destek olmak istersiniz?"></textarea>
+          </label>
+
+          <button class="btn btn-solid btn-block" type="submit">Başvuruyu Gönder</button>
+          <p class="form-legal">KVKK kapsamında bilgileriniz yalnızca üyelik ve duyuru amaçlı kullanılır.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ===================== İLETİŞİM ===================== -->
+    <section class="section section--soft" id="iletisim">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">İletişim</p>
+          <h2>Bize ulaşın</h2>
+        </div>
+
+        <div class="contact-grid">
+          <a class="contact-card reveal" href="tel:+903120000000">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </span>
+            <h3>Telefon</h3>
+            <p>(312) 000 00 00</p>
+            <small>Hafta içi 10.00 – 18.00</small>
+          </a>
+
+          <a class="contact-card reveal" href="mailto:info@ankaradogubayazitlilar.org">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            </span>
+            <h3>E-posta</h3>
+            <p>info@ankaradogubayazitlilar.org</p>
+            <small>Tüm sorularınız için yazabilirsiniz</small>
+          </a>
+
+          <div class="contact-card reveal">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </span>
+            <h3>Adres</h3>
+            <p>Çankaya / Ankara <br><small>(dernek merkezi adresi yayına alınınca eklenecek)</small></p>
+          </div>
+
+          <div class="contact-card reveal">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+            </span>
+            <h3>Instagram</h3>
+            <a href="https://www.instagram.com/dogubayazitbayder/" target="_blank" rel="noopener">@dogubayazitbayder</a>
+            <small>Etkinliklerden önce buradan duyuruyoruz</small>
+          </div>
+
+          <div class="contact-card reveal">
+            <span class="contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+            </span>
+            <h3>Facebook</h3>
+            <a href="https://www.facebook.com/dogubayazitbayder/" target="_blank" rel="noopener">Doğubayazıt BAY-DER</a>
+            <small>Haber ve duyurularımız burada</small>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================== ALT BİLGİ ===================== -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#hero">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 48 48" width="40" height="40"><path d="M4 36 16 14l8 13 6-9 14 18H4Z" fill="none" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/><circle cx="37" cy="11" r="4" fill="currentColor"/></svg>
+          </span>
+          <span class="brand-text">
+            <strong>BAY-DER</strong>
+            <small>Ankara Doğubayazıtlılar</small>
+          </span>
+        </a>
+        <p>Ankara ile Doğubayazıt arasında bir gönül köprüsü. Birlik, beraberlik ve dayanışma için kurulduk.</p>
+      </div>
+
+      <nav class="footer-nav" aria-label="Alt menü">
+        <h4>Site</h4>
+        <a href="#hakkimizda">Hakkımızda</a>
+        <a href="#dogubayazit">Memleketimiz</a>
+        <a href="#yonetim">Kurucular</a>
+        <a href="#etkinlikler">Etkinlikler</a>
+        <a href="#uyelik">Üyelik</a>
+      </nav>
+
+      <div class="footer-contact">
+        <h4>İletişim</h4>
+        <a href="tel:+903120000000">(312) 000 00 00</a>
+        <a href="mailto:info@ankaradogubayazitlilar.org">info@ankaradogubayazitlilar.org</a>
+        <p>Çankaya / Ankara</p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/dogubayazitbayder/" target="_blank" rel="noopener" aria-label="Instagram'da BAY-DER">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+          </a>
+          <a href="https://www.facebook.com/dogubayazitbayder/" target="_blank" rel="noopener" aria-label="Facebook'ta BAY-DER">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <details class="footer-credits">
+        <summary>Memleket görselleri (Wikimedia Commons, CC)</summary>
+        <ul>
+          <li><a href="https://commons.wikimedia.org/wiki/File:%C4%B0shak_Pa%C5%9Fa_Saray%C4%B1_1.jpg" target="_blank" rel="noopener">İshak Paşa Sarayı 1.jpg</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:ISHAKPASA_SARAYI.jpg" target="_blank" rel="noopener">ISHAKPASA_SARAYI.jpg</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:%C4%B0shak_Pa%C5%9Fa_Saray%C4%B1_02.jpg" target="_blank" rel="noopener">İshak Paşa Sarayı 02.jpg</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:B%C3%BCy%C3%BCk_ve_K%C3%BC%C3%A7%C3%BCk_A%C4%9Fr%C4%B1_Da%C4%9F%C4%B1.jpg" target="_blank" rel="noopener">Büyük ve Küçük Ağrı Dağı.jpg</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:00_2399_Mount_Ararat,_Turkey.jpg" target="_blank" rel="noopener">00 2399 Mount Ararat, Turkey.jpg</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Do%C4%9Fubayaz%C4%B1t_from_%C4%B0shak_Pa%C5%9Fa_Palace.JPG" target="_blank" rel="noopener">Doğubayazıt from İshak Paşa Palace.JPG</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:1-IMG_9038.jpg" target="_blank" rel="noopener">1-IMG 9038.jpg</a></li>
+        </ul>
+      </details>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <p>© 2026 Ankara Doğubayazıtlılar Kültür ve Dayanışma Derneği (BAY-DER). Tüm hakları saklıdır.</p>
+        <p class="footer-seo">Ankara Doğubayazıtlılar · Ankara Doğubayazıtlılar Derneği · BAY-DER</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>

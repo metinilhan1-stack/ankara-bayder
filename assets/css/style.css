@@ -668,10 +668,11 @@ body.menu-open .bottombar{opacity:0;pointer-events:none;transform:translateY(30p
   .journey-item{align-items:flex-start;text-align:left;padding-left:74px;gap:.15rem}
   .journey-item .jdot{position:absolute;left:0;top:0;margin:0}
   .journey-item p{max-width:none;padding-right:4px}
-  .events-scroll{display:grid;grid-template-columns:1fr;overflow:visible;
-    padding:0;scroll-snap-type:none;gap:1rem}
-  .events-scroll::-webkit-scrollbar{display:none}
-  .event-card{flex-direction:column;align-items:stretch;gap:.8rem;min-height:0;width:100%}
+  .events-scroll{display:grid;grid-auto-flow:column;grid-auto-columns:min(76vw,320px);grid-template-columns:none;
+    overflow-x:auto;padding:4px 2px 16px;gap:1rem;scroll-snap-type:x mandatory;scroll-padding-left:4px}
+  .events-scroll::-webkit-scrollbar{height:6px}
+  .events-scroll::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+  .event-card{flex-direction:column;align-items:stretch;gap:.8rem;min-height:0;width:auto;scroll-snap-align:start}
   .event-date{flex-direction:row;width:auto;height:auto;padding:.45rem .95rem;border-radius:999px;gap:.5rem;align-self:flex-start}
   .event-date b{font-size:1.15rem}
   .event-date i{margin:0;font-size:.68rem}

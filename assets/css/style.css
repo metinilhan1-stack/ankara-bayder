@@ -377,17 +377,18 @@ body.menu-open{overflow:hidden}
   .city-link{display:none}
   .two-city-bottom{grid-template-columns:1fr}
   .officers{grid-template-columns:repeat(2,1fr)}
-  .nav{position:fixed;top:0;bottom:0;left:0;right:auto;width:min(90vw,420px);z-index:55;
+  .nav{position:fixed;top:0;bottom:0;right:0;left:auto;width:min(90vw,420px);z-index:55;
        display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
        gap:.4rem;text-align:left;color:#fff;overflow:hidden;
-       padding:calc(86px + env(safe-area-inset-top,0)) clamp(1.4rem,6vw,2.4rem)
+       padding:calc(86px + env(safe-area-inset-top,0)) clamp(1.4rem,5vw,2.2rem)
               calc(1.6rem + env(safe-area-inset-bottom,0));
-       background:radial-gradient(120% 70% at 80% -12%,rgba(20,184,166,.22),transparent 55%),
-                  radial-gradient(130% 90% at 20% 118%,rgba(245,165,36,.12),transparent 60%),
-                  linear-gradient(190deg,#081f2a 0%,#0d3b43 60%,#0f766e 140%);
-       transform:translateX(-103%);transition:transform .62s cubic-bezier(.7,0,.22,1);
-       -webkit-clip-path:polygon(0 0,100% 0,100% 9%,97% 4%,99% 15%,96% 24%,99% 33%,96% 42%,99% 51%,96% 60%,99% 69%,96% 78%,99% 87%,97% 96%,100% 100%,0 100%);
-               clip-path:polygon(0 0,100% 0,100% 9%,97% 4%,99% 15%,96% 24%,99% 33%,96% 42%,99% 51%,96% 60%,99% 69%,96% 78%,99% 87%,97% 96%,100% 100%,0 100%)}
+       background:radial-gradient(120% 70% at 20% -12%,rgba(20,184,166,.22),transparent 55%),
+                  radial-gradient(130% 90% at 80% 118%,rgba(245,165,36,.12),transparent 60%),
+                  linear-gradient(170deg,#081f2a 0%,#0d3b43 60%,#0f766e 140%);
+       padding-left:clamp(2.2rem,9vw,3.2rem);
+       transform:translateX(103%);transition:transform .62s cubic-bezier(.7,0,.22,1);
+       -webkit-mask:url('../img/menu-wave.svg') no-repeat center / 100% 100%;
+               mask:url('../img/menu-wave.svg') no-repeat center / 100% 100%}
   .site-header.menu-open .nav{transform:translateX(0)}
   body.menu-open::before{content:"";position:fixed;inset:0;z-index:54;pointer-events:none;
     background:rgba(5,16,20,.5)}

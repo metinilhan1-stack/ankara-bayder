@@ -385,7 +385,8 @@ body.menu-open{overflow:hidden}
                   linear-gradient(165deg,#081f2a 0%,#0d3b43 55%,#0f766e 135%);
        transform:translateY(-103%);transition:transform .62s cubic-bezier(.7,0,.22,1)}
   .site-header.menu-open .nav{transform:translateY(0)}
-  .site-header.menu-open{background:transparent;color:#fff;box-shadow:none}
+  .site-header.menu-open{background:transparent;color:#fff;box-shadow:none;
+    -webkit-backdrop-filter:none;backdrop-filter:none;filter:none}
   .nav-deco{position:absolute;left:-18%;right:-18%;height:150px;pointer-events:none;opacity:.5}
   .nav-deco--top{top:-86px;transform:skewY(-6deg);
     background:repeating-linear-gradient(112deg,rgba(255,255,255,.055) 0 34px,transparent 34px 68px);

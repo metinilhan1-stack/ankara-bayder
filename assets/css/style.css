@@ -1839,3 +1839,9 @@ body.menu-open{
     border-top-left-radius:0 !important;border-bottom-left-radius:0 !important;border-bottom-right-radius:0 !important;
     border-top-right-radius:999px 52% !important}
 }
+
+/* ===== MENÜ: mobilde Üye Ol butonu kaldırıldı ===== */
+@media (max-width:920px){
+  .nav-cta{display:none !important}
+  .nav-content{padding-bottom:calc(60px + env(safe-area-inset-bottom,0))}
+}

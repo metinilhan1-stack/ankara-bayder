@@ -1832,3 +1832,10 @@ body.menu-open{
   .nav-index{right:20px !important}
   .nav-bottom{right:88px !important}
 }
+
+/* ===== MENÜ: convex oval sadece üst yarıya kadar ===== */
+@media (max-width:920px){
+  .nav{border-radius:0 !important;
+    border-top-left-radius:0 !important;border-bottom-left-radius:0 !important;border-bottom-right-radius:0 !important;
+    border-top-right-radius:999px 52% !important}
+}

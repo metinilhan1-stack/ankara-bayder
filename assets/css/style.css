@@ -68,34 +68,6 @@ h4{font-size:1rem}
 .btn-block{width:100%}
 
 /* ---------- Başlık / Navigasyon ---------- */
-.site-header{
-  position:fixed;inset:0 0 auto 0;z-index:100;height:var(--header-h);
-  color:#fff;transition:background .3s,color .3s,box-shadow .3s,height .3s;
-}
-.header-inner{height:100%;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.site-header.scrolled{background:rgba(255,255,255,.88);backdrop-filter:saturate(1.4) blur(12px);color:var(--ink);box-shadow:0 1px 0 var(--line)}
-.site-header.menu-open{background:rgba(250,252,251,.98);color:var(--ink)}
-.site-header.scrolled .header-inner{height:100%}
-
-.brand{display:inline-flex;align-items:center;gap:.6rem;color:inherit}
-.brand-mark{display:grid;place-items:center;color:inherit}
-.brand-logo{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;overflow:hidden;background:#fff;border:2px solid rgba(255,255,255,.25);box-shadow:0 6px 16px -6px rgba(0,0,0,.35);flex:none}
-.brand-logo img{width:100%;height:100%;object-fit:cover}
-.site-header.scrolled .brand-logo{border-color:var(--line)}
-.site-footer .brand-logo{width:44px;height:44px}
-.brand-text{display:flex;flex-direction:column;line-height:1.1}
-.brand-text strong{font-size:1.12rem;letter-spacing:.16em;color:inherit}
-.brand-text small{font-size:.62rem;letter-spacing:.02em;opacity:.85;text-transform:uppercase;font-weight:600}
-
-.nav{display:flex;align-items:center;gap:.2rem}
-.nav a:not(.nav-cta){color:inherit;font-weight:600;font-size:.92rem;padding:.5rem .85rem;border-radius:999px;opacity:.92;position:relative}
-.nav a:not(.nav-cta):hover{background:rgba(127,127,127,.15);opacity:1}
-.site-header.scrolled .nav a:not(.nav-cta):hover{background:var(--brand-soft)}
-.nav-cta{margin-left:.5rem}
-
-.nav-toggle{display:none;flex-direction:column;gap:5px;background:transparent;border:0;padding:10px;cursor:pointer;z-index:60}
-.nav-toggle span{width:24px;height:2px;background:currentColor;border-radius:2px;transition:transform .3s var(--ease),opacity .2s}
-body.menu-open{overflow:hidden}
 
 /* ---------- HERO ---------- */
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;color:#fff;overflow:hidden}
@@ -383,50 +355,6 @@ body.menu-open{overflow:hidden}
   .city-link{display:none}
   .two-city-bottom{grid-template-columns:1fr}
   .officers{grid-template-columns:repeat(2,1fr)}
-  .nav{position:fixed;top:0;bottom:0;right:0;left:auto;width:min(90vw,420px);z-index:55;
-       display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
-       gap:0;text-align:left;color:#fff;overflow:hidden;
-       padding:calc(86px + env(safe-area-inset-top,0)) clamp(1.4rem,5vw,2.2rem)
-              calc(1.6rem + env(safe-area-inset-bottom,0));
-       background:radial-gradient(120% 70% at 20% -12%,rgba(20,184,166,.22),transparent 55%),
-                  radial-gradient(130% 90% at 80% 118%,rgba(245,165,36,.12),transparent 60%),
-                  linear-gradient(170deg,#081f2a 0%,#0d3b43 60%,#0f766e 140%);
-       padding-left:clamp(2.2rem,9vw,3.2rem);
-       transform:translateX(103%);transition:transform .62s cubic-bezier(.7,0,.22,1)}
-  .site-header.menu-open .nav{transform:translateX(0)}
-  body.menu-open::before{content:"";position:fixed;inset:0;z-index:54;pointer-events:none;
-    background:rgba(5,16,20,.5)}
-  .site-header.menu-open{background:transparent;color:#fff;box-shadow:none;
-    -webkit-backdrop-filter:none;backdrop-filter:none;filter:none}
-  .nav-deco{position:absolute;left:-40%;right:-40%;height:150px;pointer-events:none;opacity:.5}
-  .nav-deco--top{top:-86px;transform:skewY(-6deg);
-    background:repeating-linear-gradient(112deg,rgba(255,255,255,.055) 0 34px,transparent 34px 68px);
-    animation:navWave 20s linear infinite}
-  .nav-deco--bottom{bottom:-90px;transform:skewY(-7deg);opacity:.45;
-    background:repeating-linear-gradient(112deg,rgba(245,165,36,.14) 0 40px,transparent 40px 80px),
-               repeating-linear-gradient(112deg,rgba(255,255,255,.05) 0 40px,transparent 40px 80px);
-    animation:navWave 28s linear infinite reverse}
-  @keyframes navWave{to{background-position:180px 0}}
-  .nav a:not(.nav-cta){position:relative;display:block;width:100%;
-    font-size:clamp(1.02rem,3.9vw,1.24rem);font-weight:700;letter-spacing:.01em;
-    padding:.98rem .2rem;border-bottom:1px solid rgba(255,255,255,.12);
-    color:#fff;opacity:0;transform:translateX(22px)}
-  .nav a:not(.nav-cta)::before{content:"";position:absolute;left:.1rem;top:50%;width:2px;height:0;
-    transform:translateY(-50%);border-radius:99px;background:var(--accent);
-    transition:height .25s var(--ease)}
-  .nav a:not(.nav-cta):hover{color:#ffe9b3}
-  .nav a:not(.nav-cta):hover::before{height:56%}
-  .site-header.menu-open .nav a:not(.nav-cta){opacity:1;transform:none;
-    transition:opacity .55s var(--ease) var(--d,0s),transform .55s var(--ease) var(--d,0s)}
-  .nav a:nth-of-type(1){--d:.12s}.nav a:nth-of-type(2){--d:.20s}.nav a:nth-of-type(3){--d:.28s}
-  .nav a:nth-of-type(4){--d:.36s}.nav a:nth-of-type(5){--d:.44s}.nav a:nth-of-type(6){--d:.52s}
-  .nav-cta{margin:1.3rem 0 0;font-size:.98rem;padding:.8rem 2.1rem;opacity:0;transform:translateX(22px);
-    box-shadow:0 18px 38px -16px rgba(0,0,0,.6)}
-  .site-header.menu-open .nav-cta{opacity:1;transform:none;transition:opacity .5s var(--ease) .62s,transform .5s var(--ease) .62s}
-  .nav-toggle{display:flex;color:inherit;z-index:60}
-  .site-header.menu-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
-  .site-header.menu-open .nav-toggle span:nth-child(2){opacity:0}
-  .site-header.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
 }
 @media (max-width:620px){
   .feature-grid,.members-grid,.news-grid{grid-template-columns:1fr}
@@ -694,3 +622,690 @@ body.menu-open .bottombar{opacity:0;pointer-events:none;transform:translateY(30p
   .loader{display:none!important}
   .progress{display:none!important}
 }
+
+/* ===== CHATGPT MENÜ CSS ===== */
+.site-header{
+  position:fixed;
+  inset:0 0 auto 0;
+  z-index:100;
+  height:var(--header-h);
+  color:#fff;
+  transition:
+    background .35s ease,
+    color .35s ease,
+    box-shadow .35s ease,
+    height .35s ease;
+}
+
+.header-inner{
+  height:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+}
+
+
+/* =========================================================
+   HEADER SCROLL
+   ========================================================= */
+
+.site-header.scrolled{
+  background:rgba(255,255,255,.90);
+  backdrop-filter:saturate(1.4) blur(16px);
+  -webkit-backdrop-filter:saturate(1.4) blur(16px);
+  color:var(--ink);
+  box-shadow:
+    0 1px 0 rgba(0,0,0,.07),
+    0 8px 30px rgba(0,0,0,.04);
+}
+
+.site-header.menu-open{
+  background:transparent;
+  color:#fff;
+  box-shadow:none;
+}
+
+
+/* =========================================================
+   LOGO
+   ========================================================= */
+
+.brand{
+  display:inline-flex;
+  align-items:center;
+  gap:.7rem;
+  color:inherit;
+  position:relative;
+  z-index:110;
+}
+
+.brand-logo{
+  display:grid;
+  place-items:center;
+  width:46px;
+  height:46px;
+  border-radius:14px;
+  overflow:hidden;
+  background:#fff;
+  border:2px solid rgba(255,255,255,.28);
+  box-shadow:
+    0 8px 22px -8px rgba(0,0,0,.4);
+  flex:none;
+  transition:
+    transform .35s ease,
+    box-shadow .35s ease;
+}
+
+.brand:hover .brand-logo{
+  transform:translateY(-2px) rotate(-2deg);
+  box-shadow:
+    0 12px 28px -8px rgba(0,0,0,.45);
+}
+
+.brand-logo img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.brand-text{
+  display:flex;
+  flex-direction:column;
+  line-height:1.08;
+}
+
+.brand-text strong{
+  font-size:1.12rem;
+  letter-spacing:.16em;
+  color:inherit;
+}
+
+.brand-text small{
+  margin-top:4px;
+  font-size:.60rem;
+  letter-spacing:.03em;
+  opacity:.82;
+  text-transform:uppercase;
+  font-weight:600;
+}
+
+
+/* =========================================================
+   DESKTOP NAV
+   ========================================================= */
+
+.nav{
+  display:flex;
+  align-items:center;
+  gap:.15rem;
+}
+
+.nav-content{
+  display:flex;
+  align-items:center;
+  gap:.1rem;
+}
+
+.nav-link{
+  position:relative;
+  display:flex;
+  align-items:center;
+  gap:.42rem;
+  color:inherit;
+  font-weight:650;
+  font-size:.88rem;
+  padding:.58rem .78rem;
+  border-radius:12px;
+  opacity:.93;
+  transition:
+    background .25s ease,
+    color .25s ease,
+    transform .25s ease;
+}
+
+.nav-link:hover{
+  background:rgba(255,255,255,.12);
+  color:#fff;
+  transform:translateY(-1px);
+}
+
+.site-header.scrolled .nav-link:hover{
+  background:var(--brand-soft);
+  color:var(--ink);
+}
+
+.nav-index{
+  font-size:.55rem;
+  font-weight:800;
+  opacity:.45;
+  letter-spacing:.03em;
+}
+
+.nav-cta{
+  margin-left:.45rem;
+  display:inline-flex;
+  align-items:center;
+  gap:.65rem;
+  padding:.72rem 1rem;
+  border-radius:12px;
+  box-shadow:
+    0 10px 25px -12px rgba(0,0,0,.5);
+  transition:
+    transform .25s ease,
+    box-shadow .25s ease;
+}
+
+.nav-cta:hover{
+  transform:translateY(-2px);
+  box-shadow:
+    0 14px 30px -10px rgba(0,0,0,.5);
+}
+
+.nav-cta-arrow{
+  font-size:1.05rem;
+  line-height:1;
+  transition:transform .25s ease;
+}
+
+.nav-cta:hover .nav-cta-arrow{
+  transform:translateX(3px);
+}
+
+
+/* =========================================================
+   HAMBURGER
+   ========================================================= */
+
+.nav-toggle{
+  display:none;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  gap:5px;
+  width:46px;
+  height:46px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:14px;
+  padding:10px;
+  cursor:pointer;
+  z-index:120;
+  color:inherit;
+  backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  transition:
+    background .25s ease,
+    transform .25s ease;
+}
+
+.nav-toggle:hover{
+  background:rgba(255,255,255,.15);
+}
+
+.nav-toggle:active{
+  transform:scale(.94);
+}
+
+.nav-toggle span{
+  width:21px;
+  height:2px;
+  background:currentColor;
+  border-radius:99px;
+  transition:
+    transform .35s cubic-bezier(.65,0,.35,1),
+    opacity .2s ease,
+    width .25s ease;
+}
+
+body.menu-open{
+  overflow:hidden;
+}
+
+
+/* =========================================================
+   MOBILE MENU
+   ========================================================= */
+
+@media (max-width:920px){
+
+  .nav-toggle{
+    display:flex;
+  }
+
+  /*
+     Menü artık yukarıdan aşağıya açılmıyor.
+     Sol taraftaki DALGA üzerinden ekrana giriyor.
+  */
+
+  .nav{
+    position:fixed;
+    inset:0;
+    z-index:105;
+
+    display:block;
+
+    color:#fff;
+    overflow:hidden;
+
+    background:
+      radial-gradient(
+        100% 55% at 70% 0%,
+        rgba(20,184,166,.20),
+        transparent 65%
+      ),
+      radial-gradient(
+        90% 55% at 100% 100%,
+        rgba(245,165,36,.13),
+        transparent 65%
+      ),
+      linear-gradient(
+        145deg,
+        #071c27 0%,
+        #092c36 48%,
+        #0b5658 100%
+      );
+
+    /*
+      Başlangıçta ekranın soluna gizlenir
+    */
+    clip-path:ellipse(
+      0% 100% at 0% 50%
+    );
+
+    visibility:hidden;
+
+    transition:
+      clip-path .75s cubic-bezier(.77,0,.18,1),
+      visibility 0s linear .75s;
+  }
+
+  .site-header.menu-open .nav{
+    clip-path:ellipse(
+      150% 125% at 0% 50%
+    );
+
+    visibility:visible;
+
+    transition:
+      clip-path .85s cubic-bezier(.77,0,.18,1),
+      visibility 0s linear 0s;
+  }
+
+
+  /* =======================================================
+     ANA DALGA
+     ======================================================= */
+
+  .nav-wave{
+    position:absolute;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  /*
+     Sol taraftaki ana büyük dalga.
+     SVG kullanmadan CSS border-radius ile oluşturuluyor.
+  */
+
+  .nav-wave-main{
+    left:-76%;
+    top:-10%;
+    width:105%;
+    height:120%;
+    background:
+      linear-gradient(
+        180deg,
+        rgba(13,148,136,.32),
+        rgba(8,84,88,.18)
+      );
+
+    border-radius:
+      0 58% 58% 0 /
+      0 48% 52% 0;
+
+    transform:rotate(-3deg);
+    opacity:.75;
+
+    animation:bayderWave 10s ease-in-out infinite alternate;
+  }
+
+  /*
+     Arkadaki ikinci dalga
+  */
+
+  .nav-wave-back{
+    left:-91%;
+    top:-14%;
+    width:115%;
+    height:128%;
+
+    background:
+      rgba(255,255,255,.035);
+
+    border-radius:
+      0 60% 60% 0 /
+      0 45% 55% 0;
+
+    transform:rotate(4deg);
+
+    animation:
+      bayderWaveBack 13s ease-in-out infinite alternate;
+  }
+
+  @keyframes bayderWave{
+    from{
+      transform:
+        rotate(-3deg)
+        translateY(-8px);
+    }
+
+    to{
+      transform:
+        rotate(-3deg)
+        translateY(12px);
+    }
+  }
+
+  @keyframes bayderWaveBack{
+    from{
+      transform:
+        rotate(4deg)
+        translateY(10px);
+    }
+
+    to{
+      transform:
+        rotate(4deg)
+        translateY(-14px);
+    }
+  }
+
+
+  /* =======================================================
+     MENÜ İÇERİĞİ
+     ======================================================= */
+
+  .nav-content{
+    position:relative;
+    z-index:5;
+
+    width:100%;
+    max-width:560px;
+    height:100%;
+
+    margin:0 auto;
+
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:center;
+
+    padding:
+      calc(72px + env(safe-area-inset-top,0))
+      2rem
+      calc(90px + env(safe-area-inset-bottom,0));
+
+    gap:0;
+  }
+
+
+  /* =======================================================
+     MENÜ LINKLERİ
+     ======================================================= */
+
+  .nav-link{
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    gap:.8rem;
+
+    width:100%;
+
+    padding:.78rem .25rem;
+
+    color:#fff;
+
+    font-size:clamp(
+      1.03rem,
+      4.2vw,
+      1.22rem
+    );
+
+    font-weight:700;
+
+    border-radius:0;
+
+    border-bottom:
+      1px solid rgba(255,255,255,.105);
+
+    opacity:0;
+    transform:translateX(-25px);
+
+    transition:
+      opacity .48s ease,
+      transform .48s cubic-bezier(.22,1,.36,1),
+      color .25s ease,
+      padding-left .25s ease;
+  }
+
+  .nav-link::before{
+    content:"";
+
+    position:absolute;
+    left:-.25rem;
+    top:50%;
+
+    width:3px;
+    height:0;
+
+    border-radius:99px;
+
+    background:
+      linear-gradient(
+        180deg,
+        var(--accent),
+        #f5a524
+      );
+
+    transform:translateY(-50%);
+
+    transition:
+      height .25s ease;
+  }
+
+  .nav-link:hover{
+    color:#ffe9b3;
+    padding-left:.55rem;
+  }
+
+  .nav-link:hover::before{
+    height:55%;
+  }
+
+  .nav-index{
+    min-width:25px;
+
+    font-size:.58rem;
+    letter-spacing:.05em;
+
+    opacity:.42;
+
+    font-weight:800;
+  }
+
+  .site-header.menu-open .nav-link{
+    opacity:1;
+    transform:none;
+  }
+
+  .nav-link:nth-child(3){transition-delay:.08s}
+  .nav-link:nth-child(4){transition-delay:.13s}
+  .nav-link:nth-child(5){transition-delay:.18s}
+  .nav-link:nth-child(6){transition-delay:.23s}
+  .nav-link:nth-child(7){transition-delay:.28s}
+  .nav-link:nth-child(8){transition-delay:.33s}
+  .nav-link:nth-child(9){transition-delay:.38s}
+
+
+  /* =======================================================
+     ÜYE OL
+     ======================================================= */
+
+  .nav-cta{
+    align-self:flex-start;
+
+    margin:
+      1.25rem 0 0;
+
+    padding:
+      .85rem 1.25rem;
+
+    border-radius:13px;
+
+    font-size:.98rem;
+
+    opacity:0;
+    transform:translateY(18px);
+
+    transition:
+      opacity .45s ease .52s,
+      transform .45s cubic-bezier(.22,1,.36,1) .52s,
+      box-shadow .25s ease;
+  }
+
+  .site-header.menu-open .nav-cta{
+    opacity:1;
+    transform:none;
+  }
+
+
+  /* =======================================================
+     ALT ETİKET
+     ======================================================= */
+
+  .nav-bottom{
+    position:absolute;
+    z-index:5;
+
+    left:2rem;
+    right:2rem;
+    bottom:
+      calc(22px + env(safe-area-inset-bottom,0));
+
+    display:flex;
+    align-items:center;
+    gap:.65rem;
+
+    font-size:.54rem;
+    font-weight:800;
+    letter-spacing:.2em;
+
+    color:rgba(255,255,255,.38);
+
+    opacity:0;
+    transform:translateY(10px);
+
+    transition:
+      opacity .5s ease .65s,
+      transform .5s ease .65s;
+  }
+
+  .site-header.menu-open .nav-bottom{
+    opacity:1;
+    transform:none;
+  }
+
+  .nav-bottom i{
+    width:28px;
+    height:1px;
+    background:rgba(255,255,255,.25);
+  }
+
+
+  /* =======================================================
+     HAMBURGER → X
+     ======================================================= */
+
+  .site-header.menu-open .nav-toggle{
+    background:rgba(255,255,255,.10);
+    border-color:rgba(255,255,255,.2);
+  }
+
+  .site-header.menu-open .nav-toggle span:nth-child(1){
+    transform:
+      translateY(7px)
+      rotate(45deg);
+  }
+
+  .site-header.menu-open .nav-toggle span:nth-child(2){
+    opacity:0;
+    width:0;
+  }
+
+  .site-header.menu-open .nav-toggle span:nth-child(3){
+    transform:
+      translateY(-7px)
+      rotate(-45deg);
+  }
+}
+
+
+/* =========================================================
+   KÜÇÜK TELEFONLAR
+   ========================================================= */
+
+@media (max-width:480px){
+
+  .brand-logo{
+    width:42px;
+    height:42px;
+    border-radius:12px;
+  }
+
+  .brand-text strong{
+    font-size:1rem;
+  }
+
+  .brand-text small{
+    font-size:.53rem;
+  }
+
+  .nav-content{
+    padding-left:1.45rem;
+    padding-right:1.45rem;
+  }
+
+  .nav-link{
+    padding-top:.68rem;
+    padding-bottom:.68rem;
+  }
+
+  .nav-bottom{
+    left:1.45rem;
+    right:1.45rem;
+  }
+}
+
+
+/* =========================================================
+   HAREKET AZALTMA
+   ========================================================= */
+
+@media (prefers-reduced-motion:reduce){
+
+  .nav,
+  .nav-link,
+  .nav-cta,
+  .nav-bottom,
+  .nav-wave{
+    animation:none !important;
+    transition:none !important;
+  }
+}
+
+
+
+
+@media (min-width:921px){.nav-wave,.nav-bottom{display:none}}

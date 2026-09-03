@@ -29,19 +29,21 @@
     revealHero();
   } else {
     var finished = false;
+    var MIN_MS = 5200;
+    var t0 = performance.now();
     function finish() {
       if (finished) return;
       finished = true;
       loader.classList.add('loader--done');
-      setTimeout(revealHero, 720);
+      setTimeout(revealHero, 600);
       try { sessionStorage.setItem('bayderBoot', '1'); } catch (e) {}
     }
-    var ready = new Promise(function (res) { res(); });
-    if (document.readyState === 'complete') ready = Promise.resolve();
-    else {
-      window.addEventListener('load', function () { ready = Promise.resolve(); }, { once: true });
+    function finishAfterRemainder() {
+      var remain = Math.max(0, MIN_MS - (performance.now() - t0));
+      setTimeout(finish, remain);
     }
-    Promise.race([ready, new Promise(function (r) { setTimeout(r, 900); })]).then(finish);
+    window.addEventListener('load', finishAfterRemainder, { once: true });
+    window.setTimeout(finishAfterRemainder, 3500);
   }
 
   /* ---------------- Üst menü: kaydırma durumu ---------------- */

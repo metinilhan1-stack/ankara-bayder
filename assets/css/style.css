@@ -405,29 +405,44 @@ body.menu-open{overflow:hidden}
   .scroll-hint{display:none}
 }
 
+/* ---------- Kısa giriş örtüsü ---------- */
+.loader{position:fixed;inset:0;z-index:400;display:grid;place-items:center;overflow:hidden;
+  background:linear-gradient(155deg,#0a323b 0%,var(--brand-deep) 55%,var(--brand) 100%);
+  color:#fff;transition:transform .8s var(--ease) .2s,visibility 0s 1.05s}
+.loader--done{transform:translateY(-101%);visibility:hidden}
+.loader-inner{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:1rem}
+.loader-logo img{width:92px;height:92px;border-radius:24px;object-fit:cover;border:3px solid rgba(255,255,255,.25);
+  box-shadow:0 20px 55px -18px rgba(0,0,0,.6);animation:loaderPop .7s var(--ease) both,loaderBob 3.2s ease-in-out 1s infinite}
+@keyframes loaderPop{from{opacity:0;transform:scale(.6) rotate(-8deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+@keyframes loaderBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.loader-name{font-size:1.45rem;font-weight:900;letter-spacing:.34em;text-indent:.34em;margin-top:10px;
+  animation:loaderFade .7s var(--ease) .35s both}
+.loader-sub{font-size:.72rem;letter-spacing:.26em;text-transform:uppercase;opacity:.88;
+  animation:loaderFade .7s var(--ease) .6s both}
+@keyframes loaderFade{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:none}}
+.loader-bar{width:170px;height:4px;margin-top:16px;border-radius:99px;background:rgba(255,255,255,.18);overflow:hidden}
+.loader-bar i{display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--accent),#ffe9b3);animation:loaderFill 4.4s var(--ease) .45s forwards}
+@keyframes loaderFill{0%{width:0}100%{width:100%}}
+
+/* giriş sahnesi: ışık şeridi */
+.loader-sheen{position:absolute;z-index:1;top:-25%;bottom:-25%;width:55%;left:-70%;
+  background:linear-gradient(100deg,transparent 32%,rgba(255,255,255,.07) 45%,rgba(245,165,36,.14) 50%,rgba(255,255,255,.07) 55%,transparent 68%);
+  transform:skewX(-16deg);animation:sheen 6s linear infinite}
+@keyframes sheen{0%{left:-70%}60%{left:130%}100%{left:130%}}
+
+/* giriş sahnesi: dalgalanan şeritler */
+.loader-waves{position:absolute;left:0;right:0;bottom:0;height:200px;overflow:hidden;pointer-events:none}
+.lw{position:absolute;bottom:0;left:0;width:200%;height:200px}
+.lw path{fill:currentColor}
+.lw1{color:rgba(120,220,205,.34);animation:lwmove 7s linear infinite}
+.lw2{color:rgba(18,140,132,.85);animation:lwmove 11s linear infinite reverse}
+@keyframes lwmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
 /* ---------- Okuma çubuğu ---------- */
 .progress{position:fixed;top:0;left:0;width:100%;height:3px;z-index:260;pointer-events:none;
   background:linear-gradient(90deg,var(--accent),var(--brand) 60%,#25d366);
   transform:scaleX(0);transform-origin:0 50%}
-
-/* ---------- Kısa giriş örtüsü ---------- */
-.loader{position:fixed;inset:0;z-index:400;display:grid;place-items:center;
-  background:linear-gradient(150deg,#0c3b42,var(--brand-deep) 55%,var(--brand));
-  color:#fff;transition:transform .75s var(--ease) .15s,visibility 0s .95s}
-.loader--done{transform:translateY(-101%);visibility:hidden}
-.loader-inner{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:1rem}
-.loader-logo img{width:88px;height:88px;border-radius:22px;object-fit:cover;border:3px solid rgba(255,255,255,.25);
-  box-shadow:0 20px 50px -18px rgba(0,0,0,.6);animation:loaderPop .6s var(--ease) both}
-@keyframes loaderPop{from{opacity:0;transform:scale(.6) rotate(-8deg)}to{opacity:1;transform:scale(1) rotate(0)}}
-.loader-name{font-size:1.35rem;font-weight:900;letter-spacing:.34em;margin-top:8px;
-  animation:loaderFade .5s var(--ease) .18s both}
-.loader-sub{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;opacity:.85;
-  animation:loaderFade .5s var(--ease) .3s both}
-@keyframes loaderFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
-.loader-bar{width:150px;height:3px;margin-top:14px;border-radius:99px;background:rgba(255,255,255,.18);overflow:hidden}
-.loader-bar i{display:block;height:100%;width:0;border-radius:99px;
-  background:linear-gradient(90deg,var(--accent),#ffe9b3);animation:loaderFill .8s var(--ease) .1s forwards}
-@keyframes loaderFill{to{width:100%}}
 
 /* ---------- Dalga geçişleri ---------- */
 .wave-bottom,.wave-in{display:block;width:100%;pointer-events:none;margin-top:-1px}

@@ -35,6 +35,10 @@
   <meta name="twitter:image" content="assets/img/hero.jpg">
 
   <link rel="icon" type="image/png" href="assets/img/favicon.png">
+  <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+  <link rel="manifest" href="assets/site.webmanifest">
+  <meta name="theme-color" content="#0f766e">
+  <link rel="preload" as="image" href="assets/img/hero-m.webp" imagesrcset="assets/img/hero-s.webp 720w, assets/img/hero-m.webp 1280w, assets/img/hero.webp 2000w" imagesizes="100vw" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/style.css">
 
   <script type="application/ld+json">
@@ -58,6 +62,18 @@
 </head>
 
 <body>
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <!-- kısa giriş örtüsü -->
+  <div class="loader" id="loader" aria-hidden="true">
+    <div class="loader-inner">
+      <span class="loader-logo"><img src="assets/img/logo.jpg" width="300" height="303" alt=""></span>
+      <span class="loader-name">BAY-DER</span>
+      <span class="loader-sub">Ankara Doğubayazıtlılar</span>
+      <span class="loader-bar"><i></i></span>
+    </div>
+  </div>
+
   <a class="skip-link" href="#main">İçeriğe geç</a>
 
   <!-- ===================== BAŞLIK / MENÜ ===================== -->
@@ -95,11 +111,14 @@
     <section class="hero" id="hero">
       <div class="hero-media" aria-hidden="true">
         <!-- Ankara ↔ Doğubayazıt illüstrasyonu: İshak Paşa Sarayı'ndan Atakule'ye uzanan gönül yolu -->
-                <img class="hero-photo" src="assets/img/hero.jpg"
-             srcset="assets/img/hero-s.jpg 720w, assets/img/hero-m.jpg 1280w, assets/img/hero.jpg 2000w"
-             sizes="100vw" width="2000" height="1325"
-             alt="İshak Paşa Sarayı ve Ağrı Dağı, Doğubayazıt"
-             fetchpriority="high" decoding="async">
+                <picture>
+          <source type="image/webp" srcset="assets/img/hero-s.webp 720w, assets/img/hero-m.webp 1280w, assets/img/hero.webp 2000w" sizes="100vw">
+          <img class="hero-photo" src="assets/img/hero-m.jpg"
+               srcset="assets/img/hero-s.jpg 720w, assets/img/hero-m.jpg 1280w, assets/img/hero.jpg 2000w"
+               sizes="100vw" width="2000" height="1325"
+               alt="İshak Paşa Sarayı ve Ağrı Dağı, Doğubayazıt"
+               fetchpriority="high" decoding="async">
+        </picture>
 
         <span class="hero-tint"></span>
         <svg class="hero-curve" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
@@ -156,6 +175,9 @@
         <span>Doğubayazıt Ovası</span><i>✦</i><span>Keçiören</span><i>✦</i>
       </div>
     </div>
+    <svg class="wave-bottom" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 0 H1440 V52 C 1210 12 1000 86 736 62 C 470 40 260 88 0 62 Z"></path>
+    </svg>
 
     <!-- ===================== HAKKIMIZDA ===================== -->
     <section class="section" id="hakkimizda">
@@ -267,6 +289,9 @@
     </section>
 
     <!-- ===================== SAYAÇ ŞERİDİ ===================== -->
+    <svg class="wave-in wave-in--bg" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M0 0 H1440 V46 C 1210 10 1000 78 736 56 C 470 34 260 74 0 54 Z"></path>
+    </svg>
     <section class="stats" aria-label="Dernek özet bilgiler">
       <div class="container stats-grid">
         <div class="stat reveal">
@@ -415,6 +440,8 @@
       </div>
     </section>
 
+    <div class="ribbon" aria-hidden="true"></div>
+
     <!-- ===================== ALINTI ===================== -->
     <aside class="quote-band">
       <div class="container">
@@ -505,6 +532,8 @@
         </div>
       </div>
     </section>
+
+    <div class="ribbon ribbon--gold" aria-hidden="true"></div>
 
     <!-- ===================== ÜYELİK ===================== -->
     <section class="section join" id="uyelik">
@@ -693,6 +722,18 @@
       </div>
     </div>
   </footer>
+
+  <!-- mobil hızlı aksiyon çubuğu -->
+  <div class="quickbar" id="quickbar">
+    <a class="qb-wa" href="https://wa.me/905072340928?text=Merhaba%2C%20web%20sitenizden%20geldim.%20Bilgi%20alabilir%20miyim%3F" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="#fff" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 1.8a8.2 8.2 0 1 1-4.2 15.2l-.3-.2-3 .8.8-3-.2-.3A8.2 8.2 0 0 1 12 3.8Zm-3.1 4c-.2 0-.5 0-.7.3-.2.3-.9.9-.9 2.1s.9 2.4 1 2.6c.1.2 1.8 2.8 4.4 3.8 2.2.9 2.6.7 3.1.7.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2l-.5-.3-1.8-.9c-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.1-.2 0-.4.1-.5l.6-.7c.2-.2.2-.4.1-.6l-.9-1.9c-.2-.5-.4-.4-.6-.4Z"/></svg>
+      <span>WhatsApp ile Bilgi Al</span>
+    </a>
+    <button class="qb-share" id="shareBtn" type="button" aria-label="Sayfayı paylaş">
+      <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>
+    </button>
+  </div>
+  <div class="toast" id="toast" role="status">Bağlantı kopyalandı</div>
 
   <script src="assets/js/main.js" defer></script>
 </body>

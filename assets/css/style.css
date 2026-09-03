@@ -405,9 +405,70 @@ body.menu-open{overflow:hidden}
   .scroll-hint{display:none}
 }
 
+/* ---------- Okuma çubuğu ---------- */
+.progress{position:fixed;top:0;left:0;width:100%;height:3px;z-index:260;pointer-events:none;
+  background:linear-gradient(90deg,var(--accent),var(--brand) 60%,#25d366);
+  transform:scaleX(0);transform-origin:0 50%}
+
+/* ---------- Kısa giriş örtüsü ---------- */
+.loader{position:fixed;inset:0;z-index:400;display:grid;place-items:center;
+  background:linear-gradient(150deg,#0c3b42,var(--brand-deep) 55%,var(--brand));
+  color:#fff;transition:transform .75s var(--ease) .15s,visibility 0s .95s}
+.loader--done{transform:translateY(-101%);visibility:hidden}
+.loader-inner{display:flex;flex-direction:column;align-items:center;gap:10px;text-align:center;padding:1rem}
+.loader-logo img{width:88px;height:88px;border-radius:22px;object-fit:cover;border:3px solid rgba(255,255,255,.25);
+  box-shadow:0 20px 50px -18px rgba(0,0,0,.6);animation:loaderPop .6s var(--ease) both}
+@keyframes loaderPop{from{opacity:0;transform:scale(.6) rotate(-8deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+.loader-name{font-size:1.35rem;font-weight:900;letter-spacing:.34em;margin-top:8px;
+  animation:loaderFade .5s var(--ease) .18s both}
+.loader-sub{font-size:.7rem;letter-spacing:.24em;text-transform:uppercase;opacity:.85;
+  animation:loaderFade .5s var(--ease) .3s both}
+@keyframes loaderFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.loader-bar{width:150px;height:3px;margin-top:14px;border-radius:99px;background:rgba(255,255,255,.18);overflow:hidden}
+.loader-bar i{display:block;height:100%;width:0;border-radius:99px;
+  background:linear-gradient(90deg,var(--accent),#ffe9b3);animation:loaderFill .8s var(--ease) .1s forwards}
+@keyframes loaderFill{to{width:100%}}
+
+/* ---------- Dalga geçişleri ---------- */
+.wave-bottom,.wave-in{display:block;width:100%;pointer-events:none;margin-top:-1px}
+.wave-bottom path,.wave-in path{fill:currentColor}
+.wave-bottom{height:54px;color:var(--brand);background:var(--brand);margin-bottom:-18px}
+.wave-bottom path{fill:var(--brand)}
+.wave-in{height:60px;color:#f5faf8}
+.wave-in--bg{color:#f5faf8;height:56px;margin-bottom:-30px}
+
+/* ---------- Şerit geçiş (ribbon) ---------- */
+.ribbon{height:12px;background:repeating-linear-gradient(115deg,var(--brand) 0 26px,var(--brand-deep) 26px 52px,#0b3b42 52px 78px);border-block:0}
+.ribbon--gold{height:10px;background:repeating-linear-gradient(115deg,var(--accent) 0 22px,#d98a1f 22px 44px,var(--brand) 44px 66px);opacity:.9}
+
+/* ---------- Mobil hızlı aksiyon çubuğu ---------- */
+.quickbar{display:none}
+.toast{position:fixed;left:50%;bottom:96px;z-index:220;transform:translate(-50%,18px);opacity:0;
+  background:var(--ink);color:#fff;padding:.65rem 1.15rem;border-radius:999px;font-size:.85rem;font-weight:700;
+  box-shadow:var(--shadow);transition:opacity .3s var(--ease),transform .3s var(--ease);pointer-events:none;max-width:80vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+@media (max-width:760px){
+  body{padding-bottom:84px}
+  .quickbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:95;gap:10px;align-items:center;
+    padding:10px 12px calc(10px + env(safe-area-inset-bottom,0));
+    background:rgba(255,255,255,.94);backdrop-filter:blur(14px);border-top:1px solid var(--line);
+    box-shadow:0 -12px 30px -18px rgba(18,52,59,.35);transform:translateY(0);transition:transform .45s var(--ease)}
+  .quickbar.hide{transform:translateY(130%)}
+  .qb-wa{flex:1;display:inline-flex;align-items:center;justify-content:center;gap:.5rem;
+    background:#25d366;color:#073d1f;border-radius:999px;font-weight:800;font-size:.98rem;padding:.8rem .8rem;
+    box-shadow:0 12px 26px -12px rgba(37,211,102,.8)}
+  .qb-wa:active{transform:scale(.98)}
+  .qb-share{width:54px;height:54px;flex:none;display:grid;place-items:center;border-radius:50%;
+    border:1.5px solid var(--line);background:var(--surface);color:var(--brand)}
+  .qb-share:active{transform:scale(.95)}
+  .site-footer{padding-bottom:calc(2rem + env(safe-area-inset-bottom,0))}
+}
+
 /* ---------- Erişilebilirlik: az hareket ---------- */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}
   html{scroll-behavior:auto}
   .reveal,.hero .reveal{opacity:1!important;transform:none!important}
+  .loader{display:none!important}
+  .progress{display:none!important}
 }

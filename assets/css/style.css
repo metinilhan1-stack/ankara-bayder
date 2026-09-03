@@ -480,22 +480,24 @@ body.menu-open{overflow:hidden}
   .site-footer{padding-bottom:calc(2rem + env(safe-area-inset-bottom,0))}
 }
 
-/* ---------- Mobil: fotoğraf tam görünsün, metin altta ---------- */
+/* ---------- Mobil: dikey görsel + üzerinde bindirmeli metin ---------- */
 @media (max-width:860px){
-  .hero{display:block;height:auto;min-height:0;padding:0}
-  .hero-media{position:relative;inset:auto;height:auto;min-height:0;aspect-ratio:auto;background:none;line-height:0;z-index:0}
+  .hero{position:relative;height:100svh;min-height:640px;display:flex;align-items:flex-end}
+  .hero-media{position:absolute;inset:0;height:100%;background:#0d2b31;line-height:0}
   .hero-wide{display:none}
-  .hero-mobile-pic{display:block;line-height:0}
-  .hero-photo-m{position:static;width:100%;height:auto;object-fit:contain;display:block;animation:none}
-  .hero-tint{display:none}
+  .hero-mobile-pic{display:block}
+  .hero-photo-m{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;animation:none}
+  .hero-tint{display:block;opacity:1;
+    background:linear-gradient(180deg,rgba(9,25,35,.18) 0%,rgba(9,25,35,0) 38%,rgba(9,25,35,.3) 62%,rgba(9,25,35,.85) 100%),
+               linear-gradient(180deg,rgba(9,25,35,.1),rgba(9,25,35,.05))}
   .hero-curve{display:none}
-  .hero-content{color:var(--ink);padding:2.6rem 0 3.4rem;width:min(1180px,92%);margin-inline:auto}
-  .hero-content .hero-kicker{color:var(--brand)}
-  .hero-title{color:var(--ink);font-size:clamp(1.8rem,8.4vw,2.6rem)}
-  .hero-title .hl{color:var(--brand)}
-  .hero-sub{color:var(--body);max-width:560px;margin:.6rem 0 1.4rem}
-  .hero .btn-ghost{color:var(--brand);border-color:var(--brand)}
-  .hero .btn-ghost:hover{background:var(--brand);color:#fff}
+  .hero-content{color:#fff;padding:0 0 calc(6.5rem + env(safe-area-inset-bottom,0));width:min(1180px,92%);margin-inline:auto}
+  .hero-content .hero-kicker{color:#ffe9b3}
+  .hero-title{color:#fff;font-size:clamp(1.9rem,8.6vw,2.9rem)}
+  .hero-title .hl{color:var(--accent)}
+  .hero-sub{color:rgba(255,255,255,.92);max-width:540px;margin:.7rem 0 1.7rem}
+  .hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.6)}
+  .hero .btn-ghost:hover{background:#fff;color:var(--ink)}
   .scroll-hint{display:none}
 }
 @media (min-width:861px){

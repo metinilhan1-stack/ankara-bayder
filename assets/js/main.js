@@ -1,6 +1,6 @@
 /* ==========================================================================
-   Ankara Doğubayazıtlılar Derneği (BAY-DER) — arayüz betikleri
-   Giriş animasyonu + kaydırma efektleri + mobil aksiyonlar
+   Ankara Doğubayazıtlılar Derneği (BAY-DER)
+   Giriş + parçacıklar + scroll efektleri + mobil alt navigasyon
    ========================================================================== */
 
 (function () {
@@ -10,9 +10,7 @@
   var header = document.getElementById('header');
   var loader = document.getElementById('loader');
 
-  /* ---------------- Giriş örtüsü + hero yazıları ----------------
-     İlk ziyarette 1 sn'lik şık açılış; aynı oturumun tekrarında
-     "çat diye" doğrudan açılır. */
+  /* ---------------- Giriş örtüsü + hero yazıları ---------------- */
   function revealHero() {
     var els = document.querySelectorAll('.hero .reveal');
     els.forEach(function (el, i) {
@@ -46,14 +44,14 @@
     window.setTimeout(finishAfterRemainder, 3500);
   }
 
-  /* ---------------- Üst menü: kaydırma durumu ---------------- */
+  /* ---------------- Başlık durumu ---------------- */
   function onScroll() {
     if (header) header.classList.toggle('scrolled', window.scrollY > 40);
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------------- Mobil menü ---------------- */
+  /* ---------------- Mobil menü (hamburger) ---------------- */
   var navToggle = document.getElementById('navToggle');
   var nav = document.getElementById('nav');
   function closeMenu() {
@@ -72,28 +70,22 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
   window.addEventListener('resize', function () { if (window.innerWidth > 920) closeMenu(); });
 
-  /* ---------------- Okuma ilerleme çubuğu + hızlı çubuk ---------------- */
+  /* ---------------- Okuma ilerleme çubuğu ---------------- */
   var progress = document.getElementById('progress');
-  var quickbar = document.getElementById('quickbar');
-  var ticking = false;
-  function onProgress() {
+  var raf = false;
+  function updateBar() {
     var doc = document.documentElement;
     var max = doc.scrollHeight - window.innerHeight;
     var p = max > 0 ? window.scrollY / max : 0;
     if (progress) progress.style.transform = 'scaleX(' + p + ')';
-    if (quickbar) {
-      var nearEnd = doc.scrollHeight - window.scrollY - window.innerHeight < 170;
-      var atTop = window.scrollY < 200;
-      quickbar.classList.toggle('hide', atTop || nearEnd);
-    }
-    ticking = false;
+    raf = false;
   }
   window.addEventListener('scroll', function () {
-    if (!ticking) { requestAnimationFrame(onProgress); ticking = true; }
+    if (!raf) { requestAnimationFrame(updateBar); raf = true; }
   }, { passive: true });
-  onProgress();
+  updateBar();
 
-  /* ---------------- Kaydırma ile görünürlük animasyonları ---------------- */
+  /* ---------------- Reveal (scroll) ---------------- */
   var revealEls = document.querySelectorAll('.reveal:not(.hero .reveal)');
   if ('IntersectionObserver' in window && !prefersReduced) {
     var io = new IntersectionObserver(function (entries) {
@@ -109,7 +101,7 @@
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
-  /* ---------------- Sayaç animasyonu ---------------- */
+  /* ---------------- Sayaçlar ---------------- */
   function animateCount(el) {
     var target = parseInt(el.getAttribute('data-count'), 10) || 0;
     var suffix = el.getAttribute('data-suffix') || '';
@@ -135,31 +127,81 @@
     counters.forEach(function (c) { cObs.observe(c); });
   }
 
-  /* ---------------- Paylaş (Web Share API) ---------------- */
-  var shareBtn = document.getElementById('shareBtn');
-  var toast = document.getElementById('toast');
-  var toastTimer = null;
-  function showToast(msg) {
-    if (!toast) return;
-    toast.textContent = msg;
-    toast.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () { toast.classList.remove('show'); }, 2400);
+  /* ---------------- Yıldız / ışık parçacıkları ---------------- */
+  function seeded() {
+    var s = 2463534242;
+    return function () {
+      s ^= s << 13; s ^= s >>> 17; s ^= s << 5;
+      return ((s >>> 0) / 4294967296);
+    };
   }
-  if (shareBtn) {
-    shareBtn.addEventListener('click', function () {
-      var data = {
-        title: document.title,
-        text: 'Ankara Doğubayazıtlılar Derneği (BAY-DER) — başkentte buluşuyoruz.',
-        url: location.href
-      };
-      if (navigator.share) {
-        navigator.share(data).catch(function () {});
-      } else if (navigator.clipboard) {
-        navigator.clipboard.writeText(location.href).then(function () {
-          showToast('Bağlantı kopyalandı');
-        });
-      }
+  function buildFx(containerId, count, drift) {
+    var box = document.getElementById(containerId);
+    if (!box || prefersReduced) return;
+    var rnd = seeded();
+    var warm = ['#ffe9b3', '#ffd98f', '#e8f4ef', '#ffffff', '#bff0e3'];
+    for (var i = 0; i < count; i++) {
+      var s = document.createElement('span');
+      s.className = 'fx-star';
+      var size = (drift ? 1 + rnd() * 2.2 : 1.5 + rnd() * 2.6).toFixed(1);
+      s.style.width = size + 'px';
+      s.style.height = size + 'px';
+      s.style.left = (rnd() * 98).toFixed(1) + '%';
+      s.style.top = (rnd() * 96).toFixed(1) + '%';
+      s.style.background = warm[(rnd() * warm.length) | 0];
+      s.style.setProperty('--td', (drift ? 7 + rnd() * 8 : 3 + rnd() * 6).toFixed(2) + 's');
+      s.style.setProperty('--dd', (-rnd() * 10).toFixed(2) + 's');
+      if (drift) s.style.setProperty('--dy', (20 - rnd() * 60).toFixed(0) + 'px');
+      box.appendChild(s);
+    }
+  }
+  var wide = window.innerWidth >= 861;
+  buildFx('heroFx', wide ? 26 : 10, false);
+  buildFx('storyFx', 12, true);
+  buildFx('socialFx', 12, false);
+
+  /* ---------------- Yolculuk çizgisi ilerlemesi ---------------- */
+  var journey = document.getElementById('journey');
+  function updateJourney() {
+    if (!journey) return;
+    var r = journey.getBoundingClientRect();
+    var vh = window.innerHeight || 1;
+    var hit = (vh * 0.65 - r.top) / Math.max(r.height, 1);
+    var p = Math.min(Math.max(hit, 0), 1);
+    journey.style.setProperty('--j', p.toFixed(3));
+  }
+  var jRaf = false;
+  window.addEventListener('scroll', function () {
+    if (!jRaf && journey) { requestAnimationFrame(updateJourney); jRaf = true; }
+  }, { passive: true });
+  window.addEventListener('resize', updateJourney, { passive: true });
+  updateJourney();
+
+  /* ---------------- Mobil alt navigasyon: aktif bölüm ---------------- */
+  var barLinks = document.querySelectorAll('.bottombar a');
+  var barTargets = ['hero', 'hakkimizda', 'etkinlikler', 'firmalar', 'iletisim'].map(function (id) {
+    return document.getElementById(id);
+  });
+  var barTicking = false;
+  function updateBottomNav() {
+    var vh = window.innerHeight;
+    var pos = window.scrollY + vh * 0.35;
+    var activeId = 'hero';
+    barTargets.forEach(function (sec, idx) {
+      if (sec && sec.offsetTop <= pos) activeId = barTargets[idx].id;
     });
+    // footer/sosyal üzerinde iletişim aktif kalsın
+    barLinks.forEach(function (a) {
+      var on = a.getAttribute('data-sec') === activeId;
+      a.classList.toggle('active', on);
+      if (on) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+    barTicking = false;
   }
+  window.addEventListener('scroll', function () {
+    if (!barTicking) { requestAnimationFrame(updateBottomNav); barTicking = true; }
+  }, { passive: true });
+  window.addEventListener('resize', updateBottomNav, { passive: true });
+  updateBottomNav();
 })();

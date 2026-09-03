@@ -512,6 +512,155 @@ body.menu-open{overflow:hidden}
   .hero .btn-ghost:hover{background:#fff;color:var(--ink)}
 }
 
+/* ==========================================================================
+   PREMIUM KATMAN — storytelling, yolculuk, etkinlikler, firmalar, sosyal CTA
+   ========================================================================== */
+
+/* ---------- Parçacık alanları ---------- */
+.fx{position:absolute;inset:0;overflow:hidden;pointer-events:none;z-index:1}
+.fx-star{position:absolute;border-radius:50%;background:#fff;opacity:0;
+  animation:fxTwinkle var(--td,5s) ease-in-out infinite;animation-delay:var(--dd,0s);
+  will-change:transform,opacity}
+@keyframes fxTwinkle{0%,100%{opacity:.08;transform:scale(.7)}50%{opacity:.95;transform:scale(1.15)}}
+.fx--drift .fx-star{opacity:0;animation:fxDrift var(--td,11s) linear infinite;animation-delay:var(--dd,0s)}
+@keyframes fxDrift{0%{opacity:0;transform:translateX(-4vw) translateY(0)}8%{opacity:.9}92%{opacity:.7}100%{opacity:0;transform:translateX(108vw) translateY(var(--dy,0px))}}
+
+/* ---------- Storytelling ---------- */
+.story{position:relative;overflow:hidden;padding:clamp(5rem,12vw,9rem) 0;
+  background:radial-gradient(120% 90% at 20% 0%,#ffffff 0%,#f2f7f5 55%,#e6efec 100%);
+  text-align:center}
+.story .container{position:relative;z-index:2}
+.story-title{font-size:clamp(2rem,6.4vw,4.2rem);font-weight:900;letter-spacing:-.03em;line-height:1.08;margin-top:.5rem}
+.story-route{display:inline-flex;align-items:center;gap:1rem;margin:1.6rem 0 .6rem;
+  font-weight:800;font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--brand)}
+.story-route b{color:var(--accent);font-size:.9rem}
+.story-sub{max-width:640px;margin:1.1rem auto 0;font-size:clamp(1rem,1.8vw,1.15rem);color:var(--body)}
+
+/* ---------- Değerler ---------- */
+.values-title{margin-top:clamp(3rem,7vw,5rem);margin-bottom:1.2rem;font-size:clamp(1.3rem,3vw,1.9rem);color:var(--ink)}
+.feature-grid{counter-reset:feat}
+.feature-card{counter-increment:feat;position:relative}
+.feature-card::before{content:"0" counter(feat);position:absolute;top:1.1rem;right:1.3rem;font-weight:900;
+  font-size:.8rem;letter-spacing:.1em;color:var(--brand);opacity:.55}
+.feature-card p{font-weight:600;color:var(--brand-deep);opacity:.95}
+
+/* ---------- Yolculuk timeline ---------- */
+.journey{overflow:hidden}
+.journey-track{position:relative;list-style:none;margin-top:clamp(2.5rem,6vw,4rem);
+  display:grid;grid-template-columns:repeat(5,1fr);gap:1.2rem;padding:0}
+.journey-track::before,.journey-track::after{content:"";position:absolute;top:26px;left:6%;right:6%;
+  height:2px;border-radius:99px}
+.journey-track::before{background:var(--line)}
+.journey-track::after{background:linear-gradient(90deg,var(--brand),#14b8a6);
+  transform:scaleX(var(--j,0));transform-origin:left center}
+.journey-item{display:flex;flex-direction:column;align-items:center;text-align:center;
+  gap:.4rem;padding:0 .5rem;position:relative;z-index:1}
+.jdot{display:grid;place-items:center;width:56px;height:56px;border-radius:50%;margin-bottom:.9rem;
+  background:var(--surface);border:1.5px solid var(--line);color:var(--brand);
+  box-shadow:var(--shadow);transition:transform .3s var(--ease),border-color .3s,color .3s}
+.journey-item.in .jdot{border-color:var(--brand);color:var(--brand-deep)}
+.journey-item:hover .jdot{transform:translateY(-3px)}
+.journey-item h3{font-size:1.05rem}
+.journey-item p{font-size:.88rem;max-width:230px}
+
+/* ---------- Etkinlik kartları ---------- */
+.events-scroll{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;scroll-snap-type:x mandatory}
+.event-card{display:flex;gap:1rem;align-items:flex-start;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--r-lg);padding:1.5rem 1.4rem;
+  transition:transform .35s var(--ease),box-shadow .35s,border-color .3s;scroll-snap-align:start}
+.event-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg)}
+.event-date{flex:none;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  width:58px;height:58px;border-radius:16px;background:var(--brand-soft);color:var(--brand);
+  font-weight:900;line-height:1}
+.event-date b{font-size:1.35rem;color:var(--brand-deep)}
+.event-date i{font-style:normal;font-size:.62rem;margin-top:.3rem;letter-spacing:.04em;font-weight:700}
+.event-body{min-width:0}
+.event-tag{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--accent-ink);background:rgba(245,165,36,.16);border-radius:999px;padding:.25rem .6rem;margin-bottom:.5rem}
+.event-body h3{font-size:1.05rem;margin-bottom:.35rem}
+.event-desc{font-size:.88rem;color:var(--body)}
+.event-loc{display:inline-flex;align-items:center;gap:.3rem;margin-top:.6rem;font-size:.78rem;
+  font-weight:700;color:var(--brand-deep);background:var(--brand-soft);border-radius:999px;padding:.3rem .7rem}
+
+/* ---------- Firma / Esnaf ---------- */
+.biz-sectors{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:2.2rem}
+.biz-sectors li{font-size:.82rem;font-weight:700;color:var(--brand-deep);border:1px solid var(--line);
+  background:var(--surface);border-radius:999px;padding:.45rem 1rem}
+.biz-grid{max-width:640px;margin-inline:auto}
+.biz-empty{position:relative;text-align:center;background:linear-gradient(160deg,var(--surface),#eef6f3);
+  border:1px dashed rgba(15,118,110,.4);border-radius:var(--r-lg);padding:2.6rem 2rem;overflow:hidden}
+.biz-icon{display:grid;place-items:center;width:64px;height:64px;border-radius:20px;margin:0 auto 1rem;
+  background:var(--brand-soft);color:var(--brand)}
+.biz-empty h3{font-size:1.3rem;margin-bottom:.5rem}
+.biz-empty p{max-width:480px;margin:0 auto 1.4rem;font-size:.95rem}
+.biz-actions .btn{margin-top:.4rem}
+.biz-note{margin-top:1.6rem;text-align:center;font-size:.85rem;opacity:.75}
+
+/* ---------- Sosyal CTA ---------- */
+.social-cta{position:relative;overflow:hidden;text-align:center;color:#fff;
+  background:linear-gradient(150deg,#0a1f2e 0%,#0d2b3a 45%,#11524f 100%);padding:clamp(4rem,10vw,7rem) 0}
+.social-cta::before{content:"";position:absolute;inset:0;
+  background:radial-gradient(60% 80% at 50% 120%,rgba(245,165,36,.18),transparent 60%),
+             radial-gradient(50% 70% at 50% -20%,rgba(20,184,166,.18),transparent 60%)}
+.social-cta .container{position:relative;z-index:2}
+.social-cta .eyebrow{justify-content:center;color:#ffe9b3}
+.social-cta h2{color:#fff;font-size:clamp(1.9rem,5.4vw,3.4rem);margin:.4rem 0 1rem}
+.social-cta h2 .hl{color:var(--accent)}
+.social-cta p{color:rgba(255,255,255,.85);max-width:520px;margin:0 auto 2.2rem}
+.social-links{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem}
+.social-btn{display:inline-flex;align-items:center;gap:.7rem;padding:.9rem 1.5rem;border-radius:999px;
+  background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#fff;font-weight:800;
+  -webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
+  transition:transform .3s var(--ease),background .3s,border-color .3s}
+.social-btn:hover{transform:translateY(-3px);background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.35)}
+
+/* ---------- Mobil alt navigasyon + FAB ---------- */
+.wa-fab{display:none}
+.bottombar{display:none}
+@media (max-width:900px){
+  body{padding-bottom:calc(78px + env(safe-area-inset-bottom,0))}
+  .bottombar{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;left:0;right:0;bottom:0;z-index:95;
+    background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(18px);backdrop-filter:blur(18px);
+    border-top:1px solid rgba(18,52,59,.1);box-shadow:0 -14px 34px -22px rgba(18,52,59,.4);
+    padding:6px 4px calc(6px + env(safe-area-inset-bottom,0))}
+  .bottombar a{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;
+    min-height:52px;color:#647b81;font-size:.64rem;font-weight:700;border-radius:14px;
+    transition:color .2s,background .2s,transform .2s}
+  .bottombar a svg{transition:transform .25s var(--ease)}
+  .bottombar a.active{color:var(--brand-deep)}
+  .bottombar a.active span{position:relative}
+  .bottombar a.active span::after{content:"";position:absolute;left:50%;bottom:-4px;width:16px;height:2px;
+    margin-left:-8px;border-radius:99px;background:var(--accent)}
+  .bottombar a:active{transform:scale(.96)}
+  .wa-fab{display:grid;place-items:center;position:fixed;right:16px;bottom:calc(86px + env(safe-area-inset-bottom,0));
+    width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;z-index:96;
+    box-shadow:0 16px 34px -12px rgba(37,211,102,.9);animation:fabPulse 3s ease-in-out infinite}
+  .wa-fab:active{transform:scale(.94)}
+}
+@keyframes fabPulse{0%,100%{box-shadow:0 16px 34px -12px rgba(37,211,102,.85)}50%{box-shadow:0 20px 44px -8px rgba(37,211,102,1)}}
+@media (min-width:901px){
+  .wa-fab,.bottombar{display:none}
+}
+
+/* ---------- Parçacıkları hafifletme: az hareket ---------- */
+@media (prefers-reduced-motion:reduce){
+  .fx{display:none}
+}
+
+@media (max-width:920px){
+  .journey-track{grid-template-columns:1fr;gap:2rem;padding-left:0}
+  .journey-track::before{top:10px;bottom:10px;left:27px;right:auto;width:2px;height:auto;transform:none}
+  .journey-track::after{top:10px;bottom:10px;left:27px;right:auto;width:2px;height:auto;
+    background:linear-gradient(180deg,var(--brand),#14b8a6);transform:scaleY(var(--j,0));transform-origin:top}
+  .journey-item{align-items:flex-start;text-align:left;padding-left:74px;gap:.15rem}
+  .journey-item .jdot{position:absolute;left:0;top:0;margin:0}
+  .journey-item p{max-width:none;padding-right:4px}
+  .events-scroll{grid-auto-flow:column;grid-auto-columns:min(80vw,340px);overflow-x:auto;
+    padding:4px 2px 16px;scroll-padding-left:4px}
+  .events-scroll::-webkit-scrollbar{height:6px}
+  .events-scroll::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+}
+
 /* ---------- Erişilebilirlik: az hareket ---------- */
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation-duration:.001s!important;animation-iteration-count:1!important;transition-duration:.001s!important}

@@ -1991,3 +1991,5 @@ body.menu-open{
   /* Yol çizgisi/boncuk yazı hizasından çıkarıldı (sol tarafta kalır) */
   .nav-content{padding-left:3.4rem}
 }
+/* kaldırılan siluet */
+.nav-mtn{display:none !important}

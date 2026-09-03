@@ -379,7 +379,7 @@ body.menu-open{overflow:hidden}
   .officers{grid-template-columns:repeat(2,1fr)}
   .nav{position:fixed;top:0;bottom:0;right:0;left:auto;width:min(90vw,420px);z-index:55;
        display:flex;flex-direction:column;align-items:flex-start;justify-content:center;
-       gap:.4rem;text-align:left;color:#fff;overflow:hidden;
+       gap:0;text-align:left;color:#fff;overflow:hidden;
        padding:calc(86px + env(safe-area-inset-top,0)) clamp(1.4rem,5vw,2.2rem)
               calc(1.6rem + env(safe-area-inset-bottom,0));
        background:radial-gradient(120% 70% at 20% -12%,rgba(20,184,166,.22),transparent 55%),
@@ -401,18 +401,20 @@ body.menu-open{overflow:hidden}
                repeating-linear-gradient(112deg,rgba(255,255,255,.05) 0 40px,transparent 40px 80px);
     animation:navWave 28s linear infinite reverse}
   @keyframes navWave{to{background-position:180px 0}}
-  .nav a:not(.nav-cta){position:relative;font-size:clamp(1.5rem,6.4vw,1.95rem);font-weight:800;
-    padding:.55rem .8rem;color:#fff;opacity:0;transform:translateX(22px)}
-  .nav a:not(.nav-cta)::before{content:"";position:absolute;left:.8rem;bottom:.5rem;width:56%;height:2px;
-    margin-left:0;border-radius:99px;background:var(--accent);transform:scaleX(0);transform-origin:left;
-    transition:transform .3s var(--ease)}
+  .nav a:not(.nav-cta){position:relative;display:block;width:100%;
+    font-size:clamp(1.02rem,3.9vw,1.24rem);font-weight:700;letter-spacing:.01em;
+    padding:.98rem .2rem;border-bottom:1px solid rgba(255,255,255,.12);
+    color:#fff;opacity:0;transform:translateX(22px)}
+  .nav a:not(.nav-cta)::before{content:"";position:absolute;left:.1rem;top:50%;width:2px;height:0;
+    transform:translateY(-50%);border-radius:99px;background:var(--accent);
+    transition:height .25s var(--ease)}
   .nav a:not(.nav-cta):hover{color:#ffe9b3}
-  .nav a:not(.nav-cta):hover::before{transform:scaleX(1)}
+  .nav a:not(.nav-cta):hover::before{height:56%}
   .site-header.menu-open .nav a:not(.nav-cta){opacity:1;transform:none;
     transition:opacity .55s var(--ease) var(--d,0s),transform .55s var(--ease) var(--d,0s)}
   .nav a:nth-of-type(1){--d:.12s}.nav a:nth-of-type(2){--d:.20s}.nav a:nth-of-type(3){--d:.28s}
   .nav a:nth-of-type(4){--d:.36s}.nav a:nth-of-type(5){--d:.44s}.nav a:nth-of-type(6){--d:.52s}
-  .nav-cta{margin:1.2rem 0 0;font-size:1.05rem;padding:.9rem 2.3rem;opacity:0;transform:translateX(22px);
+  .nav-cta{margin:1.3rem 0 0;font-size:.98rem;padding:.8rem 2.1rem;opacity:0;transform:translateX(22px);
     box-shadow:0 18px 38px -16px rgba(0,0,0,.6)}
   .site-header.menu-open .nav-cta{opacity:1;transform:none;transition:opacity .5s var(--ease) .62s,transform .5s var(--ease) .62s}
   .nav-toggle{display:flex;color:inherit;z-index:60}
@@ -633,9 +635,8 @@ body.menu-open{overflow:hidden}
   transition:transform .3s var(--ease),background .3s,border-color .3s}
 .social-btn:hover{transform:translateY(-3px);background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.35)}
 
-/* ---------- Mobil alt navigasyon + FAB ---------- */
-body.menu-open .bottombar,body.menu-open .wa-fab{opacity:0;pointer-events:none;transform:translateY(30px)}
-.wa-fab{display:none}
+/* ---------- Mobil alt navigasyon ---------- */
+body.menu-open .bottombar{opacity:0;pointer-events:none;transform:translateY(30px)}
 .bottombar{display:none}
 @media (max-width:900px){
   body{padding-bottom:calc(78px + env(safe-area-inset-bottom,0))}
@@ -652,14 +653,6 @@ body.menu-open .bottombar,body.menu-open .wa-fab{opacity:0;pointer-events:none;t
   .bottombar a.active span::after{content:"";position:absolute;left:50%;bottom:-4px;width:16px;height:2px;
     margin-left:-8px;border-radius:99px;background:var(--accent)}
   .bottombar a:active{transform:scale(.96)}
-  .wa-fab{display:grid;place-items:center;position:fixed;right:16px;bottom:calc(86px + env(safe-area-inset-bottom,0));
-    width:58px;height:58px;border-radius:50%;background:#25d366;color:#fff;z-index:96;
-    box-shadow:0 16px 34px -12px rgba(37,211,102,.9);animation:fabPulse 3s ease-in-out infinite}
-  .wa-fab:active{transform:scale(.94)}
-}
-@keyframes fabPulse{0%,100%{box-shadow:0 16px 34px -12px rgba(37,211,102,.85)}50%{box-shadow:0 20px 44px -8px rgba(37,211,102,1)}}
-@media (min-width:901px){
-  .wa-fab,.bottombar{display:none}
 }
 
 /* ---------- Parçacıkları hafifletme: az hareket ---------- */

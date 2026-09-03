@@ -101,6 +101,7 @@ body.menu-open{overflow:hidden}
 .hero{position:relative;min-height:100svh;display:flex;align-items:center;color:#fff;overflow:hidden}
 .hero-media{position:absolute;inset:0;z-index:-1;background:#0c2b38}
 .hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform-origin:center;animation:heroZoom 30s ease-in-out infinite alternate}
+.hero-mobile-pic{display:none}
 .hero-tint{position:absolute;inset:0;
   background:linear-gradient(180deg,rgba(9,25,35,.5),rgba(9,25,35,.2) 45%,rgba(9,25,35,.55) 100%),
              linear-gradient(100deg,rgba(9,25,35,.8) 0%,rgba(9,25,35,.35) 48%,rgba(9,25,35,.1) 78%)}
@@ -483,8 +484,9 @@ body.menu-open{overflow:hidden}
 @media (max-width:860px){
   .hero{display:block;height:auto;min-height:0;padding:0}
   .hero-media{position:relative;inset:auto;height:auto;min-height:0;aspect-ratio:auto;background:none;line-height:0;z-index:0}
-  .hero-media picture{display:block}
-  .hero-photo{position:static;width:100%;height:auto;object-fit:contain;display:block;animation:none}
+  .hero-wide{display:none}
+  .hero-mobile-pic{display:block;line-height:0}
+  .hero-photo-m{position:static;width:100%;height:auto;object-fit:contain;display:block;animation:none}
   .hero-tint{display:none}
   .hero-curve{display:none}
   .hero-content{color:var(--ink);padding:2.6rem 0 3.4rem;width:min(1180px,92%);margin-inline:auto}

@@ -179,7 +179,7 @@
 
   /* ---------------- Mobil alt navigasyon: aktif bölüm ---------------- */
   var barLinks = document.querySelectorAll('.bottombar a');
-  var barTargets = ['hero', 'hakkimizda', 'etkinlikler', 'firmalar', 'iletisim'].map(function (id) {
+  var barTargets = ['hero', 'hakkimizda', 'etkinlikler', 'iletisim'].map(function (id) {
     return document.getElementById(id);
   });
   var barTicking = false;

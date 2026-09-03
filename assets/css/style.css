@@ -1823,3 +1823,12 @@ body.menu-open{
   .nav-link{gap:12px;padding:1.05rem 2.6rem 1.05rem 4px}
   .nav-link::before{margin:0;flex:none}
 }
+
+/* ===== MENÜ: sağ kenar dışa taşan convex oval ===== */
+@media (max-width:920px){
+  .nav{background:#071c27;
+    -webkit-mask:none !important;mask:none !important;
+    border-radius:0 999px 999px 0 !important;border-top-right-radius:999px !important;border-bottom-right-radius:999px !important}
+  .nav-index{right:20px !important}
+  .nav-bottom{right:88px !important}
+}

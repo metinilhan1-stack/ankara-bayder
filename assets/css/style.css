@@ -1676,3 +1676,95 @@ body.menu-open{
   .site-header.menu-open .nav{transform:translateX(0);visibility:visible;
     transition:transform .75s cubic-bezier(.22,1,.36,1),visibility 0s linear 0s}
 }
+
+/* ===== MENÜ "ROTA VE YILDIZ" — eşsiz tasarım ===== */
+@media (max-width:920px){
+  .nav{position:fixed !important;top:0 !important;bottom:0 !important;left:auto !important;right:0 !important;
+    width:min(88vw,440px) !important;height:auto !important;max-height:none !important;
+    z-index:105;display:block !important;color:#fff;overflow:hidden;
+    background:
+      radial-gradient(120% 70% at 20% -8%, rgba(20,184,166,.2), transparent 55%),
+      radial-gradient(130% 90% at 80% 115%, rgba(245,165,36,.12), transparent 60%),
+      conic-gradient(from 200deg at -12% 50%, #071c27 0 96deg, #0b5658 150deg, #071c27 210deg, #092c36 280deg, #071c27 360deg);
+    border-left:1px solid rgba(255,255,255,.09);
+    -webkit-clip-path:none !important;clip-path:none !important;
+    transform:translateX(104%);visibility:hidden;
+    transition:transform .65s cubic-bezier(.7,0,.2,1), visibility 0s linear .65s}
+  .site-header.menu-open .nav{transform:translateX(0);visibility:visible;
+    transition:transform .7s cubic-bezier(.22,1,.36,1), visibility 0s linear 0s}
+
+  /* üstte Anadolu motif şeridi */
+  .nav::before{content:"";position:absolute;top:0;left:0;right:0;height:54px;pointer-events:none;z-index:1;
+    background:
+      linear-gradient(45deg, rgba(255,255,255,.06) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.06) 75%),
+      linear-gradient(135deg, rgba(255,255,255,.06) 25%, transparent 25%, transparent 75%, rgba(255,255,255,.06) 75%);
+    background-size:56px 56px;background-position:0 0,28px 28px;opacity:.6;
+    -webkit-mask:linear-gradient(180deg,#000 55%,transparent);mask:linear-gradient(180deg,#000 55%,transparent)}
+  .nav::after{content:"";position:absolute;left:34px;top:96px;bottom:96px;width:2px;z-index:0;
+    background:linear-gradient(180deg,var(--accent),#f5a524);
+    transform:scaleY(0);transform-origin:top;opacity:.75;
+    transition:transform .8s cubic-bezier(.22,1,.36,1) .12s}
+  .site-header.menu-open .nav::after{transform:scaleY(1)}
+
+  /* yörünge halesi (yıldız) */
+  .nav-wave-main{position:absolute;top:-26%;right:-34%;left:auto;width:72vw;height:72vw;
+    border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, rgba(20,184,166,.5), rgba(13,148,136,.16) 55%, transparent 70%);
+    filter:blur(6px);transform:none;opacity:.9;animation:navOrb 18s linear infinite}
+  .nav-wave-back{position:absolute;top:-12%;right:-16%;left:auto;width:56vw;height:56vw;border-radius:50%;
+    background:none;transform:none;opacity:1;
+    border:1px dashed rgba(245,165,36,.55);animation:navOrb 30s linear infinite reverse}
+  @keyframes navOrb{to{transform:rotate(360deg)}}
+
+  /* içerik */
+  .nav-content{position:relative;z-index:5;width:100%;height:100%;max-width:none;margin:0;
+    display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:0;
+    padding:calc(78px + env(safe-area-inset-top,0)) 2rem calc(96px + env(safe-area-inset-bottom,0)) 2.4rem}
+
+  /* öğeler: 3D süzülme + elmas madde + indeks */
+  .nav-link{position:relative;display:flex;align-items:center;gap:1rem;width:100%;
+    padding:1.02rem .8rem 1.02rem 0;padding-right:2.4rem;
+    color:#fff;font-weight:700;font-size:clamp(1.03rem,4.1vw,1.2rem);
+    border-radius:0;border-bottom:1px solid rgba(255,255,255,.09);
+    opacity:0;transform:translateX(-26px) perspective(720px) rotateY(14deg) translateZ(-12px);
+    transition:opacity .5s ease var(--d,0s), transform .6s cubic-bezier(.2,.9,.3,1.2) var(--d,0s)}
+  .site-header.menu-open .nav-link{opacity:1;transform:none}
+  .nav-link::before{content:"";width:8px;height:8px;flex:none;
+    background:var(--accent);transform:rotate(45deg);
+    box-shadow:0 0 12px rgba(245,165,36,.9);transition:transform .35s var(--ease),background .25s}
+  .nav-link:hover{color:#ffe9b3}
+  .nav-link:hover::before{transform:rotate(225deg) scale(1.35)}
+  .nav-link::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:0;
+    background:linear-gradient(90deg,var(--accent),#ffd98f);transition:width .35s var(--ease)}
+  .nav-link:hover::after{width:100%}
+  .nav-index{position:absolute;right:0;top:50%;transform:translateY(-50%);
+    min-width:22px;font-size:.58rem;font-weight:800;letter-spacing:.1em;opacity:.45}
+  .nav-content .nav-link:nth-child(1){--d:.05s}
+  .nav-content .nav-link:nth-child(2){--d:.12s}
+  .nav-content .nav-link:nth-child(3){--d:.19s}
+  .nav-content .nav-link:nth-child(4){--d:.26s}
+  .nav-content .nav-link:nth-child(5){--d:.33s}
+  .nav-content .nav-link:nth-child(6){--d:.40s}
+  .nav-content .nav-link:nth-child(7){--d:.47s}
+
+  /* Üye Ol */
+  .nav-cta{align-self:flex-start;margin:1.4rem 0 0;padding:.85rem 1.4rem;border-radius:14px;
+    font-size:.98rem;opacity:0;transform:translateY(20px);
+    transition:opacity .45s ease .55s, transform .5s cubic-bezier(.22,1,.36,1) .55s, box-shadow .25s ease}
+  .site-header.menu-open .nav-cta{opacity:1;transform:none}
+
+  /* alt etiket */
+  .nav-bottom{position:absolute;z-index:5;left:2.4rem;right:2rem;bottom:calc(20px + env(safe-area-inset-bottom,0));
+    display:flex;align-items:center;gap:.65rem;font-size:.52rem;font-weight:800;letter-spacing:.22em;
+    color:rgba(255,255,255,.36);opacity:0;transform:translateY(10px);
+    transition:opacity .5s ease .7s, transform .5s ease .7s}
+  .site-header.menu-open .nav-bottom{opacity:1;transform:none}
+  .nav-bottom i{width:28px;height:1px;background:rgba(255,255,255,.25)}
+
+  /* karartma */
+  body.menu-open::before{content:"";position:fixed;inset:0;z-index:100;pointer-events:none;
+    background:rgba(5,15,20,.5)}
+}
+@media (prefers-reduced-motion:reduce){
+  .nav,.nav-link,.nav-cta,.nav-bottom,.nav-wave,.nav::before,.nav::after{animation:none !important;transition:none !important}
+}

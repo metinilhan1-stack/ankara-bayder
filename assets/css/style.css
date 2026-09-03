@@ -1309,3 +1309,6 @@ body.menu-open{
 
 
 @media (min-width:921px){.nav-wave,.nav-bottom{display:none}}
+
+/* Kaydırmada header blur'u menüyü küçültmesin */
+.site-header.menu-open{-webkit-backdrop-filter:none !important;backdrop-filter:none !important;filter:none !important}

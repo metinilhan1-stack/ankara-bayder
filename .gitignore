@@ -1,3 +1,7 @@
 # Ayrı proje: Facebook günlük paylaşım botu (siteye dahil değil)
 /fb-bot/
 .DS_Store
+
+# Menü tasarımı için ChatGPT çalışma dosyası (siteye dahil değil)
+/menu-cgpt.txt
+

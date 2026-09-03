@@ -1817,3 +1817,9 @@ body.menu-open{
             mask:url('../img/menu-concave.svg') no-repeat center / 100% 100%}
   .nav-index{right:84px !important}
 }
+
+/* ===== MENÜ: nokta-yazı boşluğu (10px+) ===== */
+@media (max-width:920px){
+  .nav-link{gap:12px;padding:1.05rem 2.6rem 1.05rem 4px}
+  .nav-link::before{margin:0;flex:none}
+}

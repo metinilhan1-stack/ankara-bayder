@@ -2018,3 +2018,27 @@ body.menu-open{
     transition:opacity .5s ease var(--d,0s), transform .5s ease var(--d,0s)}
   .site-header.menu-open .nav-index{opacity:1;transform:translateY(-50%) translateX(0)}
 }
+
+/* ===== SİTE AÇILIŞ ANİMASYONU (GELİŞMİŞ) ===== */
+.loader-logo{position:relative}
+.loader-logo::before{content:"";position:absolute;inset:-16px;border-radius:50%;
+  border:2px solid rgba(255,255,255,.16);border-top-color:var(--accent);border-right-color:#ffe9b3;
+  animation:loaderRing 1.5s linear infinite}
+@keyframes loaderRing{to{transform:rotate(360deg)}}
+.loader-logo::after{content:"";position:absolute;inset:-34px;border-radius:50%;
+  background:radial-gradient(circle,rgba(245,165,36,.22),transparent 65%);
+  animation:loaderHalo 2.4s ease-in-out infinite}
+@keyframes loaderHalo{0%,100%{opacity:.5;transform:scale(.9)}50%{opacity:1;transform:scale(1.08)}}
+.loader-name{background:linear-gradient(90deg,#fff 20%,#ffe9b3 40%,#fff 60%);
+  background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;
+  animation:loaderShine 1.7s linear infinite}
+@keyframes loaderShine{to{background-position:-200% 0}}
+.loader-inner{perspective:700px}
+.loader-logo img{animation:loaderPop .7s var(--ease) both, loaderBob 3.2s ease-in-out 1s infinite}
+
+/* açılış: iki katman perde — üst koyu şerit yukarı, panel yukarı kayar */
+.loader::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,#0a2a34,#0d3b43);
+  transform:translateY(0);transition:transform 1s cubic-bezier(.7,0,.2,1) .15s}
+.loader--done::after{transform:translateY(-101%)}
+.loader--done{transform:translateY(-101%)}

@@ -488,10 +488,11 @@ body.menu-open{overflow:hidden}
   .hero-mobile-pic{display:block}
   .hero-photo-m{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block;animation:none}
   .hero-tint{display:block;opacity:1;
-    background:linear-gradient(180deg,rgba(9,25,35,.18) 0%,rgba(9,25,35,0) 38%,rgba(9,25,35,.3) 62%,rgba(9,25,35,.85) 100%),
-               linear-gradient(180deg,rgba(9,25,35,.1),rgba(9,25,35,.05))}
-  .hero-curve{display:none}
-  .hero-content{color:#fff;padding:0 0 calc(6.5rem + env(safe-area-inset-bottom,0));width:min(1180px,92%);margin-inline:auto}
+    background:linear-gradient(180deg,rgba(9,25,35,.16) 0%,rgba(9,25,35,0) 36%,rgba(9,25,35,.24) 55%,rgba(9,25,35,.88) 100%),
+               linear-gradient(180deg,rgba(9,25,35,.1),rgba(9,25,35,.06))}
+  .hero-curve{display:block;height:120px;fill:var(--brand);bottom:-1px}
+  .hero-curve path{fill:var(--brand)}
+  .hero-content{color:#fff;padding:0;width:min(1180px,92%);margin-inline:auto;transform:translateY(-9vh)}
   .hero-content .hero-kicker{color:#ffe9b3}
   .hero-title{color:#fff;font-size:clamp(1.9rem,8.6vw,2.9rem)}
   .hero-title .hl{color:var(--accent)}

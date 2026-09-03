@@ -83,7 +83,8 @@
     if (progress) progress.style.transform = 'scaleX(' + p + ')';
     if (quickbar) {
       var nearEnd = doc.scrollHeight - window.scrollY - window.innerHeight < 170;
-      quickbar.classList.toggle('hide', nearEnd);
+      var atTop = window.scrollY < 200;
+      quickbar.classList.toggle('hide', atTop || nearEnd);
     }
     ticking = false;
   }

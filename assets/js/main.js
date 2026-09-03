@@ -27,7 +27,7 @@
     revealHero();
   } else {
     var finished = false;
-    var MIN_MS = 5200;
+    var MIN_MS = 6000;
     var t0 = performance.now();
     function finish() {
       if (finished) return;
@@ -41,7 +41,7 @@
       setTimeout(finish, remain);
     }
     window.addEventListener('load', finishAfterRemainder, { once: true });
-    window.setTimeout(finishAfterRemainder, 3500);
+    window.setTimeout(finishAfterRemainder, 4000);
   }
 
   /* ---------------- Başlık durumu ---------------- */

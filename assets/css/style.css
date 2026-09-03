@@ -1802,3 +1802,10 @@ body.menu-open{
                padding-bottom:calc(94px + env(safe-area-inset-bottom,0))}
   .nav-bottom{left:2.4rem;right:2.4rem;bottom:calc(28px + env(safe-area-inset-bottom,0))}
 }
+
+/* ===== MENÜ: noktadan biraz uzaklık + oval sadece üst yarı ===== */
+@media (max-width:920px){
+  .nav{border-radius:0 999px 0 0 !important;border-top-left-radius:0 !important;border-bottom-left-radius:0 !important;border-bottom-right-radius:0 !important;border-top-right-radius:999px !important}
+  .nav-link{gap:.9rem;padding:1.05rem 2.6rem 1.05rem 0}
+  .nav-index{position:absolute !important;right:14px;top:50%;transform:translateY(-50%);margin-left:0 !important;min-width:20px}
+}

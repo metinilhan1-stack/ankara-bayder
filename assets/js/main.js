@@ -6,13 +6,10 @@
   'use strict';
 
   /* ------------------------------------------------------------------
-   * YAYIN ÖNCESİ GÜNCELLENECEK SABİTLER (YER TUTUCU)
-   * WhatsApp numarası: ülke kodu ile, başında 0 olmadan yazın.
-   * Örnek: "9053XXXXXXXX" (053X… değil!)   — boş bırakılırsa form
-   * e-posta ile gönderilir.
+   * Üyelik akışı: "Üye Ol" bölümündeki buton, Barış Tanrıkulu'na
+   * (Başkan Yardımcısı) hazır mesajla WhatsApp görüşmesi açar.
+   * Mesaj metni ve numara index.html içindeki bağlantıda gömülüdür.
    * ------------------------------------------------------------------ */
-  var WHATSAPP = '';              // örn. "905XXXXXXXXX"
-  var DERNEK_EMAIL = 'info@ankaradogubayazitlilar.org';
 
   var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -96,47 +93,5 @@
       });
     }, { threshold: 0.6 });
     counters.forEach(function (c) { cObs.observe(c); });
-  }
-
-  /* ---------------- Üyelik formu: WhatsApp / e-posta ---------------- */
-  var form = document.getElementById('joinForm');
-  if (form) {
-    form.addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      var fd = new FormData(form);
-      var ad = (fd.get('ad') || '').trim();
-      var tel = (fd.get('telefon') || '').trim();
-      var bag = (fd.get('baglantı') || '').trim();
-      var mesaj = (fd.get('mesaj') || '').trim();
-
-      if (!ad || !tel) {
-        form.querySelector('.form-legal').textContent = 'Lütfen ad soyad ve telefon alanlarını doldurun.';
-        return;
-      }
-
-      var body = 'Merhaba, üye olmak istiyorum.\n\n' +
-        'Ad Soyad: ' + ad + '\n' +
-        'Telefon: ' + tel +
-        (bag ? '\nDoğubayazıt bağlantısı: ' + bag : '') +
-        (mesaj ? '\nMesaj: ' + mesaj : '') +
-        '\n\n(Bu mesaj BAY-DER web sitesinden gönderildi.)';
-
-      if (WHATSAPP) {
-        window.open('https://wa.me/' + WHATSAPP + '?text=' + encodeURIComponent(body), '_blank', 'noopener');
-      } else {
-        var mailto = 'mailto:' + DERNEK_EMAIL +
-          '?subject=' + encodeURIComponent('Üyelik Başvurusu — ' + ad) +
-          '&body=' + encodeURIComponent(body);
-        window.location.href = mailto;
-      }
-
-      form.reset();
-      var note = form.querySelector('.form-legal');
-      note.textContent = 'Başvurunuz alındı. Yönetim kurulumuz en kısa sürede sizinle iletişime geçecek.';
-      note.style.color = '#0f766e';
-      note.style.fontWeight = '700';
-      note.style.opacity = '1';
-    });
   }
 })();

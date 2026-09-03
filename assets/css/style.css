@@ -1768,3 +1768,23 @@ body.menu-open{
 @media (prefers-reduced-motion:reduce){
   .nav,.nav-link,.nav-cta,.nav-bottom,.nav-wave,.nav::before,.nav::after{animation:none !important;transition:none !important}
 }
+
+/* ===== MENÜ DÜZELTME: soldan açılır, sola yanaşık, hover sadeleştirildi ===== */
+@media (max-width:920px){
+  .nav{left:0 !important;right:auto !important;top:0 !important;bottom:0 !important;
+    width:min(88vw,440px) !important;height:auto !important;max-height:none !important;
+    transform:translateX(-104%);visibility:hidden;
+    transition:transform .6s cubic-bezier(.7,0,.2,1), visibility 0s linear .6s}
+  .site-header.menu-open .nav{transform:translateX(0);visibility:visible;
+    transition:transform .66s cubic-bezier(.22,1,.36,1), visibility 0s linear 0s}
+  .nav-link{transform:translateX(-22px);
+    transition:opacity .5s ease var(--d,0s), transform .55s cubic-bezier(.22,1,.36,1) var(--d,0s)}
+  .site-header.menu-open .nav-link{opacity:1;transform:none}
+  .nav-link::before{width:8px;height:8px;transform:rotate(45deg);box-shadow:none;
+    transition:transform .25s ease}
+  .nav-link:hover::before{transform:rotate(45deg)}
+  .nav-link::after{width:0}
+  .nav-link:hover::after{width:0 !important}
+  .nav-link:hover{color:#ffe9b3}
+  .nav-content{justify-content:center}
+}

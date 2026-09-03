@@ -1845,3 +1845,113 @@ body.menu-open{
   .nav-cta{display:none !important}
   .nav-content{padding-bottom:calc(60px + env(safe-area-inset-bottom,0))}
 }
+
+/* ==========================================================================
+   YAN MENÜ "KERVAN KAPISI" — Doğubayazıt → Ankara
+   ========================================================================== */
+@media (max-width:920px){
+  .nav{position:fixed !important;top:0 !important;bottom:0 !important;left:0 !important;right:auto !important;
+    width:min(90vw,440px) !important;height:auto !important;max-height:none !important;z-index:105;
+    display:block !important;color:#fff;overflow:hidden;border-left:0;
+    -webkit-mask:none !important;mask:none !important;
+    -webkit-clip-path:none !important;clip-path:none !important;
+    border-radius:0 !important;box-shadow:0 30px 70px -30px rgba(0,0,0,.7);
+    background:
+      radial-gradient(90% 45% at 20% 0%, rgba(245,165,36,.22), transparent 55%),
+      radial-gradient(80% 40% at 85% 8%, rgba(245,165,36,.14), transparent 55%),
+      radial-gradient(120% 70% at 70% 100%, rgba(20,184,166,.2), transparent 60%),
+      linear-gradient(172deg, #2a1f14 0%, #3a2a16 26%, #0d2b33 62%, #08202c 100%);
+    transform:translateX(-104%);visibility:hidden;
+    transition:transform .7s cubic-bezier(.7,0,.18,1), visibility 0s linear .7s}
+  .site-header.menu-open .nav{transform:translateX(0);visibility:visible;
+    transition:transform .78s cubic-bezier(.16,1,.3,1), visibility 0s linear 0s}
+
+  /* yıldızlar */
+  .nav::before{content:"";position:absolute;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      radial-gradient(1.4px 1.4px at 18% 22%, rgba(255,255,255,.85) 50%, transparent 51%),
+      radial-gradient(1.2px 1.2px at 38% 14%, rgba(255,255,255,.6) 50%, transparent 51%),
+      radial-gradient(1px 1px at 60% 20%, rgba(255,255,255,.7) 50%, transparent 51%),
+      radial-gradient(1.4px 1.4px at 76% 12%, rgba(255,255,255,.55) 50%, transparent 51%),
+      radial-gradient(1px 1px at 28% 36%, rgba(255,255,255,.45) 50%, transparent 51%),
+      radial-gradient(1.2px 1.2px at 88% 30%, rgba(255,255,255,.5) 50%, transparent 51%);
+    animation:navTwinkle 3.4s ease-in-out infinite;opacity:0}
+  .site-header.menu-open .nav::before{opacity:1}
+  @keyframes navTwinkle{0%,100%{opacity:.35}50%{opacity:1}}
+
+  /* paralel ışık çizgisi (gönül yolu) — açılışta çizilir */
+  .nav::after{content:"";position:absolute;left:18px;top:84px;bottom:88px;width:2px;z-index:1;
+    background:linear-gradient(180deg,var(--accent),#ffd98f 30%,#14b8a6 100%);
+    transform:scaleY(0);transform-origin:top;opacity:.85;
+    transition:transform .9s cubic-bezier(.22,1,.36,1) .25s}
+  .site-header.menu-open .nav::after{transform:scaleY(1)}
+
+  /* üstte kale dişli kemer motifi */
+  .nav-gate{position:absolute;z-index:1;top:12px;left:24px;right:24px;height:34px;pointer-events:none;
+    background:
+      linear-gradient(45deg, rgba(245,165,36,.35) 25%, transparent 25%, transparent 75%, rgba(245,165,36,.35) 75%),
+      linear-gradient(135deg, rgba(245,165,36,.35) 25%, transparent 25%, transparent 75%, rgba(245,165,36,.35) 75%);
+    background-size:34px 34px;background-position:0 0,17px 17px;opacity:0;
+    -webkit-mask:linear-gradient(180deg,#000 30%,transparent);mask:linear-gradient(180deg,#000 30%,transparent);
+    transition:opacity .6s ease .2s}
+  .site-header.menu-open .nav-gate{opacity:.7}
+
+  /* Ağrı Dağı — alttan yükselir */
+  .nav-mtn{position:absolute;z-index:0;right:-4%;bottom:0;width:92%;height:auto;pointer-events:none;
+    opacity:0;transform:translateY(70px);transition:opacity .7s ease .45s, transform .9s cubic-bezier(.2,.9,.3,1.2) .35s}
+  .site-header.menu-open .nav-mtn{opacity:1;transform:translateY(0)}
+
+  /* yol üzerinde yürüyen boncuk */
+  .nav-bead{position:absolute;z-index:2;left:14px;top:84px;width:10px;height:10px;border-radius:50%;
+    background:radial-gradient(circle at 35% 30%,#fff8e0,var(--accent) 70%);
+    box-shadow:0 0 14px 2px rgba(245,165,36,.9);opacity:0;
+    transform:translateY(0);transition:opacity .4s ease .5s}
+  .site-header.menu-open .nav-bead{opacity:1;animation:navBead 2.4s cubic-bezier(.45,0,.3,1) .55s both}
+  @keyframes navBead{0%{transform:translateY(0)}100%{transform:translateY(calc(100vh - 190px))}}
+
+  /* içerik */
+  .nav-content{position:relative;z-index:5;width:100%;height:100%;max-width:none;margin:0;
+    display:flex;flex-direction:column;align-items:stretch;justify-content:center;gap:0;
+    padding:calc(96px + env(safe-area-inset-top,0)) 2.4rem calc(88px + env(safe-area-inset-bottom,0)) 3.2rem}
+
+  /* öğeler: kervan gibi süzülür */
+  .nav-link{position:relative;display:flex;align-items:center;gap:12px;width:100%;
+    padding:1.02rem 2.6rem 1.02rem 0;
+    color:#fff;font-weight:700;font-size:clamp(1.03rem,4.1vw,1.2rem);
+    border-radius:0;border-bottom:1px solid rgba(255,255,255,.10);
+    opacity:0;transform:translateY(20px) translateX(-8px);filter:blur(2px);
+    transition:opacity .5s ease var(--d,0s), transform .6s cubic-bezier(.24,1,.36,1) var(--d,0s), filter .5s ease var(--d,0s)}
+  .site-header.menu-open .nav-link{opacity:1;transform:none;filter:blur(0)}
+  .nav-link::before{content:"";flex:none;width:9px;height:9px;margin:0;
+    background:var(--accent);border-radius:0 50% 50% 50%;transform:rotate(45deg);
+    box-shadow:0 0 10px rgba(245,165,36,.85)}
+  .nav-link:hover{color:#ffe9b3}
+  .nav-link::after{content:"";position:absolute;left:0;bottom:-1px;height:2px;width:0;
+    background:linear-gradient(90deg,var(--accent),#ffd98f);transition:width .35s var(--ease)}
+  .nav-link:hover::after{width:100%}
+  .nav-index{position:absolute;right:12px;top:50%;transform:translateY(-50%);min-width:20px;
+    font-size:.58rem;font-weight:800;letter-spacing:.1em;opacity:.45}
+  .nav-content .nav-link:nth-child(1){--d:.10s}
+  .nav-content .nav-link:nth-child(2){--d:.17s}
+  .nav-content .nav-link:nth-child(3){--d:.24s}
+  .nav-content .nav-link:nth-child(4){--d:.31s}
+  .nav-content .nav-link:nth-child(5){--d:.38s}
+  .nav-content .nav-link:nth-child(6){--d:.45s}
+  .nav-content .nav-link:nth-child(7){--d:.52s}
+
+  /* alt etiket */
+  .nav-bottom{position:absolute;z-index:5;left:3.2rem;right:56px;bottom:calc(24px + env(safe-area-inset-bottom,0));
+    display:flex;align-items:center;gap:.7rem;font-size:.52rem;font-weight:800;letter-spacing:.22em;
+    color:rgba(255,255,255,.4);opacity:0;transform:translateY(10px);
+    transition:opacity .5s ease .7s, transform .5s ease .7s}
+  .site-header.menu-open .nav-bottom{opacity:1;transform:none}
+  .nav-bottom i{width:34px;height:1px;background:linear-gradient(90deg,var(--accent),transparent)}
+
+  /* karartma */
+  body.menu-open::before{content:"";position:fixed;inset:0;z-index:100;pointer-events:none;
+    background:rgba(5,15,20,.55);transition:opacity .5s ease}
+  .nav-wave{display:none !important}
+}
+@media (prefers-reduced-motion:reduce){
+  .nav,.nav-link,.nav-cta,.nav-bottom,.nav-gate,.nav-bead,.nav-mtn,.nav::before,.nav::after{animation:none !important;transition:none !important}
+}

@@ -377,14 +377,38 @@ body.menu-open{overflow:hidden}
   .city-link{display:none}
   .two-city-bottom{grid-template-columns:1fr}
   .officers{grid-template-columns:repeat(2,1fr)}
-  .nav{position:fixed;inset:0;background:rgba(250,252,251,.98);backdrop-filter:blur(14px);color:var(--ink);
-       flex-direction:column;align-items:flex-start;justify-content:center;gap:1.1rem;padding:2rem;
-       transform:translateX(100%);transition:transform .45s var(--ease);z-index:50}
-  .site-header.menu-open .nav{transform:translateX(0)}
-  .nav a:not(.nav-cta){font-size:1.5rem;font-weight:800;padding:.3rem 0;opacity:1}
-  .site-header.scrolled .nav a:not(.nav-cta):hover,.nav a:not(.nav-cta):hover{background:transparent}
-  .nav-cta{margin-left:0;font-size:1rem}
-  .nav-toggle{display:flex;color:inherit}
+  .nav{position:fixed;inset:0;z-index:55;display:flex;flex-direction:column;align-items:center;justify-content:center;
+       gap:.4rem;text-align:center;color:#fff;overflow:hidden;
+       padding:calc(90px + env(safe-area-inset-top,0)) 2rem 2.2rem;
+       background:radial-gradient(120% 70% at 50% -12%,rgba(20,184,166,.22),transparent 55%),
+                  radial-gradient(130% 90% at 50% 118%,rgba(245,165,36,.12),transparent 60%),
+                  linear-gradient(165deg,#081f2a 0%,#0d3b43 55%,#0f766e 135%);
+       transform:translateY(-103%);transition:transform .62s cubic-bezier(.7,0,.22,1)}
+  .site-header.menu-open .nav{transform:translateY(0)}
+  .site-header.menu-open{background:transparent;color:#fff;box-shadow:none}
+  .nav-deco{position:absolute;left:-18%;right:-18%;height:150px;pointer-events:none;opacity:.5}
+  .nav-deco--top{top:-86px;transform:skewY(-6deg);
+    background:repeating-linear-gradient(112deg,rgba(255,255,255,.055) 0 34px,transparent 34px 68px);
+    animation:navWave 20s linear infinite}
+  .nav-deco--bottom{bottom:-90px;transform:skewY(-7deg);opacity:.45;
+    background:repeating-linear-gradient(112deg,rgba(245,165,36,.14) 0 40px,transparent 40px 80px),
+               repeating-linear-gradient(112deg,rgba(255,255,255,.05) 0 40px,transparent 40px 80px);
+    animation:navWave 28s linear infinite reverse}
+  @keyframes navWave{to{background-position:180px 0}}
+  .nav a:not(.nav-cta){position:relative;font-size:clamp(1.5rem,6.4vw,1.95rem);font-weight:800;
+    padding:.55rem .8rem;color:#fff;opacity:0;transform:translateY(20px)}
+  .nav a:not(.nav-cta)::before{content:"";position:absolute;left:50%;bottom:.5rem;width:56%;height:2px;
+    margin-left:-28%;border-radius:99px;background:var(--accent);transform:scaleX(0);transition:transform .3s var(--ease)}
+  .nav a:not(.nav-cta):hover{color:#ffe9b3}
+  .nav a:not(.nav-cta):hover::before{transform:scaleX(1)}
+  .site-header.menu-open .nav a:not(.nav-cta){opacity:1;transform:none;
+    transition:opacity .55s var(--ease) var(--d,0s),transform .55s var(--ease) var(--d,0s)}
+  .nav a:nth-of-type(1){--d:.12s}.nav a:nth-of-type(2){--d:.20s}.nav a:nth-of-type(3){--d:.28s}
+  .nav a:nth-of-type(4){--d:.36s}.nav a:nth-of-type(5){--d:.44s}.nav a:nth-of-type(6){--d:.52s}
+  .nav-cta{margin:1.1rem 0 0;font-size:1.05rem;padding:.9rem 2.3rem;opacity:0;transform:translateY(20px);
+    box-shadow:0 18px 38px -16px rgba(0,0,0,.6)}
+  .site-header.menu-open .nav-cta{opacity:1;transform:none;transition:opacity .5s var(--ease) .62s,transform .5s var(--ease) .62s}
+  .nav-toggle{display:flex;color:inherit;z-index:60}
   .site-header.menu-open .nav-toggle span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .site-header.menu-open .nav-toggle span:nth-child(2){opacity:0}
   .site-header.menu-open .nav-toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
@@ -603,6 +627,7 @@ body.menu-open{overflow:hidden}
 .social-btn:hover{transform:translateY(-3px);background:rgba(255,255,255,.16);border-color:rgba(255,255,255,.35)}
 
 /* ---------- Mobil alt navigasyon + FAB ---------- */
+body.menu-open .bottombar,body.menu-open .wa-fab{opacity:0;pointer-events:none;transform:translateY(30px)}
 .wa-fab{display:none}
 .bottombar{display:none}
 @media (max-width:900px){

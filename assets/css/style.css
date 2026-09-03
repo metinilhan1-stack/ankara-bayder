@@ -1312,3 +1312,355 @@ body.menu-open{
 
 /* Kaydırmada header blur'u menüyü küçültmesin */
 .site-header.menu-open{-webkit-backdrop-filter:none !important;backdrop-filter:none !important;filter:none !important}
+
+/* ===== CHATGPT MENÜ GÜNCELLEME 2 ===== */
+@media (max-width:920px){
+
+  .nav{
+    position:fixed;
+    top:0;
+    left:0;
+
+    /* Sağda boşluk */
+    right:38px;
+    bottom:0;
+
+    z-index:105;
+
+    display:block;
+    color:#fff;
+    overflow:hidden;
+
+    background:
+      radial-gradient(
+        100% 55% at 70% 0%,
+        rgba(20,184,166,.20),
+        transparent 65%
+      ),
+      radial-gradient(
+        90% 55% at 100% 100%,
+        rgba(245,165,36,.13),
+        transparent 65%
+      ),
+      linear-gradient(
+        145deg,
+        #071c27 0%,
+        #092c36 48%,
+        #0b5658 100%
+      );
+
+    /*
+      Sağ taraf oval/dalga şeklinde bitecek.
+      Başlangıçta tamamen solda gizli.
+    */
+    clip-path: ellipse(
+      0% 100% at 0% 50%
+    );
+
+    visibility:hidden;
+
+    transition:
+      clip-path .8s cubic-bezier(.77,0,.18,1),
+      visibility 0s linear .8s;
+  }
+
+
+  .site-header.menu-open .nav{
+
+    /*
+      Menü açıldığında sağ kenar
+      düz değil, büyük oval şeklinde.
+    */
+    clip-path: ellipse(
+      125% 110% at 0% 50%
+    );
+
+    visibility:visible;
+
+    transition:
+      clip-path .85s cubic-bezier(.77,0,.18,1),
+      visibility 0s linear 0s;
+  }
+
+
+  /* =======================================================
+     SOL DALGA
+     ======================================================= */
+
+  .nav-wave{
+    position:absolute;
+    pointer-events:none;
+    z-index:0;
+  }
+
+  .nav-wave-main{
+    left:-76%;
+    top:-10%;
+
+    width:105%;
+    height:120%;
+
+    background:
+      linear-gradient(
+        180deg,
+        rgba(13,148,136,.32),
+        rgba(8,84,88,.18)
+      );
+
+    border-radius:
+      0 58% 58% 0 /
+      0 48% 52% 0;
+
+    transform:rotate(-3deg);
+
+    opacity:.75;
+
+    animation:
+      bayderWave 10s ease-in-out infinite alternate;
+  }
+
+  .nav-wave-back{
+    left:-91%;
+    top:-14%;
+
+    width:115%;
+    height:128%;
+
+    background:
+      rgba(255,255,255,.035);
+
+    border-radius:
+      0 60% 60% 0 /
+      0 45% 55% 0;
+
+    transform:rotate(4deg);
+
+    animation:
+      bayderWaveBack 13s ease-in-out infinite alternate;
+  }
+
+
+  /* =======================================================
+     MENÜ İÇERİĞİ
+     ======================================================= */
+
+  .nav-content{
+    position:relative;
+    z-index:5;
+
+    width:100%;
+    max-width:560px;
+    height:100%;
+
+    margin:0 auto;
+
+    display:flex;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:center;
+
+    padding:
+      calc(72px + env(safe-area-inset-top,0))
+      2rem
+      calc(90px + env(safe-area-inset-bottom,0));
+
+    gap:0;
+  }
+
+
+  /* =======================================================
+     MENÜ LINKLERİ
+     ======================================================= */
+
+  .nav-link{
+    position:relative;
+
+    display:flex;
+    align-items:center;
+    gap:.8rem;
+
+    width:100%;
+
+    padding:.78rem .25rem;
+
+    color:#fff;
+
+    font-size:clamp(
+      1.03rem,
+      4.2vw,
+      1.22rem
+    );
+
+    font-weight:700;
+
+    border-radius:0;
+
+    border-bottom:
+      1px solid rgba(255,255,255,.105);
+
+    opacity:0;
+    transform:translateX(-25px);
+
+    transition:
+      opacity .48s ease,
+      transform .48s cubic-bezier(.22,1,.36,1),
+      color .25s ease,
+      padding-left .25s ease;
+  }
+
+
+  .nav-link::before{
+    content:"";
+
+    position:absolute;
+    left:-.25rem;
+    top:50%;
+
+    width:3px;
+    height:0;
+
+    border-radius:99px;
+
+    background:
+      linear-gradient(
+        180deg,
+        var(--accent),
+        #f5a524
+      );
+
+    transform:translateY(-50%);
+
+    transition:height .25s ease;
+  }
+
+  .nav-link:hover{
+    color:#ffe9b3;
+    padding-left:.55rem;
+  }
+
+  .nav-link:hover::before{
+    height:55%;
+  }
+
+  .nav-index{
+    min-width:25px;
+    font-size:.58rem;
+    letter-spacing:.05em;
+    opacity:.42;
+    font-weight:800;
+  }
+
+  .site-header.menu-open .nav-link{
+    opacity:1;
+    transform:none;
+  }
+
+  .nav-link:nth-child(3){transition-delay:.08s}
+  .nav-link:nth-child(4){transition-delay:.13s}
+  .nav-link:nth-child(5){transition-delay:.18s}
+  .nav-link:nth-child(6){transition-delay:.23s}
+  .nav-link:nth-child(7){transition-delay:.28s}
+  .nav-link:nth-child(8){transition-delay:.33s}
+  .nav-link:nth-child(9){transition-delay:.38s}
+
+
+  /* =======================================================
+     ÜYE OL
+     ======================================================= */
+
+  .nav-cta{
+    align-self:flex-start;
+
+    margin:1.25rem 0 0;
+
+    padding:.85rem 1.25rem;
+
+    border-radius:13px;
+
+    font-size:.98rem;
+
+    opacity:0;
+    transform:translateY(18px);
+
+    transition:
+      opacity .45s ease .52s,
+      transform .45s cubic-bezier(.22,1,.36,1) .52s,
+      box-shadow .25s ease;
+  }
+
+  .site-header.menu-open .nav-cta{
+    opacity:1;
+    transform:none;
+  }
+
+
+  /* =======================================================
+     ALT ETİKET
+     ======================================================= */
+
+  .nav-bottom{
+    position:absolute;
+    z-index:5;
+
+    left:2rem;
+    right:2rem;
+
+    bottom:
+      calc(22px + env(safe-area-inset-bottom,0));
+
+    display:flex;
+    align-items:center;
+    gap:.65rem;
+
+    font-size:.54rem;
+    font-weight:800;
+    letter-spacing:.2em;
+
+    color:rgba(255,255,255,.38);
+
+    opacity:0;
+    transform:translateY(10px);
+
+    transition:
+      opacity .5s ease .65s,
+      transform .5s ease .65s;
+  }
+
+  .site-header.menu-open .nav-bottom{
+    opacity:1;
+    transform:none;
+  }
+
+  .nav-bottom i{
+    width:28px;
+    height:1px;
+    background:rgba(255,255,255,.25);
+  }
+
+
+  /* =======================================================
+     HAMBURGER → X
+     ======================================================= */
+
+  .site-header.menu-open .nav-toggle{
+    background:rgba(255,255,255,.10);
+    border-color:rgba(255,255,255,.2);
+  }
+
+  .site-header.menu-open .nav-toggle span:nth-child(1){
+    transform:
+      translateY(7px)
+      rotate(45deg);
+  }
+
+  .site-header.menu-open .nav-toggle span:nth-child(2){
+    opacity:0;
+    width:0;
+  }
+
+  .site-header.menu-open .nav-toggle span:nth-child(3){
+    transform:
+      translateY(-7px)
+      rotate(-45deg);
+  }
+}

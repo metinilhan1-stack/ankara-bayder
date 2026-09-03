@@ -1664,3 +1664,15 @@ body.menu-open{
       rotate(-45deg);
   }
 }
+
+/* ===== MENÜ: dar + sağ kenar yay ===== */
+@media (max-width:920px){
+  .nav{left:0;right:auto;width:min(76vw,440px);
+    -webkit-clip-path:none !important;clip-path:none !important;
+    border-radius:0 999px 999px 0;
+    transform:translateX(-110%);
+    visibility:hidden;
+    transition:transform .7s cubic-bezier(.77,0,.18,1),visibility 0s linear .7s}
+  .site-header.menu-open .nav{transform:translateX(0);visibility:visible;
+    transition:transform .75s cubic-bezier(.22,1,.36,1),visibility 0s linear 0s}
+}

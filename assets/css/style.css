@@ -1788,3 +1788,17 @@ body.menu-open{
   .nav-link:hover{color:#ffe9b3}
   .nav-content{justify-content:center}
 }
+
+/* ===== MENÜ SON DÜZELTME: hizalama + oval/taşma giderme ===== */
+@media (max-width:920px){
+  .nav{border-radius:0 !important}
+  .nav-link{gap:1.15rem;padding:1.05rem 0}
+  .nav-link::before{flex:none;margin:0;width:7px;height:7px;transform:rotate(45deg);box-shadow:none}
+  .nav-link:hover::before{transform:rotate(45deg);scale:1}
+  .nav-link::after{display:none !important}
+  .nav-link:hover::after{width:0 !important}
+  .nav-index{position:static;margin-left:auto;min-width:20px}
+  .nav-content{padding-top:calc(72px + env(safe-area-inset-top,0));
+               padding-bottom:calc(94px + env(safe-area-inset-bottom,0))}
+  .nav-bottom{left:2.4rem;right:2.4rem;bottom:calc(28px + env(safe-area-inset-bottom,0))}
+}

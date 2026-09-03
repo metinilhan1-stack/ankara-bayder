@@ -1993,3 +1993,28 @@ body.menu-open{
 }
 /* kaldırılan siluet */
 .nav-mtn{display:none !important}
+
+/* ===== AÇILIŞ KOREOGRAFİSİ ===== */
+@media (max-width:920px){
+  /* paneli açılışta kısa parlama */
+  .site-header.menu-open .nav{animation:navFlash .9s ease-out .05s both}
+  @keyframes navFlash{0%{filter:brightness(1.5) saturate(1.1)}100%{filter:brightness(1)}}
+
+  /* öğeler: 3D ters dönüş + yukarı süzülme (blur kaldırıldı) */
+  .nav-link{transform:perspective(700px) translateY(30px) rotateX(-18deg);transform-origin:center top;
+    filter:none;
+    transition:opacity .5s ease var(--d,0s), transform .6s cubic-bezier(.2,1.2,.35,1) var(--d,0s)}
+  .site-header.menu-open .nav-link{opacity:1;transform:perspective(700px) none}
+  .site-header.menu-open .nav-link{transform:none}
+
+  /* her maddenin altında paralel çizgi, açılışta sağa doğru çizilir */
+  .nav-link::after{width:100%;transform:scaleX(0);transform-origin:left;
+    transition:transform .55s cubic-bezier(.2,1,.3,1) var(--d,0s)}
+  .site-header.menu-open .nav-link::after{transform:scaleX(1)}
+  .nav-link:hover::after{transform:scaleX(1)}
+
+  /* indeks sağdan kayar */
+  .nav-index{opacity:0;transform:translateY(-50%) translateX(16px);
+    transition:opacity .5s ease var(--d,0s), transform .5s ease var(--d,0s)}
+  .site-header.menu-open .nav-index{opacity:1;transform:translateY(-50%) translateX(0)}
+}

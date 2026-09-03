@@ -492,11 +492,16 @@ body.menu-open{overflow:hidden}
                linear-gradient(180deg,rgba(9,25,35,.1),rgba(9,25,35,.06))}
   .hero-curve{display:block;height:120px;fill:var(--brand);bottom:-1px}
   .hero-curve path{fill:var(--brand)}
-  .hero-content{color:#fff;padding:0;width:min(1180px,92%);margin-inline:auto;transform:none}
-  .hero-content .hero-kicker{color:#ffe9b3}
+  .hero-content{color:#fff;width:min(540px,92%);margin-inline:auto;padding:1.7rem 1.8rem;
+    background:rgba(10,31,39,.52);border:1px solid rgba(255,255,255,.16);border-radius:24px;
+    -webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);
+    box-shadow:0 26px 60px -26px rgba(0,0,0,.55);text-align:left}
+  .hero-content .hero-kicker{color:rgba(255,255,255,.92)}
   .hero-title{color:#fff;font-size:clamp(1.9rem,8.6vw,2.9rem)}
-  .hero-title .hl{color:var(--accent)}
-  .hero-sub{color:rgba(255,255,255,.92);max-width:540px;margin:.7rem 0 1.7rem}
+  .hero-title .hl{color:#fff;text-shadow:0 2px 22px rgba(0,0,0,.35)}
+  .hero-sub{color:rgba(255,255,255,.95);max-width:540px;margin:.7rem 0 1.7rem}
+  .hero .btn-solid{background:#fff;color:#12343b;border-color:#fff}
+  .hero .btn-solid:hover{background:#f0fdfa;box-shadow:0 16px 34px -16px rgba(0,0,0,.5)}
   .hero .btn-ghost{color:#fff;border-color:rgba(255,255,255,.6)}
   .hero .btn-ghost:hover{background:#fff;color:var(--ink)}
   .scroll-hint{display:none}

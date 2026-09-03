@@ -386,9 +386,7 @@ body.menu-open{overflow:hidden}
                   radial-gradient(130% 90% at 80% 118%,rgba(245,165,36,.12),transparent 60%),
                   linear-gradient(170deg,#081f2a 0%,#0d3b43 60%,#0f766e 140%);
        padding-left:clamp(2.2rem,9vw,3.2rem);
-       transform:translateX(103%);transition:transform .62s cubic-bezier(.7,0,.22,1);
-       -webkit-mask:url('../img/menu-wave.svg') no-repeat center / 100% 100%;
-               mask:url('../img/menu-wave.svg') no-repeat center / 100% 100%}
+       transform:translateX(103%);transition:transform .62s cubic-bezier(.7,0,.22,1)}
   .site-header.menu-open .nav{transform:translateX(0)}
   body.menu-open::before{content:"";position:fixed;inset:0;z-index:54;pointer-events:none;
     background:rgba(5,16,20,.5)}

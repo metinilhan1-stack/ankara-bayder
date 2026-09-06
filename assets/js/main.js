@@ -205,3 +205,38 @@
   window.addEventListener('resize', updateBottomNav, { passive: true });
   updateBottomNav();
 })();
+
+
+/* ---------------- Açılış galerisi lightbox ---------------- */
+(function(){
+  var items=[].slice.call(document.querySelectorAll('.acilis-item[data-full]'));
+  if(!items.length) return;
+  var lb=document.getElementById('lightbox');
+  var img=document.getElementById('lbImg');
+  var count=document.querySelector('.lb-count');
+  var idx=0;
+  function show(i){
+    idx=(i+items.length)%items.length;
+    img.src=items[idx].getAttribute('data-full');
+    img.alt='BAY-DER açılış töreni fotoğrafı '+(idx+1);
+    if(count) count.textContent=(idx+1)+' / '+items.length;
+  }
+  function open(i){ show(i); lb.hidden=false; document.body.classList.add('menu-open'); document.body.style.overflow='hidden'; }
+  function close(){ lb.hidden=true; document.body.classList.remove('menu-open'); document.body.style.overflow=''; }
+  items.forEach(function(el, i){ el.addEventListener('click', function(e){ e.preventDefault(); open(i); }); });
+  lb.addEventListener('click', function(e){ if(e.target.closest('[data-lb-close]')) close(); });
+  document.querySelector('.lb-prev').addEventListener('click', function(e){ e.stopPropagation(); show(idx-1); });
+  document.querySelector('.lb-next').addEventListener('click', function(e){ e.stopPropagation(); show(idx+1); });
+  document.addEventListener('keydown', function(e){
+    if(lb.hidden) return;
+    if(e.key==='Escape') close();
+    if(e.key==='ArrowLeft') show(idx-1);
+    if(e.key==='ArrowRight') show(idx+1);
+  });
+  var sx=0, sy=0;
+  lb.addEventListener('touchstart', function(e){ sx=e.touches[0].clientX; sy=e.touches[0].clientY; }, {passive:true});
+  lb.addEventListener('touchend', function(e){
+    var dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy;
+    if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)){ dx<0 ? show(idx+1) : show(idx-1); }
+  }, {passive:true});
+})();

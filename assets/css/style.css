@@ -2157,3 +2157,28 @@ body.menu-open{
   font-size:.85rem;font-weight:700;letter-spacing:.08em;color:rgba(255,255,255,.85);
   background:rgba(0,0,0,.35);border-radius:999px;padding:.35rem .9rem}
 @media (max-width:600px){.lb-nav{width:44px;height:44px;font-size:24px}.lb-close{width:42px;height:42px}}
+
+/* ===== Scroll: kartlar sağdan-sola / soldan-sağa gelir ===== */
+.feature-card.reveal:not(.in):nth-child(odd),
+.press-card.reveal:not(.in):nth-child(odd),
+.member.reveal:not(.in):nth-child(odd),
+.acilis-item.reveal:not(.in):nth-child(odd),
+.officer.reveal:not(.in):nth-child(odd),
+.stat.reveal:not(.in):nth-child(odd),
+.event-card.reveal:not(.in):nth-child(odd),
+.contact-card.reveal:not(.in):nth-child(odd),
+.journey-item.reveal:not(.in):nth-child(odd){
+  transform:translate3d(48px,26px,0)
+}
+.feature-card.reveal:not(.in):nth-child(even),
+.press-card.reveal:not(.in):nth-child(even),
+.member.reveal:not(.in):nth-child(even),
+.acilis-item.reveal:not(.in):nth-child(even),
+.officer.reveal:not(.in):nth-child(even),
+.stat.reveal:not(.in):nth-child(even),
+.event-card.reveal:not(.in):nth-child(even),
+.contact-card.reveal:not(.in):nth-child(even),
+.journey-item.reveal:not(.in):nth-child(even){
+  transform:translate3d(-48px,26px,0)
+}
+.city-card.reveal:not(.in){transform:translate3d(52px,24px,0)}

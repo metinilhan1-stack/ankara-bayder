@@ -4332,3 +4332,449 @@ main > aside{
     animation:none !important;
   }
 }
+
+/* ==========================================================================
+   YÖNETİM KARTLARI V5 — kurucu ekip vitrini
+   ========================================================================== */
+#yonetim{
+  background:
+    linear-gradient(180deg,#f5faf8 0%,#eef7f4 48%,#f7fbf9 100%);
+  isolation:isolate;
+}
+
+#yonetim::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  z-index:0;
+  height:180px;
+  pointer-events:none;
+  background:
+    repeating-linear-gradient(112deg,rgba(15,118,110,.055) 0 1px,transparent 1px 30px);
+  -webkit-mask:linear-gradient(180deg,#000,transparent);
+  mask:linear-gradient(180deg,#000,transparent);
+}
+
+#yonetim > .container{
+  position:relative;
+  z-index:2;
+}
+
+.president{
+  position:relative;
+  overflow:hidden;
+  align-items:center;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:8px;
+  background:
+    linear-gradient(138deg,rgba(255,255,255,.12),transparent 34%),
+    linear-gradient(135deg,#071c27 0%,#0d3c44 42%,#0f766e 100%);
+  color:#fff;
+  box-shadow:0 34px 80px -42px rgba(7,28,39,.78);
+}
+
+.president::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background:
+    linear-gradient(105deg,transparent 0%,transparent 44%,rgba(245,165,36,.18) 50%,transparent 58%),
+    repeating-linear-gradient(135deg,rgba(255,255,255,.055) 0 1px,transparent 1px 24px);
+  transform:translateX(-118%);
+}
+
+.president::after{
+  content:"";
+  position:absolute;
+  left:clamp(1.2rem,4vw,2rem);
+  right:clamp(1.2rem,4vw,2rem);
+  bottom:0;
+  height:4px;
+  border-radius:99px 99px 0 0;
+  background:linear-gradient(90deg,var(--accent),#ffe1a7,#14b8a6);
+  transform:scaleX(.24);
+  transform-origin:left center;
+  transition:transform .75s var(--ease);
+}
+
+#yonetim.section-active .president.in::before{
+  animation:presidentSheen 5.4s ease-in-out infinite;
+}
+
+#yonetim.section-active .president.in::after{
+  transform:scaleX(1);
+}
+
+.president .avatar--xl{
+  width:128px;
+  height:128px;
+  border-radius:8px;
+  color:#fff;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.16),transparent 40%),
+    linear-gradient(145deg,var(--accent),var(--brand) 62%,#0b3b42);
+  border:1px solid rgba(255,255,255,.28);
+  box-shadow:
+    0 22px 48px -28px rgba(0,0,0,.75),
+    0 0 0 8px rgba(255,255,255,.08);
+  transform:rotate(-2deg);
+}
+
+.president .avatar--xl span{
+  font-size:2.45rem;
+  text-shadow:0 6px 16px rgba(0,0,0,.28);
+}
+
+.president .avatar--xl::after{
+  border-radius:10px;
+  border-color:rgba(255,225,167,.45);
+}
+
+.president-info{
+  position:relative;
+  z-index:2;
+}
+
+.president-role{
+  display:inline-flex;
+  width:max-content;
+  max-width:100%;
+  margin-bottom:.4rem;
+  padding:.35rem .72rem;
+  border:1px solid rgba(255,225,167,.28);
+  border-radius:999px;
+  background:rgba(245,165,36,.12);
+  color:#ffe1a7;
+  letter-spacing:.14em;
+}
+
+.president-info h3{
+  color:#fff;
+  letter-spacing:0;
+}
+
+.president-quote{
+  position:relative;
+  overflow:hidden;
+  margin:.65rem 0 .9rem;
+  padding:1rem 1.1rem 1rem 1.25rem;
+  border-left:3px solid var(--accent);
+  border-radius:8px;
+  background:rgba(255,255,255,.08);
+  color:rgba(255,255,255,.92);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.08);
+}
+
+.president-quote::before{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  top:0;
+  height:1px;
+  background:linear-gradient(90deg,transparent,#ffe1a7,transparent);
+}
+
+.president-info > p:not(.president-role){
+  color:rgba(255,255,255,.82);
+}
+
+.president-badges{
+  display:flex;
+  flex-wrap:wrap;
+  gap:.5rem;
+  margin:.5rem 0 .95rem;
+}
+
+.president-badges span{
+  display:inline-flex;
+  align-items:center;
+  min-height:30px;
+  padding:.32rem .72rem;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:999px;
+  background:rgba(255,255,255,.09);
+  color:#ffe1a7;
+  font-size:.68rem;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+}
+
+.members-grid{
+  counter-reset:board;
+  gap:1rem;
+}
+
+.member{
+  --member-a:#0f766e;
+  --member-b:#f5a524;
+  counter-increment:board;
+  position:relative;
+  overflow:hidden;
+  min-height:176px;
+  display:grid;
+  grid-template-columns:68px 1fr;
+  grid-template-rows:auto auto auto;
+  grid-template-areas:
+    "avatar chip"
+    "avatar name"
+    "avatar role";
+  align-content:center;
+  column-gap:1rem;
+  padding:1.2rem 1.18rem;
+  border:1px solid rgba(15,118,110,.14);
+  border-radius:8px;
+  background:
+    linear-gradient(145deg,rgba(255,255,255,.95),rgba(242,248,245,.86) 64%,rgba(255,255,255,.98)),
+    repeating-linear-gradient(135deg,rgba(15,118,110,.06) 0 1px,transparent 1px 20px);
+  box-shadow:0 22px 52px -38px rgba(18,52,59,.55);
+}
+
+.member:nth-child(2){--member-a:#0e7490;--member-b:#38bdf8}
+.member:nth-child(3){--member-a:#b45309;--member-b:#f59e0b}
+.member:nth-child(4){--member-a:#7c3aed;--member-b:#14b8a6}
+.member:nth-child(5){--member-a:#be123c;--member-b:#fb7185}
+.member:nth-child(6){--member-a:#15803d;--member-b:#4ade80}
+.member:nth-child(7){--member-a:#334155;--member-b:#94a3b8}
+.member:nth-child(8){--member-a:#c2410c;--member-b:#fb923c}
+.member:nth-child(9){--member-a:#0f766e;--member-b:#2dd4bf}
+
+.member::before{
+  content:"0" counter(board);
+  position:absolute;
+  top:.85rem;
+  right:.95rem;
+  z-index:1;
+  color:transparent;
+  -webkit-text-stroke:1px rgba(15,118,110,.24);
+  font-size:2.55rem;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:0;
+}
+
+.member::after{
+  content:"";
+  position:absolute;
+  left:1.2rem;
+  right:1.2rem;
+  bottom:0;
+  height:3px;
+  border-radius:99px 99px 0 0;
+  background:linear-gradient(90deg,var(--member-b),var(--member-a),transparent);
+  transform:scaleX(.22);
+  transform-origin:left center;
+  transition:transform .55s var(--ease);
+}
+
+.member > *{
+  position:relative;
+  z-index:2;
+}
+
+.member .avatar{
+  grid-area:avatar;
+  width:64px;
+  height:64px;
+  align-self:center;
+  border-radius:8px;
+  background:
+    linear-gradient(135deg,rgba(255,255,255,.16),transparent 42%),
+    linear-gradient(145deg,var(--member-a),var(--member-b));
+  border:1px solid rgba(255,255,255,.58);
+  box-shadow:0 18px 34px -24px rgba(15,118,110,.75);
+}
+
+.member .avatar::after{
+  border-radius:10px;
+  border-color:rgba(245,165,36,.34);
+}
+
+.member .avatar span{
+  font-size:1.05rem;
+  text-shadow:0 4px 12px rgba(0,0,0,.26);
+}
+
+.member-chip{
+  grid-area:chip;
+  display:inline-flex;
+  align-items:center;
+  width:max-content;
+  max-width:100%;
+  margin:0 0 .42rem;
+  padding:.25rem .58rem;
+  border:1px solid rgba(15,118,110,.14);
+  border-radius:999px;
+  background:rgba(255,255,255,.74);
+  color:var(--member-a);
+  font-size:.6rem;
+  line-height:1;
+  font-weight:900;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  -webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px);
+}
+
+.member h4{
+  grid-area:name;
+  margin:0 2rem .2rem 0;
+  color:var(--ink);
+  font-size:1.05rem;
+  letter-spacing:0;
+}
+
+.member p{
+  grid-area:role;
+  margin:0;
+  color:var(--brand-deep);
+  font-size:.86rem;
+  font-weight:800;
+  opacity:1;
+}
+
+.member:hover,
+.member.in:hover{
+  border-color:rgba(15,118,110,.08);
+  box-shadow:0 30px 66px -38px rgba(18,52,59,.65);
+}
+
+.member:hover::after,
+#yonetim.section-active .member.in::after{
+  transform:scaleX(1);
+}
+
+.member:hover .avatar{
+  transform:translateY(-3px) rotate(-3deg) scale(1.04);
+}
+
+#yonetim.section-active .member.in .avatar{
+  animation:memberAvatarFloat 5.2s ease-in-out infinite;
+}
+
+#yonetim.section-active .member:nth-child(3n + 2).in .avatar{
+  animation-delay:-1.4s;
+}
+
+#yonetim.section-active .member:nth-child(3n).in .avatar{
+  animation-delay:-2.6s;
+}
+
+@media (max-width:920px){
+  .president{
+    align-items:flex-start;
+  }
+
+  .president .avatar--xl{
+    width:112px;
+    height:112px;
+  }
+}
+
+@media (max-width:620px){
+  .president{
+    padding:1.3rem 1.1rem 1.55rem;
+    gap:1.15rem;
+    text-align:left;
+  }
+
+  .president .avatar--xl{
+    width:92px;
+    height:92px;
+    align-self:flex-start;
+  }
+
+  .president .avatar--xl span{
+    font-size:1.9rem;
+  }
+
+  .president-role{
+    font-size:.62rem;
+  }
+
+  .president-info h3{
+    font-size:1.5rem;
+  }
+
+  .president-quote{
+    padding:.9rem .95rem .9rem 1rem;
+    font-size:.92rem;
+  }
+
+  .president-badges span{
+    min-height:28px;
+    padding:.3rem .62rem;
+    font-size:.62rem;
+  }
+
+  .members-grid{
+    gap:.82rem;
+  }
+
+  .member{
+    min-height:132px;
+    grid-template-columns:58px 1fr;
+    column-gap:.88rem;
+    padding:.92rem .92rem 1rem;
+  }
+
+  .member::before{
+    top:.62rem;
+    right:.78rem;
+    font-size:1.92rem;
+  }
+
+  .member::after{
+    left:calc(58px + 1.8rem);
+    right:.92rem;
+    height:2px;
+  }
+
+  .member .avatar{
+    width:52px;
+    height:52px;
+  }
+
+  .member .avatar span{
+    font-size:.92rem;
+  }
+
+  .member-chip{
+    margin-bottom:.34rem;
+    padding:.24rem .5rem;
+    font-size:.54rem;
+  }
+
+  .member h4{
+    margin-right:1.55rem;
+    font-size:.98rem;
+  }
+
+  .member p{
+    font-size:.78rem;
+    line-height:1.35;
+  }
+}
+
+@keyframes presidentSheen{
+  0%,48%{transform:translateX(-118%)}
+  72%,100%{transform:translateX(118%)}
+}
+
+@keyframes memberAvatarFloat{
+  0%,100%{transform:translateY(0) rotate(0)}
+  50%{transform:translateY(-4px) rotate(-2deg)}
+}
+
+@media (prefers-reduced-motion:reduce){
+  #yonetim.section-active .president.in::before,
+  #yonetim.section-active .member.in .avatar{
+    animation:none !important;
+  }
+}

@@ -2042,3 +2042,29 @@ body.menu-open{
   transform:translateY(0);transition:transform 1s cubic-bezier(.7,0,.2,1) .15s}
 .loader--done::after{transform:translateY(-101%)}
 .loader--done{transform:translateY(-101%)}
+
+/* ===== Basında Biz ===== */
+.press{background:var(--bg)}
+.press-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem}
+.press-card{display:flex;flex-direction:column;gap:.5rem;background:var(--surface);
+  border:1px solid var(--line);border-radius:var(--r-lg);padding:1.6rem 1.5rem;
+  transition:transform .35s var(--ease),box-shadow .35s,border-color .3s}
+.press-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:transparent}
+.press-outlet{font-size:.68rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--brand)}
+.press-card h3{font-size:1.02rem;line-height:1.4}
+.press-go{color:var(--accent-ink);font-weight:800;font-size:.86rem;
+  display:inline-flex;align-items:center;gap:.35rem}
+@media (max-width:760px){.press-grid{grid-template-columns:1fr}}
+
+/* ===== Dilek & Öneriler ===== */
+.wish{background:linear-gradient(150deg,#0c3b42,var(--brand-deep) 55%,var(--brand))}
+.wish-inner{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1.6rem;
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:var(--r-lg);
+  padding:clamp(1.8rem,4vw,3rem);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.wish .eyebrow{color:#ffe9b3}
+.wish h2{color:#fff}
+.wish p:not(.eyebrow){color:rgba(255,255,255,.85);max-width:640px;margin-top:.5rem}
+@media (max-width:760px){.wish-inner{flex-direction:column;align-items:flex-start}.wish-inner .btn{width:100%}}
+
+/* menü: 8. öğe gecikmesi */
+.nav-content .nav-link:nth-child(8){--d:.59s}

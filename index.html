@@ -42,7 +42,7 @@
   <link rel="manifest" href="assets/site.webmanifest">
   <meta name="theme-color" content="#0f766e">
   <link rel="preload" as="image" href="assets/img/hero-mobile.webp" media="(max-width:860px)" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/img/hero-m.webp" media="(min-width:861px)" imagesrcset="assets/img/hero-s.webp 720w, assets/img/hero-m.webp 1280w, assets/img/hero.webp 1536w" imagesizes="100vw" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/hero-m.webp" media="(min-width:861px)" imagesrcset="assets/img/hero-s.webp 720w, assets/img/hero-m.webp 1280w, assets/img/hero.webp 2000w" imagesizes="100vw" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/style.css">
 
   <script type="application/ld+json">
@@ -124,7 +124,8 @@
           <a class="nav-link" href="#dogubayazit"><span class="nav-index">04</span>Memleketimiz</a>
           <a class="nav-link" href="#yonetim"><span class="nav-index">05</span>Kurucular</a>
           <a class="nav-link" href="#etkinlikler"><span class="nav-index">06</span>Etkinlikler</a>
-          <a class="nav-link" href="#iletisim"><span class="nav-index">07</span>İletişim</a>
+          <a class="nav-link" href="#basinda"><span class="nav-index">07</span>Basında Biz</a>
+          <a class="nav-link" href="#iletisim"><span class="nav-index">08</span>İletişim</a>
           <a class="btn btn-solid btn-sm nav-cta" href="#uyelik">Üye Ol<span class="nav-cta-arrow" aria-hidden="true">→</span></a>
         </div>
         <i class="nav-gate" aria-hidden="true"></i>
@@ -146,10 +147,10 @@
         <!-- Doğubayazıt → Ankara: ışık ve yıldız parçacıklarıyla dönüşüm -->
         <div class="fx" id="heroFx" aria-hidden="true"></div>
         <picture class="hero-wide">
-          <source type="image/webp" srcset="assets/img/hero-s.webp 720w, assets/img/hero-m.webp 1280w, assets/img/hero.webp 1536w" sizes="100vw">
+          <source type="image/webp" srcset="assets/img/hero-s.webp 720w, assets/img/hero-m.webp 1280w, assets/img/hero.webp 2000w" sizes="100vw">
           <img class="hero-photo" src="assets/img/hero-m.jpg"
-               srcset="assets/img/hero-s.jpg 720w, assets/img/hero-m.jpg 1280w, assets/img/hero.jpg 1536w"
-               sizes="100vw" width="1536" height="1024"
+               srcset="assets/img/hero-s.jpg 720w, assets/img/hero-m.jpg 1280w, assets/img/hero.jpg 2000w"
+               sizes="100vw" width="2000" height="1325"
                alt="İshak Paşa Sarayı ve Ağrı Dağı, Doğubayazıt"
                fetchpriority="high" decoding="async">
         </picture>
@@ -582,6 +583,40 @@
       </div>
     </section>
 
+    <!-- ===================== BASINDA BİZ ===================== -->
+    <section class="section press" id="basinda">
+      <div class="container">
+        <div class="section-head section-head--center reveal">
+          <p class="eyebrow">Basında Biz</p>
+          <h2>Derneğimiz basında</h2>
+          <p class="section-sub">Açılışımız ve etkinliklerimiz yerel ve ulusal basında yer buldu.</p>
+        </div>
+
+        <div class="press-grid">
+          <a class="press-card reveal" href="https://narinkalegazetesi.net/haber/ankara-dogubayazitlilar-kultur-ve-dayanisma-dernegi-bay-der-torenle-acildi-16973" target="_blank" rel="noopener">
+            <p class="press-outlet">Narinkale Gazetesi</p>
+            <h3>Ankara Doğubayazıt'lılar Kültür ve Dayanışma Derneği (BAY-DER) törenle açıldı</h3>
+            <span class="press-go">Haberi oku →</span>
+          </a>
+          <a class="press-card reveal" href="https://www.agrihaberleri.net/ankara-da-dogubayazitlilarin-bulusma-noktasi-bay-der-gorkemli-bir-torenle-hizmete-acildi/3222/" target="_blank" rel="noopener">
+            <p class="press-outlet">Ağrı Haberleri</p>
+            <h3>Ankara'da Doğubayazıtlıların buluşma noktası BAY-DER görkemli bir törenle hizmete açıldı</h3>
+            <span class="press-go">Haberi oku →</span>
+          </a>
+          <a class="press-card reveal" href="https://www.soylerhaber.com/ankara-bay-der-gorkemli-torenle-kapilarini-acti/14399/" target="_blank" rel="noopener">
+            <p class="press-outlet">Söyler Haber</p>
+            <h3>Ankara BAY-DER görkemli törenle kapılarını açtı</h3>
+            <span class="press-go">Haberi oku →</span>
+          </a>
+          <a class="press-card reveal" href="https://dogubayazitgazetesi.com/ankarada-dogubayazit-ruzgri-bay-der-gorkemli-bir-torenle-acildi" target="_blank" rel="noopener">
+            <p class="press-outlet">Doğubayazıt Gazetesi</p>
+            <h3>Ankara'da Doğubayazıt rüzgârı: BAY-DER görkemli bir törenle açıldı</h3>
+            <span class="press-go">Haberi oku →</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
     <!-- ===================== ETKİNLİKLER ===================== -->
     <section class="section section--soft" id="etkinlikler">
       <div class="container">
@@ -660,6 +695,23 @@
             💬 WhatsApp ile Bilgi Al
           </a>
           <small class="wa-note">Üyelik, etkinlikler ve dernek hakkında tüm sorularınızı sorabilirsiniz.</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== DİLEK VE ÖNERİLER ===================== -->
+    <section class="section wish" id="dilek">
+      <div class="container">
+        <div class="wish-inner reveal">
+          <div>
+            <p class="eyebrow">Görüşleriniz bizim için değerli</p>
+            <h2>Dilek ve önerilerinizi dinliyoruz</h2>
+            <p>Derneğimizi geliştirmek için önerilerinizi, eleştirilerinizi ve dileklerinizi doğrudan bize yazabilirsiniz.</p>
+          </div>
+          <a class="btn btn-whatsapp btn-lg" target="_blank" rel="noopener"
+             href="https://wa.me/905413045104?text=Merhaba%2C%20derne%C4%9Finiz%20i%C3%A7in%20dilek%20ve%20%C3%B6nerilerim%20var.">
+            💬 Dilek ve Öneri Gönder
+          </a>
         </div>
       </div>
     </section>

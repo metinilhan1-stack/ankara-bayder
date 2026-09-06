@@ -42,7 +42,7 @@
   <link rel="manifest" href="assets/site.webmanifest">
   <meta name="theme-color" content="#0f766e">
   <link rel="preload" as="image" href="assets/img/hero-mobile.webp" media="(max-width:860px)" fetchpriority="high">
-  <link rel="preload" as="image" href="assets/img/hero-m.webp" media="(min-width:861px)" imagesrcset="assets/img/hero-s.webp 720w, assets/img/hero-m.webp 1280w, assets/img/hero.webp 2000w" imagesizes="100vw" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/hero-desktop.webp" media="(min-width:861px)" fetchpriority="high">
   <link rel="stylesheet" href="assets/css/style.css">
 
   <script type="application/ld+json">
@@ -147,16 +147,14 @@
         <!-- Doğubayazıt → Ankara: ışık ve yıldız parçacıklarıyla dönüşüm -->
         <div class="fx" id="heroFx" aria-hidden="true"></div>
         <picture class="hero-wide">
-          <source type="image/webp" srcset="assets/img/hero-s.webp 720w, assets/img/hero-m.webp 1280w, assets/img/hero.webp 2000w" sizes="100vw">
-          <img class="hero-photo" src="assets/img/hero-m.jpg"
-               srcset="assets/img/hero-s.jpg 720w, assets/img/hero-m.jpg 1280w, assets/img/hero.jpg 2000w"
-               sizes="100vw" width="2000" height="1325"
-               alt="İshak Paşa Sarayı ve Ağrı Dağı, Doğubayazıt"
+          <source type="image/webp" srcset="assets/img/hero-desktop.webp 710w" sizes="100vw">
+          <img class="hero-photo" src="assets/img/hero-desktop.jpg" width="710" height="920"
+               alt="Doğubayazıt / İshak Paşa manzarası, Ankara Doğubayazıtlılar Derneği"
                fetchpriority="high" decoding="async">
         </picture>
         <picture class="hero-mobile-pic">
-          <source type="image/webp" srcset="assets/img/hero-mobile.webp 864w" sizes="100vw">
-          <img class="hero-photo-m" src="assets/img/hero-mobile.jpg" width="864" height="1821"
+          <source type="image/webp" srcset="assets/img/hero-mobile.webp 546w" sizes="100vw">
+          <img class="hero-photo-m" src="assets/img/hero-mobile.jpg" width="546" height="366"
                alt="Doğubayazıt manzarası" fetchpriority="high" decoding="async">
         </picture>
 

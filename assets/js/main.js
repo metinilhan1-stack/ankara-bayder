@@ -51,6 +51,33 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
+  /* ---------------- Mobil hero derinliği ---------------- */
+  var hero = document.getElementById('hero');
+  var heroDepthRaf = false;
+  function updateHeroDepth() {
+    if (!hero) return;
+    if (prefersReduced || window.innerWidth > 860) {
+      hero.style.removeProperty('--hero-shift');
+      heroDepthRaf = false;
+      return;
+    }
+    var vh = window.innerHeight || 1;
+    var p = Math.min(Math.max(window.scrollY / vh, 0), 1);
+    hero.style.setProperty('--hero-shift', (-p * 22).toFixed(1) + 'px');
+    heroDepthRaf = false;
+  }
+  function queueHeroDepth() {
+    if (!heroDepthRaf) {
+      requestAnimationFrame(updateHeroDepth);
+      heroDepthRaf = true;
+    }
+  }
+  if (hero) {
+    window.addEventListener('scroll', queueHeroDepth, { passive: true });
+    window.addEventListener('resize', updateHeroDepth, { passive: true });
+    updateHeroDepth();
+  }
+
   /* ---------------- Mobil menü (hamburger) ---------------- */
   var navToggle = document.getElementById('navToggle');
   var nav = document.getElementById('nav');

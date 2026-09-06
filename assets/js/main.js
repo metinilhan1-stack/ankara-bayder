@@ -169,6 +169,7 @@
     var hit = (vh * 0.65 - r.top) / Math.max(r.height, 1);
     var p = Math.min(Math.max(hit, 0), 1);
     journey.style.setProperty('--j', p.toFixed(3));
+    jRaf = false;
   }
   var jRaf = false;
   window.addEventListener('scroll', function () {
@@ -177,11 +178,51 @@
   window.addEventListener('resize', updateJourney, { passive: true });
   updateJourney();
 
+  /* ---------------- Mobil görsel derinlik ---------------- */
+  var motionEls = [].slice.call(document.querySelectorAll('.city-card, .memleket-item, .photo-card, .acilis-item'));
+  var motionRaf = false;
+  function updateMotionDepth() {
+    if (!motionEls.length) return;
+    var vh = window.innerHeight || 1;
+    var mobileMotion = window.innerWidth <= 920 && !prefersReduced;
+    motionEls.forEach(function (el) {
+      if (!mobileMotion) {
+        el.style.removeProperty('--motion-y');
+        return;
+      }
+      var r = el.getBoundingClientRect();
+      if (r.bottom < -80 || r.top > vh + 80) return;
+      var center = r.top + r.height / 2;
+      var depth = Math.max(-14, Math.min(14, ((vh / 2 - center) / vh) * 28));
+      el.style.setProperty('--motion-y', depth.toFixed(1) + 'px');
+    });
+    motionRaf = false;
+  }
+  function queueMotionDepth() {
+    if (!motionRaf) {
+      requestAnimationFrame(updateMotionDepth);
+      motionRaf = true;
+    }
+  }
+  if (motionEls.length) {
+    window.addEventListener('scroll', queueMotionDepth, { passive: true });
+    window.addEventListener('resize', queueMotionDepth, { passive: true });
+    queueMotionDepth();
+  }
+
   /* ---------------- Mobil alt navigasyon: aktif bölüm ---------------- */
   var barLinks = document.querySelectorAll('.bottombar a');
-  var barTargets = ['hero', 'hakkimizda', 'etkinlikler', 'iletisim'].map(function (id) {
+  var barTargets = ['hero', 'hakkimizda', 'etkinlikler', 'uyelik', 'dilek', 'katilim', 'is-agi', 'iletisim', 'sosyal', 'sss'].map(function (id) {
     return document.getElementById(id);
   });
+  var barAlias = {
+    etkinlikler: 'uyelik',
+    dilek: 'uyelik',
+    katilim: 'uyelik',
+    'is-agi': 'uyelik',
+    sosyal: 'iletisim',
+    sss: 'iletisim'
+  };
   var barTicking = false;
   function updateBottomNav() {
     var vh = window.innerHeight;
@@ -190,6 +231,7 @@
     barTargets.forEach(function (sec, idx) {
       if (sec && sec.offsetTop <= pos) activeId = barTargets[idx].id;
     });
+    activeId = barAlias[activeId] || activeId;
     // footer/sosyal üzerinde iletişim aktif kalsın
     barLinks.forEach(function (a) {
       var on = a.getAttribute('data-sec') === activeId;

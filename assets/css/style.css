@@ -25,7 +25,7 @@
 
 /* ---------- Temel ---------- */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;overflow-x:hidden}
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji";
   background:var(--bg);color:var(--body);line-height:1.7;overflow-x:hidden;
@@ -2066,6 +2066,50 @@ body.menu-open{
 .wish p:not(.eyebrow){color:rgba(255,255,255,.85);max-width:640px;margin-top:.5rem}
 @media (max-width:760px){.wish-inner{flex-direction:column;align-items:flex-start}.wish-inner .btn{width:100%}}
 
+/* ===== Katılım alanları ===== */
+.engagement{background:linear-gradient(180deg,var(--surface),var(--bg))}
+.engagement-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(2rem,5vw,4rem);align-items:center}
+.engagement-copy p:not(.eyebrow){font-size:1rem;max-width:580px;margin:1rem 0 1.5rem;color:var(--body)}
+.engagement-actions{display:flex;flex-wrap:wrap;gap:.85rem}
+.engagement-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+.engagement-item{position:relative;min-height:220px;background:var(--surface);border:1px solid var(--line);
+  border-radius:var(--r-lg);padding:1.55rem 1.4rem;box-shadow:0 18px 45px -34px rgba(18,52,59,.42);
+  transition:transform .35s var(--ease),box-shadow .35s,border-color .3s}
+.engagement-item:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:transparent}
+.engagement-icon{display:grid;place-items:center;width:52px;height:52px;border-radius:16px;
+  color:var(--brand);background:var(--brand-soft);margin-bottom:1rem}
+.engagement-item h3{margin-bottom:.35rem}
+.engagement-item p{font-size:.9rem;color:var(--body)}
+.engagement-item::after{content:"";position:absolute;right:1.2rem;bottom:1.1rem;width:38px;height:3px;
+  border-radius:99px;background:linear-gradient(90deg,var(--accent),var(--brand));opacity:.55}
+
+/* ===== Hemşehri ağı ===== */
+.network{background:linear-gradient(180deg,#eef6f3,var(--bg))}
+.network-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:clamp(2rem,5vw,3rem)}
+.network-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-lg);
+  padding:1.7rem 1.5rem;transition:transform .35s var(--ease),box-shadow .35s,border-color .3s}
+.network-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);border-color:transparent}
+.network-kicker{display:inline-flex;align-items:center;gap:.45rem;color:var(--brand);font-size:.68rem;
+  font-weight:900;letter-spacing:.12em;text-transform:uppercase;margin-bottom:.75rem}
+.network-kicker::before{content:"";width:18px;height:2px;background:var(--accent);border-radius:99px}
+.network-card h3{font-size:1.08rem;margin-bottom:.5rem}
+.network-card p:not(.network-kicker){font-size:.92rem;color:var(--body)}
+.network-callout{display:flex;align-items:center;justify-content:space-between;gap:1.4rem;margin-top:1.2rem;
+  background:linear-gradient(120deg,var(--brand-deep),var(--brand));color:#fff;border-radius:var(--r-lg);
+  padding:clamp(1.5rem,3vw,2.2rem);box-shadow:var(--shadow)}
+.network-callout h3{color:#fff;font-size:clamp(1.15rem,2.4vw,1.45rem);margin-bottom:.3rem}
+.network-callout p{color:rgba(255,255,255,.86);max-width:680px}
+
+@media (max-width:920px){
+  .engagement-layout{grid-template-columns:1fr}
+  .network-grid{grid-template-columns:1fr}
+}
+@media (max-width:680px){
+  .engagement-grid{grid-template-columns:1fr}
+  .engagement-actions .btn,.network-callout .btn{width:100%}
+  .network-callout{flex-direction:column;align-items:flex-start}
+}
+
 /* menü: 8. öğe gecikmesi */
 .nav-content .nav-link:nth-child(8){--d:.59s}
 
@@ -2167,7 +2211,9 @@ body.menu-open{
 .stat.reveal:not(.in):nth-child(odd),
 .event-card.reveal:not(.in):nth-child(odd),
 .contact-card.reveal:not(.in):nth-child(odd),
-.journey-item.reveal:not(.in):nth-child(odd){
+.journey-item.reveal:not(.in):nth-child(odd),
+.engagement-item.reveal:not(.in):nth-child(odd),
+.network-card.reveal:not(.in):nth-child(odd){
   transform:translate3d(48px,26px,0)
 }
 .feature-card.reveal:not(.in):nth-child(even),
@@ -2178,10 +2224,40 @@ body.menu-open{
 .stat.reveal:not(.in):nth-child(even),
 .event-card.reveal:not(.in):nth-child(even),
 .contact-card.reveal:not(.in):nth-child(even),
-.journey-item.reveal:not(.in):nth-child(even){
+.journey-item.reveal:not(.in):nth-child(even),
+.engagement-item.reveal:not(.in):nth-child(even),
+.network-card.reveal:not(.in):nth-child(even){
   transform:translate3d(-48px,26px,0)
 }
 .city-card.reveal:not(.in){transform:translate3d(52px,24px,0)}
+
+@media (max-width:760px){
+  .feature-card.reveal:not(.in):nth-child(odd),
+  .press-card.reveal:not(.in):nth-child(odd),
+  .member.reveal:not(.in):nth-child(odd),
+  .acilis-item.reveal:not(.in):nth-child(odd),
+  .officer.reveal:not(.in):nth-child(odd),
+  .stat.reveal:not(.in):nth-child(odd),
+  .event-card.reveal:not(.in):nth-child(odd),
+  .contact-card.reveal:not(.in):nth-child(odd),
+  .journey-item.reveal:not(.in):nth-child(odd),
+  .engagement-item.reveal:not(.in):nth-child(odd),
+  .network-card.reveal:not(.in):nth-child(odd),
+  .feature-card.reveal:not(.in):nth-child(even),
+  .press-card.reveal:not(.in):nth-child(even),
+  .member.reveal:not(.in):nth-child(even),
+  .acilis-item.reveal:not(.in):nth-child(even),
+  .officer.reveal:not(.in):nth-child(even),
+  .stat.reveal:not(.in):nth-child(even),
+  .event-card.reveal:not(.in):nth-child(even),
+  .contact-card.reveal:not(.in):nth-child(even),
+  .journey-item.reveal:not(.in):nth-child(even),
+  .engagement-item.reveal:not(.in):nth-child(even),
+  .network-card.reveal:not(.in):nth-child(even),
+  .city-card.reveal:not(.in){
+    transform:translate3d(0,26px,0);
+  }
+}
 
 /* menü: 9. öğe gecikmesi */
 .nav-content .nav-link:nth-child(9){--d:.66s}
@@ -2206,20 +2282,178 @@ body.menu-open{
 .faq-item p{padding:0 1.4rem 1.2rem 3rem;margin:0;font-size:.94rem}
 .faq-item a{font-weight:700;color:var(--brand)}
 
-/* ===== Web tasarım / portföy CTA ===== */
-.web-cta{position:relative;overflow:hidden;background:linear-gradient(150deg,#12343b,#0d3b43 55%,#0f766e 130%)}
-.web-cta::before{content:"";position:absolute;inset:0;
-  background:radial-gradient(70% 90% at 12% 0%,rgba(245,165,36,.14),transparent 55%)}
-.web-in{position:relative;z-index:1;max-width:820px;margin-inline:auto;text-align:center;color:#fff}
-.web-cta .eyebrow{justify-content:center;color:#ffe9b3}
-.web-cta h2{color:#fff;font-size:clamp(1.7rem,4.6vw,2.8rem);margin:.4rem 0 1.4rem}
-.web-cta h2 .hl{color:var(--accent)}
-.web-points{display:flex;flex-wrap:wrap;justify-content:center;gap:.6rem;margin-bottom:2rem;padding:0}
-.web-points li{list-style:none;font-size:.9rem;font-weight:700;color:rgba(255,255,255,.95);
-  border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.06);border-radius:999px;padding:.5rem 1rem}
-.web-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:.9rem}
-.web-cta .btn-ghost{color:#fff;border-color:rgba(255,255,255,.5)}
-.web-cta .btn-ghost:hover{background:#fff;color:var(--ink)}
-
 /* ===== Footer uzun SEO metni ===== */
 .footer-long{flex-basis:100%;max-width:920px;font-size:.85rem;line-height:1.7;opacity:.85}
+
+/* ===== Mobil görsel hareketlilik ===== */
+.photo-card,
+.city-card,
+.memleket-item,
+.acilis-item,
+.event-card,
+.engagement-item,
+.network-card,
+.press-card,
+.contact-card,
+.officer,
+.member,
+.faq-item{
+  --motion-y:0px;
+  position:relative;
+  isolation:isolate;
+}
+
+.city-card::before,
+.memleket-item::before,
+.acilis-item::before,
+.event-card::before,
+.engagement-item::before,
+.network-card::before,
+.press-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:2;
+  pointer-events:none;
+  background:linear-gradient(115deg,transparent 0%,rgba(255,255,255,.18) 42%,transparent 58%);
+  transform:translateX(-130%) skewX(-14deg);
+  opacity:0;
+}
+
+.event-card,
+.engagement-item,
+.network-card,
+.press-card{
+  overflow:hidden;
+}
+
+.section-head.reveal.in .accent,
+.story-title.reveal.in .accent{
+  background:linear-gradient(90deg,var(--brand),#14b8a6,var(--accent),var(--brand));
+  background-size:220% 100%;
+  -webkit-background-clip:text;
+  background-clip:text;
+  color:transparent;
+  animation:accentFlow 5.8s ease-in-out infinite;
+}
+
+@keyframes accentFlow{
+  0%,100%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+}
+
+@keyframes cardBreath{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-5px)}
+}
+
+@keyframes imageDrift{
+  0%,100%{transform:scale(1.02) translate3d(0,var(--motion-y,0px),0)}
+  50%{transform:scale(1.08) translate3d(-1.5%,calc(var(--motion-y,0px) + 8px),0)}
+}
+
+@keyframes shineSweep{
+  0%,42%{opacity:0;transform:translateX(-130%) skewX(-14deg)}
+  52%{opacity:.9}
+  68%,100%{opacity:0;transform:translateX(130%) skewX(-14deg)}
+}
+
+@media (hover:none) and (pointer:coarse){
+  .city-card img,
+  .memleket-item img,
+  .acilis-item img,
+  .photo-card img{
+    animation:imageDrift 12s ease-in-out infinite;
+    will-change:transform;
+  }
+
+  .city-card:nth-child(2n) img,
+  .memleket-item:nth-child(2n) img,
+  .acilis-item:nth-child(2n) img{
+    animation-delay:-4s;
+  }
+
+  .event-card.in,
+  .engagement-item.in,
+  .network-card.in,
+  .press-card.in{
+    animation:cardBreath 5.6s ease-in-out infinite;
+  }
+
+  .event-card:nth-child(2n).in,
+  .engagement-item:nth-child(2n).in,
+  .network-card:nth-child(2n).in,
+  .press-card:nth-child(2n).in{
+    animation-delay:-2.4s;
+  }
+
+  .city-card::before,
+  .memleket-item::before,
+  .acilis-item::before,
+  .event-card::before,
+  .engagement-item::before,
+  .network-card::before,
+  .press-card::before{
+    animation:shineSweep 8s ease-in-out infinite;
+  }
+
+  .city-card:nth-child(2n)::before,
+  .memleket-item:nth-child(2n)::before,
+  .acilis-item:nth-child(2n)::before,
+  .event-card:nth-child(2n)::before,
+  .engagement-item:nth-child(2n)::before,
+  .network-card:nth-child(2n)::before,
+  .press-card:nth-child(2n)::before{
+    animation-delay:-3s;
+  }
+
+  .join-wa.in .wa-icon{
+    animation:waPulse 2.6s ease-in-out infinite, cardBreath 4.8s ease-in-out infinite;
+  }
+}
+
+@media (max-width:760px){
+  .story-route{
+    width:100%;
+    justify-content:flex-start;
+    overflow:hidden;
+    mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);
+  }
+
+  .story-route span,
+  .story-route b{
+    flex:none;
+    animation:routeFloat 4.8s ease-in-out infinite;
+  }
+
+  .story-route span:nth-child(3){animation-delay:.4s}
+  .story-route span:nth-child(5){animation-delay:.8s}
+
+  .stats{
+    position:relative;
+    overflow:hidden;
+  }
+
+  .stats::after{
+    content:"";
+    position:absolute;
+    left:-30%;
+    right:-30%;
+    top:-80%;
+    height:80%;
+    background:linear-gradient(115deg,transparent 34%,rgba(255,255,255,.18) 48%,transparent 62%);
+    transform:rotate(8deg);
+    animation:statsGlow 7s ease-in-out infinite;
+  }
+}
+
+@keyframes routeFloat{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-4px)}
+}
+
+@keyframes statsGlow{
+  0%,40%{transform:translateX(-40%) rotate(8deg)}
+  65%,100%{transform:translateX(58%) rotate(8deg)}
+}

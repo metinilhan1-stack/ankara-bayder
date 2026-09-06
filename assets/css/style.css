@@ -4778,3 +4778,15 @@ main > aside{
     animation:none !important;
   }
 }
+
+/* ===== MENÜ AÇIKKEN SAYFA KİLİTLENİR + MENÜ EKRANA SIĞAR ===== */
+html.menu-open,body.menu-open{overflow:hidden !important;overscroll-behavior:none !important;
+  height:100% !important}
+@media (max-width:920px){
+  .nav-content{padding:calc(72px + env(safe-area-inset-top,0)) 1.5rem calc(64px + env(safe-area-inset-bottom,0)) 2.6rem;
+    justify-content:flex-start;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;
+    scrollbar-width:none}
+  .nav-content::-webkit-scrollbar{display:none}
+  .nav-link{font-size:clamp(.95rem,3.6vw,1.08rem);padding:.7rem .1rem .7rem 0;gap:10px}
+  .nav-bottom{bottom:calc(14px + env(safe-area-inset-bottom,0))}
+}

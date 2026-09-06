@@ -2182,3 +2182,6 @@ body.menu-open{
   transform:translate3d(-48px,26px,0)
 }
 .city-card.reveal:not(.in){transform:translate3d(52px,24px,0)}
+
+/* menü: 9. öğe gecikmesi */
+.nav-content .nav-link:nth-child(9){--d:.66s}

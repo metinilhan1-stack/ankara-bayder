@@ -2122,3 +2122,14 @@ body.menu-open{
   .hero-photo{z-index:1}
   .hero-content{z-index:2}
 }
+
+/* ===== Açılış galerisi ===== */
+.acilis{background:var(--bg)}
+.acilis-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.9rem}
+.acilis-item{border-radius:var(--r);overflow:hidden;aspect-ratio:3/4;display:block;background:#dce7e2;
+  box-shadow:var(--shadow);transition:transform .35s var(--ease),box-shadow .35s}
+.acilis-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s var(--ease)}
+.acilis-item:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg)}
+.acilis-item:hover img{transform:scale(1.06)}
+@media (max-width:920px){.acilis-grid{grid-template-columns:repeat(2,1fr);gap:.7rem}}
+@media (max-width:420px){.acilis-grid{grid-template-columns:repeat(2,1fr)}}

@@ -97,6 +97,36 @@
   document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeMenu(); });
   window.addEventListener('resize', function () { if (window.innerWidth > 920) closeMenu(); });
 
+  /* ---------------- Sabit başlık için pürüzsüz iç bağlantılar ---------------- */
+  function scrollToHash(hash, smooth) {
+    if (!hash || hash.length < 2) return false;
+    var id;
+    try { id = decodeURIComponent(hash.slice(1)); } catch (e) { id = hash.slice(1); }
+    var target = document.getElementById(id);
+    if (!target) return false;
+    var gap = (header ? header.offsetHeight : 76) + 8;
+    var top = target.getBoundingClientRect().top + window.scrollY - gap;
+    window.scrollTo({ top: Math.max(0, top), behavior: smooth && !prefersReduced ? 'smooth' : 'auto' });
+    return true;
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href^="#"]');
+    if (!a) return;
+    var hash = a.getAttribute('href');
+    if (!hash || hash === '#') return;
+    if (scrollToHash(hash, true)) {
+      e.preventDefault();
+      closeMenu();
+      history.pushState(null, '', hash);
+    }
+  });
+  window.addEventListener('load', function () {
+    if (window.location.hash) setTimeout(function () { scrollToHash(window.location.hash, false); }, 80);
+  });
+  window.addEventListener('hashchange', function () {
+    setTimeout(function () { scrollToHash(window.location.hash, false); }, 40);
+  });
+
   /* ---------------- Okuma ilerleme çubuğu ---------------- */
   var progress = document.getElementById('progress');
   var raf = false;
@@ -126,6 +156,22 @@
     revealEls.forEach(function (el) { io.observe(el); });
   } else {
     revealEls.forEach(function (el) { el.classList.add('in'); });
+  }
+
+  /* ---------------- Bölüm sahne aktivasyonu ---------------- */
+  var sceneSections = [].slice.call(document.querySelectorAll('main > section, main > aside'));
+  if ('IntersectionObserver' in window && sceneSections.length && !prefersReduced) {
+    var sceneObs = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        entry.target.classList.toggle('section-active', entry.isIntersecting);
+        if (entry.isIntersecting) entry.target.classList.add('section-seen');
+      });
+    }, { threshold: 0.04, rootMargin: '-8% 0px -18% 0px' });
+    sceneSections.forEach(function (section) { sceneObs.observe(section); });
+  } else {
+    sceneSections.forEach(function (section) {
+      section.classList.add('section-active', 'section-seen');
+    });
   }
 
   /* ---------------- Sayaçlar ---------------- */

@@ -2185,3 +2185,9 @@ body.menu-open{
 
 /* menü: 9. öğe gecikmesi */
 .nav-content .nav-link:nth-child(9){--d:.66s}
+
+/* ===== Buton: ekrana gelince merkezden dışa zoom ===== */
+.btn{will-change:transform,opacity}
+.btn-in-wait{opacity:0;transform:scale(.55)}
+.btn-in-wait.btn-in{opacity:1;transform:scale(1);
+  transition:opacity .4s ease var(--bdd,0s), transform .6s cubic-bezier(.2,1.4,.3,1) var(--bdd,0s)}

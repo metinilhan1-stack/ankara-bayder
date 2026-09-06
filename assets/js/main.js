@@ -240,3 +240,27 @@
     if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)){ dx<0 ? show(idx+1) : show(idx-1); }
   }, {passive:true});
 })();
+
+
+/* ---------------- Buton zoom-pop ---------------- */
+(function(){
+  var btns=[].slice.call(document.querySelectorAll('.btn'));
+  if(!btns.length) return;
+  var reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(el,i){ el.classList.add('btn-in-wait'); el.style.setProperty('--bdd',(i%8)*0.05+'s'); el.classList.add('btn-in'); }
+  btns.forEach(function(b){ b.classList.add('btn-in-wait'); });
+  if('IntersectionObserver' in window && !reduced){
+    var io=new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(entry.isIntersecting){
+          var i=entry.target.dataset.pop||0;
+          entry.target.classList.add('btn-in');
+          io.unobserve(entry.target);
+        }
+      });
+    },{threshold:.4});
+    btns.forEach(function(b,i){ b.dataset.pop=i; io.observe(b); });
+  } else {
+    btns.forEach(show);
+  }
+})();

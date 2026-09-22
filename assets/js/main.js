@@ -82,6 +82,7 @@
   var navToggle = document.getElementById('navToggle');
   var nav = document.getElementById('nav');
   function closeMenu() {
+    document.documentElement.classList.remove('menu-open');
     document.body.classList.remove('menu-open');
     if (header) header.classList.remove('menu-open');
     if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
@@ -89,6 +90,7 @@
   if (navToggle) {
     navToggle.addEventListener('click', function () {
       var open = document.body.classList.toggle('menu-open');
+      document.documentElement.classList.toggle('menu-open', open);
       if (header) header.classList.toggle('menu-open', open);
       navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     });

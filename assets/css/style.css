@@ -2510,11 +2510,13 @@ body.menu-open{
     position:fixed !important;
     inset:0 !important;
     width:100% !important;
-    height:100svh !important;
+    /* Follow the visible viewport as mobile browser bars expand/collapse. */
+    height:100vh !important;
+    height:100dvh !important;
     max-height:none !important;
     z-index:105;
     display:grid !important;
-    grid-template-rows:auto auto 1fr;
+    grid-template-rows:auto auto minmax(0,1fr);
     align-content:start;
     gap:1rem;
     padding:
@@ -4798,10 +4800,9 @@ main > aside{
 }
 
 /* ===== MENÜ AÇIKKEN SAYFA KİLİTLENİR + MENÜ EKRANA SIĞAR ===== */
-html.menu-open,body.menu-open{overflow:hidden !important;overscroll-behavior:none !important;
-  height:100% !important}
+html.menu-open,body.menu-open{overflow:hidden !important;overscroll-behavior:none !important}
 @media (max-width:920px){
-  .nav-content{padding:calc(72px + env(safe-area-inset-top,0)) 1.5rem calc(64px + env(safe-area-inset-bottom,0)) 2.6rem;
+  .nav-content{min-height:0;overscroll-behavior:contain;padding:calc(72px + env(safe-area-inset-top,0)) 1.5rem calc(64px + env(safe-area-inset-bottom,0)) 2.6rem;
     justify-content:flex-start;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;
     scrollbar-width:none}
   .nav-content::-webkit-scrollbar{display:none}

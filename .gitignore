@@ -5,3 +5,9 @@
 # Menü tasarımı için ChatGPT çalışma dosyası (siteye dahil değil)
 /menu-cgpt.txt
 
+
+# Ham fotoğraf kaynakları (optimize edilmiş halleri assets/img/ altında)
+/piknik/
+
+# Yerel önizleme ayarı (siteye dahil değil)
+/.claude/

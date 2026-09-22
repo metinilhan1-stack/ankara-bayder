@@ -322,23 +322,33 @@
 })();
 
 
-/* ---------------- Açılış galerisi lightbox ---------------- */
+/* ---------------- Galeri lightbox (açılış + piknik) ---------------- */
 (function(){
-  var items=[].slice.call(document.querySelectorAll('.acilis-item[data-full]'));
-  if(!items.length) return;
+  var all=[].slice.call(document.querySelectorAll('.acilis-item[data-full]'));
+  if(!all.length) return;
   var lb=document.getElementById('lightbox');
   var img=document.getElementById('lbImg');
   var count=document.querySelector('.lb-count');
+  var items=all;   /* açık olan galerinin kareleri */
   var idx=0;
   function show(i){
     idx=(i+items.length)%items.length;
     img.src=items[idx].getAttribute('data-full');
-    img.alt='BAY-DER açılış töreni fotoğrafı '+(idx+1);
+    var thumb=items[idx].querySelector('img');
+    img.alt=(thumb && thumb.alt) ? thumb.alt : 'BAY-DER fotoğrafı '+(idx+1);
     if(count) count.textContent=(idx+1)+' / '+items.length;
   }
   function open(i){ show(i); lb.hidden=false; document.body.classList.add('menu-open'); document.body.style.overflow='hidden'; }
   function close(){ lb.hidden=true; document.body.classList.remove('menu-open'); document.body.style.overflow=''; }
-  items.forEach(function(el, i){ el.addEventListener('click', function(e){ e.preventDefault(); open(i); }); });
+  all.forEach(function(el){
+    el.addEventListener('click', function(e){
+      e.preventDefault();
+      /* tıklanan kare hangi galerideyse sadece o galeriyi gez */
+      var grid=el.closest('.acilis-grid');
+      items=grid ? [].slice.call(grid.querySelectorAll('.acilis-item[data-full]')) : all;
+      open(items.indexOf(el));
+    });
+  });
   lb.addEventListener('click', function(e){ if(e.target.closest('[data-lb-close]')) close(); });
   document.querySelector('.lb-prev').addEventListener('click', function(e){ e.stopPropagation(); show(idx-1); });
   document.querySelector('.lb-next').addEventListener('click', function(e){ e.stopPropagation(); show(idx+1); });

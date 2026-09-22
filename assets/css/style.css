@@ -2178,6 +2178,12 @@ body.menu-open{
 @media (max-width:920px){.acilis-grid{grid-template-columns:repeat(2,1fr);gap:.7rem}}
 @media (max-width:420px){.acilis-grid{grid-template-columns:repeat(2,1fr)}}
 
+/* Yatay (landscape) kareler için geniş varyant — piknik galerisi */
+.acilis-grid--wide{grid-template-columns:repeat(3,1fr)}
+.acilis-grid--wide .acilis-item{aspect-ratio:4/3}
+@media (max-width:920px){.acilis-grid--wide{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:560px){.acilis-grid--wide{grid-template-columns:1fr}}
+
 /* ===== Lightbox (açılış galerisi) ===== */
 .lightbox{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;
   color:#fff}
@@ -3887,6 +3893,18 @@ main > aside{
   .acilis-item:nth-child(6){
     grid-column:1/-1;
     aspect-ratio:16/10;
+  }
+
+  /* Piknik galerisi yatay karelerden oluşuyor: mozaik yerine tek sütun */
+  .acilis-grid--wide{
+    grid-template-columns:1fr !important;
+  }
+
+  .acilis-grid--wide .acilis-item,
+  .acilis-grid--wide .acilis-item:nth-child(1),
+  .acilis-grid--wide .acilis-item:nth-child(6){
+    grid-column:1/-1;
+    aspect-ratio:4/3;
   }
 
   .events-scroll{

@@ -4874,7 +4874,7 @@ html.menu-open,body.menu-open{overflow:hidden !important;overscroll-behavior:non
     min-height:52px;
     margin:24px 0 0;
     padding:14px 20px;
-    border-radius:12px;
+    border-radius:999px;
     font-size:.95rem;
     letter-spacing:0;
     box-shadow:none;
@@ -4892,36 +4892,23 @@ html.menu-open,body.menu-open{overflow:hidden !important;overscroll-behavior:non
     padding:calc(var(--header-h) + 72px) 0 calc(108px + env(safe-area-inset-bottom,0px)) !important;
   }
   .hero-content .hero-kicker{
-    display:block;
-    padding:0;
-    border:0;
-    border-radius:0;
-    background:none;
-    box-shadow:none;
-    backdrop-filter:none;
-    -webkit-backdrop-filter:none;
-    font-size:.64rem;
-    line-height:1.7;
-    letter-spacing:.12em;
-    color:#e5d1a5 !important;
+    display:inline-flex;
+    max-width:100%;
+    gap:.5rem;
+    padding:.6rem .8rem;
+    font-size:clamp(.5rem,2.4vw,.66rem);
+    letter-spacing:.04em;
+    line-height:1.5;
   }
-  .hero-kicker::before{display:none}
+  .hero-content .hero-kicker::before{width:20px;flex:0 0 20px}
   .hero-title{
-    font-size:clamp(2.1rem,8.6vw,3.15rem) !important;
-    line-height:1.14;
-    letter-spacing:-.035em;
-    margin:18px 0 16px;
-    text-shadow:0 3px 20px rgba(0,0,0,.2);
+    font-size:clamp(1.95rem,10.3vw,2.66rem) !important;
   }
-  .hero-title .hl{animation:none;text-shadow:none;color:#efd4a0 !important}
-  .hero-sub{font-size:.94rem;line-height:1.7;margin:0 0 20px;text-shadow:none}
   .hero-route-line{opacity:.55;margin-bottom:24px}
   .hero-route-line::before,.hero-route-line::after{display:none}
   .hero-actions{display:grid;grid-template-columns:1fr;gap:10px;margin:0}
-  .hero-actions .btn{width:100%;min-height:52px;border-radius:12px;padding:14px 20px;font-size:.94rem;box-shadow:none;font-weight:750}
-  .hero .btn-solid{background:#efd4a0 !important;box-shadow:none}
-  .hero .btn-solid::after{display:none}
-  .hero .btn-ghost{background:rgba(8,29,36,.25);border-color:rgba(255,255,255,.28) !important;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .hero-actions .btn{width:100%;min-height:54px;border-radius:999px;padding:14px 20px;font-size:.96rem}
+  .hero .btn-solid::after{animation-duration:7s}
   .hero-highlights{gap:16px;margin:28px 0 0}
   .hero-highlights li{
     min-height:0;padding:0;border:0;border-radius:0;background:none;box-shadow:none;

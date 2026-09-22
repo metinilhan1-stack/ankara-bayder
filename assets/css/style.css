@@ -3018,7 +3018,7 @@ body.menu-open{
     opacity:.84;
     background:linear-gradient(90deg,transparent,rgba(245,165,36,.9),rgba(188,240,227,.72),transparent);
     box-shadow:0 0 20px rgba(245,165,36,.32);
-    transform:rotate(-4deg);
+    transform:none;
     overflow:hidden;
   }
 

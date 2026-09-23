@@ -4956,3 +4956,10 @@ html.menu-open,body.menu-open{overflow:hidden !important;overscroll-behavior:non
  .donation-note{text-align:center}
  .donation-iban{font-size:clamp(.75rem,3.2vw,1rem)}
 }
+.donation-copy-row{display:flex;align-items:flex-start;gap:10px;margin-bottom:20px}
+.donation-copy-row .donation-owner,.donation-copy-row .donation-iban{flex:1;min-width:0;margin:0;padding:8px 0;border:0;min-height:44px;user-select:text;overflow-wrap:anywhere}
+.donation-copy-row .donation-iban{line-height:1.8}
+.donation-copy-icon{flex:0 0 44px;display:grid;place-items:center;width:44px;height:44px;padding:0;border:1px solid #d5e4dd;border-radius:12px;background:#edf5f1;color:#115e59;cursor:pointer;transition:background .2s ease}
+.donation-copy-icon[hidden]{display:none}
+.donation-copy-icon:hover{background:#dceee5}
+.donation-copy-icon:focus-visible{outline:2px solid #0f766e;outline-offset:3px}

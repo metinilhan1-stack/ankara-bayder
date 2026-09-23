@@ -47,7 +47,7 @@
   <meta name="theme-color" content="#0f766e">
   <link rel="preload" as="image" href="assets/img/hero-mobile.webp" media="(max-width:860px)" fetchpriority="high">
   <link rel="preload" as="image" href="assets/img/hero-desktop.webp" media="(min-width:861px)" fetchpriority="high">
-  <link rel="stylesheet" href="assets/css/style.css?v=20260923-donation">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260923-copy-icons">
 
   <script type="application/ld+json">
   {
@@ -1077,10 +1077,15 @@
         <div class="donation-account">
           <div class="donation-details">
             <p class="donation-label">Hesap sahibi</p>
-            <p class="donation-owner">ANKARA DOĞUBAYAZITLILAR KÜLTÜR VE DAYANIŞMA DERNEĞİ</p>
-            <label class="donation-label" for="donation-iban">IBAN</label>
-            <input id="donation-iban" class="donation-iban" type="text" value="TR94 0001 0021 5098 3859 4250 01" readonly spellcheck="false" aria-describedby="donation-status">
-            <button class="btn btn-solid donation-copy-btn" id="copy-iban" type="button" hidden>IBAN’ı kopyala <span aria-hidden="true">↗</span></button>
+            <div class="donation-copy-row">
+              <p class="donation-owner" id="donation-owner">ANKARA DOĞUBAYAZITLILAR KÜLTÜR VE DAYANIŞMA DERNEĞİ</p>
+              <button class="donation-copy-icon" type="button" data-copy-target="donation-owner" data-copy-label="Hesap adı" aria-label="Hesap adını kopyala" title="Hesap adını kopyala" hidden><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg></button>
+            </div>
+            <p class="donation-label">IBAN</p>
+            <div class="donation-copy-row">
+              <p id="donation-iban" class="donation-iban">TR94 0001 0021 5098 3859 4250 01</p>
+              <button class="donation-copy-icon" type="button" data-copy-target="donation-iban" data-copy-label="IBAN" aria-label="IBAN’ı kopyala" title="IBAN’ı kopyala" hidden><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8" y="8" width="12" height="12" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></svg></button>
+            </div>
             <p class="donation-status" id="donation-status" role="status" aria-live="polite"></p>
           </div>
           <figure class="donation-qr">
@@ -1206,6 +1211,6 @@
   </nav>
 
   <script src="assets/js/main.js?v=20260923-donation-page" defer></script>
-  <script src="assets/js/donation.js" defer></script>
+  <script src="assets/js/donation.js?v=20260923-copy-icons" defer></script>
 </body>
 </html>

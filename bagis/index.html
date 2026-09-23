@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="tr" prefix="og: https://ogp.me/ns#">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bağış ve Destek | BAY-DER</title>
+  <meta name="description" content="Ankara Doğubayazıtlılar Kültür ve Dayanışma Derneği hesap bilgileri. IBAN’ı kopyalayın veya QR kodu okutun.">
+  <link rel="canonical" href="https://ankaradogubeyazitlilardernegi.com/bagis/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="tr_TR">
+  <meta property="og:url" content="https://ankaradogubeyazitlilardernegi.com/bagis/">
+  <meta property="og:title" content="BAY-DER · Bağış ve Destek">
+  <meta property="og:description" content="Dayanışmaya destek olun. Dernek hesap bilgileri, kopyalanabilir IBAN ve QR kod.">
+  <meta property="og:image" content="https://ankaradogubeyazitlilardernegi.com/assets/img/logo.jpg">
+  <meta property="og:image:width" content="300">
+  <meta property="og:image:height" content="303">
+  <meta property="og:image:alt" content="BAY-DER logosu">
+  <meta name="theme-color" content="#eef4f1">
+  <link rel="icon" href="/assets/img/favicon.png">
+  <link rel="stylesheet" href="/assets/css/style.css?v=20260923-donation">
+  <style>
+    body{min-height:100vh;min-height:100dvh;display:grid;place-items:center;background:#eef4f1;padding:24px 16px}
+    .donation-page{width:100%;max-width:650px;background:#fff;border:1px solid #dce6e1;border-radius:24px;overflow:hidden;box-shadow:0 16px 48px -30px rgba(10,43,44,.25)}
+    .donation-page-head{padding:28px 24px 0;text-align:center}
+    .donation-page-head img{width:68px;height:68px;object-fit:cover;border-radius:50%;margin:0 auto 12px}
+    .donation-page-head h1{font-size:1.6rem;color:#12393e;line-height:1.3}
+    .donation-page-head p{font-size:.85rem;margin-top:6px;color:#526b68}
+    .donation-page .donation-account{border:0;box-shadow:none;border-radius:0}
+    .donation-page .donation-copy-btn{opacity:1;transform:none;visibility:visible}
+    .donation-page .donation-iban{font-size:clamp(.75rem,3.2vw,.94rem)}
+  </style>
+  <script src="/assets/js/donation.js" defer></script>
+</head>
+<body>
+  <main class="donation-page" aria-labelledby="support-title">
+    <header class="donation-page-head">
+      <img src="/assets/img/logo.jpg" width="68" height="68" alt="BAY-DER logosu">
+      <h1 id="support-title">Bağış ve Destek</h1>
+      <p>Birlikte daha güçlüyüz.</p>
+    </header>
+        <div class="donation-account">
+          <div class="donation-details">
+            <p class="donation-label">Hesap sahibi</p>
+            <p class="donation-owner">ANKARA DOĞUBAYAZITLILAR KÜLTÜR VE DAYANIŞMA DERNEĞİ</p>
+            <label class="donation-label" for="donation-iban">IBAN</label>
+            <input id="donation-iban" class="donation-iban" type="text" value="TR94 0001 0021 5098 3859 4250 01" readonly spellcheck="false" aria-describedby="donation-status">
+            <button class="btn btn-solid donation-copy-btn" id="copy-iban" type="button" hidden>IBAN’ı kopyala <span aria-hidden="true">↗</span></button>
+            <p class="donation-status" id="donation-status" role="status" aria-live="polite"></p>
+          </div>
+          <figure class="donation-qr">
+            <img src="/assets/img/bagis-iban-qr.svg" width="180" height="180" loading="lazy" alt="Dernek IBAN bilgisini içeren QR kod">
+            <figcaption>IBAN için okutun</figcaption>
+            <a href="/assets/img/bagis-iban-qr.svg" download="BAY-DER-IBAN-QR.svg">QR kodu indir</a>
+          </figure>
+          <p class="donation-note">QR kod yalnızca IBAN bilgisini içerir. Havale/EFT yaparken alıcı adını kontrol edin.</p>
+        </div>
+  </main>
+</body>
+</html>

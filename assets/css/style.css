@@ -4928,3 +4928,31 @@ html.menu-open,body.menu-open{overflow:hidden !important;overscroll-behavior:non
 @media (min-width:921px){
   .site-header:not(.scrolled){background:rgba(9,35,43,.96)}
 }
+
+/* Dernek hesabı — bilgiye hızlı erişim, mobilde tek sütun. */
+.donation{background:#eef4f1}
+.donation-layout{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(24px,5vw,72px);align-items:center}
+.donation-copy h2{font-size:clamp(2rem,4vw,3rem);line-height:1.15;margin:12px 0 20px}
+.donation-copy>p:last-child{max-width:36ch;color:#496268;line-height:1.75}
+.donation-account{display:grid;grid-template-columns:minmax(0,1fr) 156px;gap:24px;padding:clamp(20px,3vw,36px);background:#fff;border:1px solid #dce6e1;border-radius:24px;box-shadow:0 16px 48px -30px rgba(10,43,44,.25)}
+.donation-details{min-width:0}
+.donation-label{display:block;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#526b68;margin:0 0 8px}
+.donation-owner{font-size:.9rem;font-weight:750;line-height:1.6;margin:0 0 22px;color:#12393e}
+.donation-iban{display:block;width:100%;min-width:0;min-height:48px;padding:10px 0;margin:0 0 16px;border:0;border-bottom:1px solid #dce6e1;border-radius:0;background:transparent;color:#12393e;font-family:inherit;font-size:clamp(.68rem,2.7vw,.9rem);font-weight:700;letter-spacing:0}
+.donation-iban:focus-visible{outline:2px solid #0f766e;outline-offset:4px}
+.donation-copy-btn{min-height:48px;gap:18px;border-radius:999px}
+.donation-copy-btn[hidden]{display:none}
+.donation-status{min-height:1.5em;margin-top:8px;font-size:.8rem;color:#0f766e}
+.donation-qr{margin:0;text-align:center;align-self:center}
+.donation-qr img{display:block;width:100%;height:auto;background:#fff;aspect-ratio:1}
+.donation-qr figcaption{font-size:.75rem;color:#526b68;margin:8px 0}
+.donation-qr a{font-size:.75rem;color:#0f766e;text-decoration:underline;text-underline-offset:3px}
+.donation-note{grid-column:1/-1;font-size:.75rem;color:#526b68;line-height:1.6;margin:0}
+@media(max-width:920px){.donation-layout{grid-template-columns:1fr}.donation-copy h2 br{display:none}}
+@media(max-width:540px){
+ .donation-account{grid-template-columns:minmax(0,1fr);gap:16px;border-radius:20px}
+ .donation-copy-btn{width:100%;justify-content:center}
+ .donation-qr{width:156px;justify-self:center}
+ .donation-note{text-align:center}
+ .donation-iban{font-size:clamp(.75rem,3.2vw,1rem)}
+}

@@ -47,7 +47,7 @@
   <meta name="theme-color" content="#0f766e">
   <link rel="preload" as="image" href="assets/img/hero-mobile.webp" media="(max-width:860px)" fetchpriority="high">
   <link rel="preload" as="image" href="assets/img/hero-desktop.webp" media="(min-width:861px)" fetchpriority="high">
-  <link rel="stylesheet" href="assets/css/style.css?v=20260922-original-style-2">
+  <link rel="stylesheet" href="assets/css/style.css?v=20260923-donation">
 
   <script type="application/ld+json">
   {
@@ -1052,7 +1052,7 @@
           </details>
           <details class="faq-item reveal">
             <summary>Bağış veya destekte bulunmak istiyorum.</summary>
-            <p>Yönetim kurulumuzla telefon ya da WhatsApp üzerinden iletişime geçebilirsiniz; her destek hemşehrilerimize ulaşıyor.</p>
+            <p><a href="#destek">Dernek hesap bilgilerimize</a> ulaşarak destekte bulunabilirsiniz. Sorularınız için yönetim kurulumuzla iletişime geçebilirsiniz.</p>
           </details>
           <details class="faq-item reveal">
             <summary>Ankara'daki Doğubayazıtlı esnaf ve iş insanları derneğe nasıl katkı sunabilir?</summary>
@@ -1062,6 +1062,33 @@
             <summary>Öğrenciler ve gençler BAY-DER'den nasıl faydalanır?</summary>
             <p>Ankara'da okuyan veya çalışan gençler; tanışma, mentorluk, etkinlik duyuruları, staj ve iş ağı gibi konularda dernekle iletişime geçebilir.</p>
           </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dernek hesap bilgileri -->
+    <section class="donation section" id="destek" aria-labelledby="donation-title">
+      <div class="container donation-layout">
+        <div class="donation-copy">
+          <p class="eyebrow">Birlikte daha güçlüyüz</p>
+          <h2 id="donation-title">Dayanışmaya siz de<br>destek olun.</h2>
+          <p>Derneğimize destek olmak için aşağıdaki hesap bilgilerini kullanabilirsiniz.</p>
+        </div>
+        <div class="donation-account">
+          <div class="donation-details">
+            <p class="donation-label">Hesap sahibi</p>
+            <p class="donation-owner">ANKARA DOĞUBAYAZITLILAR KÜLTÜR VE DAYANIŞMA DERNEĞİ</p>
+            <label class="donation-label" for="donation-iban">IBAN</label>
+            <input id="donation-iban" class="donation-iban" type="text" value="TR94 0001 0021 5098 3859 4250 01" readonly spellcheck="false" aria-describedby="donation-status">
+            <button class="btn btn-solid donation-copy-btn" id="copy-iban" type="button" hidden>IBAN’ı kopyala <span aria-hidden="true">↗</span></button>
+            <p class="donation-status" id="donation-status" role="status" aria-live="polite"></p>
+          </div>
+          <figure class="donation-qr">
+            <img src="assets/img/bagis-iban-qr.svg" width="180" height="180" loading="lazy" alt="Dernek IBAN bilgisini içeren QR kod">
+            <figcaption>IBAN için okutun</figcaption>
+            <a href="assets/img/bagis-iban-qr.svg" download="BAY-DER-IBAN-QR.svg">QR kodu indir</a>
+          </figure>
+          <p class="donation-note">QR kod yalnızca IBAN bilgisini içerir. Havale/EFT yaparken alıcı adını kontrol edin.</p>
         </div>
       </div>
     </section>
@@ -1093,6 +1120,7 @@
         <a href="#uyelik">Üyelik</a>
         <a href="#katilim">Katılım Alanları</a>
         <a href="#is-agi">Hemşehri Ağı</a>
+        <a href="#destek">Bağış ve Destek</a>
       </nav>
 
       <div class="footer-contact">
@@ -1177,6 +1205,6 @@
     </a>
   </nav>
 
-  <script src="assets/js/main.js?v=20260922-refine" defer></script>
+  <script src="assets/js/main.js?v=20260923-donation" defer></script>
 </body>
 </html>

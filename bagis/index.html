@@ -28,6 +28,10 @@
     .donation-page .donation-account{border:0;box-shadow:none;border-radius:0}
     .donation-page .donation-copy-btn{opacity:1;transform:none;visibility:visible}
     .donation-page .donation-iban{font-size:clamp(.75rem,3.2vw,.94rem)}
+    .donation-page-footer{padding:0 24px 24px}
+    .donation-home{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:48px;padding:12px 20px;border:1px solid #cbded7;border-radius:999px;color:#115e59;background:#f5faf8;font-weight:700;font-size:.9rem;text-decoration:none;transition:background .2s ease}
+    .donation-home:hover{background:#e7f4f1}
+    .donation-home:focus-visible{outline:2px solid #0f766e;outline-offset:4px}
   </style>
   <script src="/assets/js/donation.js" defer></script>
 </head>
@@ -54,6 +58,9 @@
           </figure>
           <p class="donation-note">QR kod yalnızca IBAN bilgisini içerir. Havale/EFT yaparken alıcı adını kontrol edin.</p>
         </div>
+    <footer class="donation-page-footer">
+      <a class="donation-home" href="/"><span aria-hidden="true">←</span> Ana sayfaya dön</a>
+    </footer>
   </main>
 </body>
 </html>
